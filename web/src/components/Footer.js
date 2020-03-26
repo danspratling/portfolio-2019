@@ -1,14 +1,12 @@
-import { Link } from "gatsby"
-import React from "react"
+import { Link } from 'gatsby'
+import React from 'react'
 
-const Header = ({ siteTitle }) => (
-  <header>
+const Footer = ({ siteTitle }) => (
+  <footer>
     <h1>
-      <Link to="/">
-        {siteTitle}
-      </Link>
+      <Link to="/">{siteTitle}</Link>
     </h1>
-  </header>
+  </footer>
 )
 
-export default Header
+export default Footer

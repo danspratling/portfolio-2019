@@ -1,11 +1,12 @@
 import React from 'react'
 import { Header, Footer } from '.'
+import '../scss/main.scss'
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <main class="container mx-auto">{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   )
