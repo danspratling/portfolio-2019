@@ -4,6 +4,10 @@ module.exports = {
       borderRadius: {
         xl: '32px',
       },
+      borderWidth: {
+        '12': '12px',
+        '16': '16px',
+      },
     },
   },
   variants: {},

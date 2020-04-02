@@ -1,5 +1,3 @@
-import InputText from './InputText'
-import TextArea from './TextArea'
-import Select from './Select'
+import Enquiry from './Enquiry'
 
-export { InputText, TextArea, Select }
+export { Enquiry }
