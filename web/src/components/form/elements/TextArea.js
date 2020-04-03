@@ -71,7 +71,7 @@ const textareaClasses = [
   'focus:outline-none',
   'focus:bg-gray-700',
   'focus:border-gray-600',
-  'transition-all',
+  'transition-inputs',
   'duration-500',
   'ease-in-out',
 ]

@@ -8,6 +8,10 @@ module.exports = {
         '12': '12px',
         '16': '16px',
       },
+      transitionProperty: {
+        inputs:
+          'background-color, color, border, border-color, fill, stroke, opacity, box-shadow',
+      },
     },
   },
   variants: {},
