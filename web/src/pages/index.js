@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 
 import {
   Layout,
+  Portfolio,
   // SEO
 } from '../components'
 
@@ -38,7 +39,7 @@ const IndexPage = () => (
         </div>
       </div>
     </section>
-    <section className="min-h-screen bg-gray-900 pt-20 pb-40">
+    <section className="min-h-screen bg-black py-30">
       <div className="container mx-auto">
         <div className="grid grid-cols-3">
           <div className="col-span-2">
@@ -55,20 +56,7 @@ const IndexPage = () => (
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-12">
-          <div
-            className="col-span-1 bg-gray-400 rounded-xl w-full"
-            style={{ height: 460 }}
-          ></div>
-          <div
-            className="col-span-1 bg-gray-400 rounded-xl w-full"
-            style={{ height: 460 }}
-          ></div>
-          <div
-            className="col-span-1 bg-gray-400 rounded-xl w-full"
-            style={{ height: 460 }}
-          ></div>
-        </div>
+        <Portfolio />
 
         <div className="flex justify-center my-8"></div>
       </div>
