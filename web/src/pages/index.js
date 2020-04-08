@@ -1,22 +1,40 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowDown, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 import {
   Layout,
   Portfolio,
   // SEO
+  SectionTitle,
+  Social,
 } from '../components'
 
 const IndexPage = () => (
   <Layout>
     {/* <SEO title="Home" /> */}
 
-    <section className="min-h-screen bg-black flex items-center pt-20 pb-40">
+    <section
+      id="intro"
+      className="min-h-screen bg-black flex items-center pt-20 pb-40"
+    >
       <div className="container mx-auto">
-        <div className="grid grid-cols-3 gap-4">
-          <div className="col-span-1">
-            <h1 className="text-6xl text-white">Dan Spratling</h1>
-            {/* <h2 class="text-5xl">Developer, Designer, Writer</h2> */}
+        <div className="grid grid-cols-5 gap-10">
+          <div className="col-span-3">
+            <h1 className="text-6xl leading-tight text-white font-semibold">
+              Dan
+              <br />
+              Spratling.
+            </h1>
+            <span className="block mt-8 mb-24 w-20 h-2 bg-green-400" />
+            <Social />
+          </div>
+          <div className="col-span-2">
+            <SectionTitle>Introduction</SectionTitle>
+            <h2 class="text-3xl text-white mb-6">
+              Website developer and designer, based in the UK
+            </h2>
             <div className="text-gray-600">
               <p>
                 I'm a Software Engineer who makes Websites and Apps. I love
@@ -31,15 +49,19 @@ const IndexPage = () => (
                 I'm available for freelance work, and always looking for
                 interesting challenges to take on.
               </p>
-              <button>Get in touch</button>
-              <Link to="/page-2/">Go to page 2</Link>
+              <Link
+                to="#projects"
+                className="block text-lg text-white mx-4 my-8 hover:text-green-400 transition duration-200 hover:underline"
+              >
+                See my work
+                <FontAwesomeIcon icon={faArrowDown} className="ml-6" />
+              </Link>
             </div>
           </div>
-          <div className="col-span-2">The other column</div>
         </div>
       </div>
     </section>
-    <section className="min-h-screen bg-black py-30">
+    <section id="projects" className="min-h-screen bg-black py-30">
       <div className="container mx-auto">
         <div className="grid grid-cols-3">
           <div className="col-span-2">

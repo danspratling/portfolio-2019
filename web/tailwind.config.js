@@ -1,5 +1,17 @@
 module.exports = {
   theme: {
+    fontSize: {
+      xs: '.75rem',
+      sm: '.875rem',
+      base: '1rem',
+      lg: '1.125rem',
+      lg: '1.25rem',
+      xl: '1.5rem',
+      '2xl': '2rem',
+      '4xl': '2.5rem',
+      '5xl': '3.5rem',
+      '6xl': '5rem',
+    },
     flex: {
       none: 'none',
       inherit: 'inherit',
@@ -42,6 +54,7 @@ module.exports = {
     flex: ['responsive', 'hover'],
     width: ['responsive', 'hover'],
     minWidth: ['responsive', 'hover'],
+    margin: ['responsive', 'hover'],
   },
   plugins: [],
 }
