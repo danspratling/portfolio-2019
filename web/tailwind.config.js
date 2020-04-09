@@ -11,6 +11,9 @@ module.exports = {
       '4xl': '2.5rem',
       '5xl': '3.5rem',
       '6xl': '5rem',
+      '7xl': '10rem',
+      '8xl': '15rem',
+      '9xl': '20rem',
     },
     flex: {
       none: 'none',
@@ -32,6 +35,12 @@ module.exports = {
       full: '100%',
     },
     extend: {
+      lineHeight: {
+        squish: 0.85,
+      },
+      minHeight: {
+        '1024': '1024px',
+      },
       borderRadius: {
         xl: '32px',
       },

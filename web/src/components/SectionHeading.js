@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
 
-const SectionTitle = ({ children }) => (
+const SectionHeading = ({ children }) => (
   <p className="tracking-wider text-gray-600 font-bold mb-6">
     <FontAwesomeIcon icon={faMinus} className="mr-4" />
     {children}
@@ -10,4 +10,4 @@ const SectionTitle = ({ children }) => (
   </p>
 )
 
-export default SectionTitle
+export default SectionHeading

@@ -8,6 +8,7 @@ module.exports = {
     socials: {
       twitter: `https://twitter.com/dan_spratling`,
       github: `https://github.com/danspratling`,
+      instagram: `https://www.instagram.com/danspratling`,
     },
   },
   plugins: [

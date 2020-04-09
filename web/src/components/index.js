@@ -2,8 +2,17 @@ import Footer from './Footer'
 import Header from './Header'
 import Layout from './Layout'
 import Portfolio from './Portfolio'
+import MegaHeading from './MegaHeading'
 import SEO from './SEO'
-import SectionTitle from './SectionTitle'
+import SectionHeading from './SectionHeading'
 import Social from './Social'
 
-export { Footer, Header, Layout, Portfolio, SEO, SectionTitle, Social }
+export {
+  Footer,
+  Header,
+  Layout,
+  MegaHeading,
+  SEO,
+  SectionHeading,
+  Social,
+}
