@@ -7,8 +7,8 @@ import dengro from '../images/dengro-preview-slice.png'
 
 import {
   Layout,
-  Portfolio,
   MegaHeading,
+  ProjectCard,
   // SEO
   SectionHeading,
   Social,
@@ -58,43 +58,77 @@ const IndexPage = () => {
         </div>
         <div className="py-32" />
       </section>
+      <section id="projects" className="min-h-screen bg-black pt-64 pb-40">
+        <div className="container mx-auto">
+          <div
+            className="flex flex-col flex-wrap -mx-24"
+            style={{ maxHeight: 1200 }}
+          >
+            <div className="w-1/2 px-24 my-12">
+              <header>
+                <SectionHeading>Projects</SectionHeading>
+                <h2 className="text-3xl text-white mb-4">
+                  A selection of projects I've worked on.
+                </h2>
+              </header>
+              <p className="mb-4 text-gray-600">
+                With 5 years in agency I've worked on many large and small
+                websites. Here's a few of my favourites.
               </p>
               <Link
                 to="#projects"
                 className="block text-lg text-white mx-4 my-8 hover:text-green-400 transition duration-200 hover:underline"
               >
-                See my work
-                <FontAwesomeIcon icon={faArrowDown} className="ml-6" />
+                Explore more
+                <FontAwesomeIcon icon={faArrowRight} className="ml-6" />
               </Link>
             </div>
+
+            <div className="w-1/2 px-24 my-12">
+              <ProjectCard
+                data={{
+                  title: 'Project A.',
+                  categories: ['Development', 'UX'],
+                  image: dengro,
+                }}
+              />
+            </div>
+
+            <div className="w-1/2 px-24 my-12">
+              <ProjectCard
+                data={{
+                  title: 'Project B.',
+                  categories: ['Development', 'UX'],
+                  image: dengro,
+                }}
+              />
+            </div>
+
+            <div className="w-1/2 px-24 my-12">
+              <ProjectCard
+                data={{
+                  title: 'Project C.',
+                  categories: ['Development', 'UX'],
+                  image: dengro,
+                }}
+              />
+            </div>
           </div>
+
+          {/* <Portfolio /> */}
+
+          <div className="flex justify-center my-8"></div>
         </div>
-      </div>
-    </section>
-    <section id="projects" className="min-h-screen bg-black py-30">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-3">
-          <div className="col-span-2">
-            <header className="mb-10">
-              <h2 className="text-4xl text-white">Portfolio</h2>
-              <span className="block bg-green-400 rounded-lg h-1 w-16 my-4"></span>
-            </header>
-          </div>
-
-          <div className="col-span-1 flex justify-end items-center">
-            <button className="w-auto h-auto bg-green-400 px-8 py-4 text-xl">
-              See my portfolio
-            </button>
-          </div>
-        </div>
-
-        <Portfolio />
-
-        <div className="flex justify-center my-8"></div>
-      </div>
-    </section>
-  </Layout>
-)
+      </section>
+      <section
+        id="blog"
+        className="min-h-screen bg-black pt-40 pb-40"
+      ></section>
+      <section
+        id="contact"
+        className="min-h-screen bg-black pt-40 pb-40"
+      ></section>
+    </Layout>
   )
 }
 
