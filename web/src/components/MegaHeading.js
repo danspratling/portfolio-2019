@@ -3,11 +3,7 @@ import VisibilitySensor from 'react-visibility-sensor'
 
 const MegaHeading = ({ children }) => {
   return (
-    <VisibilitySensor
-      partialVisibility={true}
-      delayedCall={true}
-      offset={{ top: 100, bottom: 100 }}
-    >
+    <VisibilitySensor partialVisibility={true} delayedCall={true}>
       {({ isVisible }) => {
         const classes = isVisible
           ? defaultClasses

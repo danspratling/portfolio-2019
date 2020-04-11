@@ -4,7 +4,7 @@ import Layout from './Layout'
 import MegaHeading from './MegaHeading'
 import ProjectCard from './ProjectCard'
 import SEO from './SEO'
-import SectionHeading from './SectionHeading'
+import SectionIntro from './SectionIntro'
 import Social from './Social'
 
 export {
@@ -14,6 +14,6 @@ export {
   MegaHeading,
   ProjectCard,
   SEO,
-  SectionHeading,
+  SectionIntro,
   Social,
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -38,21 +38,21 @@ const Social = () => {
       />
       <a
         href={data.site.siteMetadata.socials.twitter}
-        className="pr-6 hover:text-green-400 transition duration-200"
+        className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
       >
         <FontAwesomeIcon icon={faTwitter} className="mr-2" />
       </a>
       <a
         href={data.site.siteMetadata.socials.github}
-        className="pr-6 hover:text-green-400 transition duration-200"
+        className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
       >
         <FontAwesomeIcon icon={faGithub} className="mr-2" />
       </a>
       <a
         href={data.site.siteMetadata.socials.instagram}
-        className="pr-6 hover:text-green-400 transition duration-200"
+        className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
       >
         <FontAwesomeIcon icon={faInstagram} className="mr-2" />
