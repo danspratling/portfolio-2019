@@ -29,19 +29,25 @@ const SectionIntro = ({ data, animation }) => {
             <h2 className="text-3xl text-white mb-6">{data.title}</h2>
             <div className="text-gray-600">
               <div dangerouslySetInnerHTML={{ __html: data.body }} />
-              <Link
-                to={data.link.url}
-                className="block text-lg text-white mx-4 my-8 hover:text-green-400 transition duration-200 hover:underline"
-              >
-                {data.link.title}
-                <FontAwesomeIcon
-                  icon={faArrowRight}
-                  className="ml-6"
-                  style={{
-                    transform: data.link.url[0] === '#' && 'rotate(90deg)',
-                  }}
-                />
-              </Link>
+              {data.link && data.link.url && data.link.title && (
+                <Link
+                  to={
+                    data.link.url[0] === '#'
+                      ? `${window.location.pathname}/${data.link.url}`
+                      : data.link.url
+                  }
+                  className="block text-lg text-white mx-4 mt-8 mb-6 hover:text-green-400 transition duration-200 hover:underline"
+                >
+                  {data.link.title}
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="ml-6"
+                    style={{
+                      transform: data.link.url[0] === '#' && 'rotate(90deg)',
+                    }}
+                  />
+                </Link>
+              )}
             </div>
           </div>
         )

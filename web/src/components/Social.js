@@ -8,7 +8,12 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
 
-const Social = () => {
+/**
+ *
+ * @param {Object} props
+ * @param {'none' | 'start' | 'end'} props.imagePosition - alignment of the image
+ */
+const Social = ({ imagePosition = 'start' }) => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "avatar.jpg" }) {
@@ -32,10 +37,12 @@ const Social = () => {
 
   return (
     <div className="flex items-center my-10 text-xl text-white">
-      <Image
-        fixed={data.file.childImageSharp.fixed}
-        className="rounded-full mr-10"
-      />
+      {imagePosition === 'start' && (
+        <Image
+          fixed={data.file.childImageSharp.fixed}
+          className="rounded-full mr-10"
+        />
+      )}
       <a
         href={data.site.siteMetadata.socials.twitter}
         className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
@@ -57,6 +64,12 @@ const Social = () => {
       >
         <FontAwesomeIcon icon={faInstagram} className="mr-2" />
       </a>
+      {imagePosition === 'end' && (
+        <Image
+          fixed={data.file.childImageSharp.fixed}
+          className="rounded-full mr-10"
+        />
+      )}
     </div>
   )
 }
