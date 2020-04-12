@@ -9,7 +9,7 @@ const Enquiry = () => {
   }
 
   return (
-    <form className="w-full max-w-lg" onSubmit={handleSubmit(onSubmit)}>
+    <form className="w-full max-w-xl" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-wrap -mx-3 mb-6">
         <Input
           label="name"
