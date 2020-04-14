@@ -20,6 +20,8 @@ import {
 } from '../components'
 
 const IndexPage = () => {
+  const projects = [...Array(3).keys()]
+
   return (
     <Layout>
       {/* <SEO title="Home" /> */}
@@ -84,35 +86,17 @@ const IndexPage = () => {
               />
             </div>
 
-            <div className="w-1/2 px-24 my-12">
-              <ProjectCard
-                data={{
-                  title: 'Project A.',
-                  categories: ['Development', 'UX'],
-                  image: dengro,
-                }}
-              />
-            </div>
-
-            <div className="w-1/2 px-24 my-12">
-              <ProjectCard
-                data={{
-                  title: 'Project B.',
-                  categories: ['Development', 'UX'],
-                  image: dengro,
-                }}
-              />
-            </div>
-
-            <div className="w-1/2 px-24 my-12">
-              <ProjectCard
-                data={{
-                  title: 'Project C.',
-                  categories: ['Development', 'UX'],
-                  image: dengro,
-                }}
-              />
-            </div>
+            {projects.map(project => (
+              <div className="w-1/2 px-24 my-12">
+                <ProjectCard
+                  data={{
+                    title: `Project ${project}.`,
+                    categories: ['Development', 'UX'],
+                    image: dengro,
+                  }}
+                />
+              </div>
+            ))}
           </div>
 
           {/* <Portfolio /> */}
