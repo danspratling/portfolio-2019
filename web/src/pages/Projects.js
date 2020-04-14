@@ -13,14 +13,11 @@ import {
 
 const ProjectPage = () => {
   const initialProjectList = [...Array(20).keys()]
-  const initialListLength = 10
-  const initialListHeight = 1600
+  const initialListLength = 7
   const [listLength, setListLength] = useState(initialListLength)
-  const [listHeight, setListHeight] = useState(initialListHeight)
 
   const handleClick = () => {
     setListLength(listLength + initialListLength)
-    setListHeight(listHeight + initialListHeight)
   }
 
   const projects = initialProjectList.slice(0, listLength)
