@@ -11,6 +11,9 @@ import {
 } from '../components'
 
 const errorPage = () => {
+
+  const url = typeof window !== 'undefined' && window.location.href
+
   return (
     <Layout>
       {/* <SEO title="Home" /> */}
@@ -35,7 +38,7 @@ const errorPage = () => {
                   heading: 'Mission failed',
                   title: 'Snake? Snake?! SNAAAAKE!',
                   body: `<p className="pb-4">
-                        There's no page at <i>${window.location.href}</i>.
+                        There's no page at <i>${url}</i>.
                         <br />
                         Don't abandon your mission! Go back and try again.
                       </p>`,

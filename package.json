@@ -14,6 +14,7 @@
     "gatsby-plugin-react-helmet": "^3.1.24",
     "gatsby-plugin-sass": "^2.2.1",
     "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-source-contentful": "^2.2.7",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-sharp": "^2.4.2",
     "magic-grid": "^3.2.4",

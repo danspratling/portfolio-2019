@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import VisibilitySensor from 'react-visibility-sensor'
 
-/* TODO: maybe margin isn't the best approach for this. We need the element to retain its size, even when not visible */
+
+
 const SectionIntro = ({ data, animation }) => {
   const animationVisibility = animation && animation.visibility
   const animationDirection = animation && animation.direction
@@ -29,7 +30,7 @@ const SectionIntro = ({ data, animation }) => {
             <h2 className="text-3xl text-white mb-6">{data.title}</h2>
             <div className="text-gray-600">
               <div dangerouslySetInnerHTML={{ __html: data.body }} />
-              {data.link && data.link.url && data.link.title && (
+              {data.link && data.link.url && data.link.title && typeof window !== 'undefined' && (
                 <Link
                   to={
                     data.link.url[0] === '#'
