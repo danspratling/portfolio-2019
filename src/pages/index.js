@@ -19,9 +19,12 @@ const IndexPage = ({ data }) => {
   const {
     pageIntro,
     projectIntro,
+    projectList,
     contactIntro,
     contactSection,
   } = data.contentfulHomepage
+
+  console.log(projectList)
 
   return (
     <Layout>
@@ -59,15 +62,9 @@ const IndexPage = ({ data }) => {
               />
             </div>
 
-            {projects.map(project => (
-              <div key={project} className="w-1/2 px-24 my-12">
-                <ProjectCard
-                  data={{
-                    title: `Project ${project}.`,
-                    categories: ['Development', 'UX'],
-                    image: dengro,
-                  }}
-                />
+            {projectList.map(project => (
+              <div key={project.slug} className="w-1/2 px-24 my-12">
+                <ProjectCard {...project} image={project.previewImage} />
               </div>
             ))}
           </div>
@@ -122,6 +119,21 @@ export const query = graphql`
         link {
           link
           title
+        }
+      }
+      projectList {
+        title
+        slug
+        categories
+        previewImage {
+          fluid {
+            base64
+            tracedSVG
+            srcWebp
+            srcSetWebp
+            srcSet
+            src
+          }
         }
       }
       contactIntro {
