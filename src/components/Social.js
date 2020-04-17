@@ -36,7 +36,7 @@ const Social = ({ imagePosition = 'start' }) => {
   `)
 
   return (
-    <div className="flex items-center my-10 text-xl text-white">
+    <div className="flex items-center justify-center py-10 text-xl text-white">
       {imagePosition === 'start' && (
         <Image
           fixed={data.file.childImageSharp.fixed}
@@ -45,27 +45,27 @@ const Social = ({ imagePosition = 'start' }) => {
       )}
       <a
         href={data.site.siteMetadata.socials.twitter}
-        className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
+        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FontAwesomeIcon icon={faTwitter} className="mr-2" />
+        <FontAwesomeIcon icon={faTwitter} />
       </a>
       <a
         href={data.site.siteMetadata.socials.github}
-        className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
+        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FontAwesomeIcon icon={faGithub} className="mr-2" />
+        <FontAwesomeIcon icon={faGithub} />
       </a>
       <a
         href={data.site.siteMetadata.socials.instagram}
-        className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
+        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FontAwesomeIcon icon={faInstagram} className="mr-2" />
+        <FontAwesomeIcon icon={faInstagram} />
       </a>
       {imagePosition === 'end' && (
         <Image

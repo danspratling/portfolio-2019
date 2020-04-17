@@ -87,7 +87,7 @@ const SectionLink = ({ title, link }) => {
   return (
     <Link
       to={getLink}
-      className="block text-lg text-white mx-4 mt-8 mb-6 hover:text-green-400 transition duration-200 hover:underline"
+      className="block text-lg text-white text-center md:text-left mx-4 mt-8 mb-6 hover:text-green-400 transition duration-200 hover:underline"
     >
       {title}
       <FontAwesomeIcon icon={faArrowRight} className="ml-6" style={linkStyle} />

@@ -15,10 +15,13 @@ const ContactPage = ({ data }) => {
     <Layout>
       {/* <SEO title="Home" /> */}
 
-      <section id="intro" className="relative min-h-screen bg-black py-64">
+      <section
+        id="intro"
+        className="relative md:min-h-screen bg-black pt-32 p-12 md:py-64 md:px-0"
+      >
         <div className="container mx-auto">
           <div className="flex justify-center items-center">
-            <div className="w-1/2">
+            <div className="w-full md:w-1/2">
               <SectionIntro
                 data={pageIntro}
                 animation={{
@@ -35,7 +38,7 @@ const ContactPage = ({ data }) => {
       </section>
       <section
         id="contact"
-        className="min-h-screen bg-black flex justify-center items-center pt-20 pb-40"
+        className="flex justify-center items-center md:min-h-screen bg-black p-12 pb-24 md:pt-20 md:pb-40"
       >
         <div className="container mx-auto">
           <div className="w-full flex justify-center">

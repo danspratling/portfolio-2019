@@ -4,29 +4,30 @@ import { Social } from '.'
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black text-white px-4">
       <div className="container mx-auto">
-        <div className="flex items-center justify-between">
-          <div className="w-auto py-5">
+        <div className="md:flex items-center justify-between">
+          <div className="text-center md:text-left w-auto py-5">
             <Link
               to="/"
-              className="pr-6 hover:text-green-400 transition duration-200"
+              className="px-4 hover:text-green-400 transition duration-200"
             >
               Home
             </Link>
             <Link
               to="/projects"
-              className="pr-6 hover:text-green-400 transition duration-200"
+              className="px-4 hover:text-green-400 transition duration-200"
             >
               Projects
             </Link>
             <Link
               to="/contact"
-              className="pr-6 hover:text-green-400 transition duration-200"
+              className="px-4 hover:text-green-400 transition duration-200"
             >
               Contact
             </Link>
           </div>
+
           <Social imagePosition="none" />
         </div>
       </div>
