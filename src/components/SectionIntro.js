@@ -6,15 +6,28 @@ import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import VisibilitySensor from 'react-visibility-sensor'
 
+/**
+ * Short intro paragraph with call to action
+ * @param {Object} props
+ * @param {Object} props.data
+ * @param {string} props.data.heading - pre-heading
+ * @param {string} props.data.title - descriptive heading for the page section
+ * @param {Object} props.data.body - section content
+ * @param {Object} props.data.link[] - optional call to action
+ * @param {Object} props.animation[] - animation settings
+ * @param {boolean} props.animation[].visibility - animates visibility if enabled
+ * @param {string} props.animation[].direction - animates direction if enabled,
+ */
 const SectionIntro = ({ data, animation }) => {
+  const { heading, title, body, link } = data
   const animationVisibility = animation && animation.visibility
   const animationDirection = animation && animation.direction
 
-  const { heading, title, body, link } = data
-
   return (
+    //Visibility sensor allows animation to activate when the element is visible, in this case by updating classes
     <VisibilitySensor partialVisibility={true} delayedCall={true}>
       {({ isVisible }) => {
+        //adaptive classes based on visibility
         const classes = [
           'transition-all',
           'duration-700',
@@ -22,6 +35,7 @@ const SectionIntro = ({ data, animation }) => {
           !isVisible ? getAnimationDirection(animationDirection) : null,
         ]
 
+        //Render the SectionIntro
         return (
           <div className={classes.join(' ')}>
             <SectionPreHeading>{heading}</SectionPreHeading>
@@ -53,7 +67,7 @@ const SectionPreHeading = ({ children }) => (
 )
 
 /**
- * The link component
+ * A secondary link component, never expectes external links but can accept hashes (same page links)
  * @param {Object} props
  * @param {string} props.title
  * @param {string} props.link
@@ -63,23 +77,21 @@ const SectionLink = ({ title, link }) => {
     return null
   }
 
+  if (typeof window === 'undefined') {
+    return null
+  }
+
   const linkStyle = { transform: link[0] === '#' && 'rotate(90deg)' }
   const getLink = link[0] === '#' ? `${window.location.pathname}/${link}` : link
 
   return (
-    typeof window !== 'undefined' && (
-      <Link
-        to={getLink}
-        className="block text-lg text-white mx-4 mt-8 mb-6 hover:text-green-400 transition duration-200 hover:underline"
-      >
-        {title}
-        <FontAwesomeIcon
-          icon={faArrowRight}
-          className="ml-6"
-          style={linkStyle}
-        />
-      </Link>
-    )
+    <Link
+      to={getLink}
+      className="block text-lg text-white mx-4 mt-8 mb-6 hover:text-green-400 transition duration-200 hover:underline"
+    >
+      {title}
+      <FontAwesomeIcon icon={faArrowRight} className="ml-6" style={linkStyle} />
+    </Link>
   )
 }
 

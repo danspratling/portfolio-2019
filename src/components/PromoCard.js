@@ -1,6 +1,13 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+/**
+ * Short promotional content with icon
+ * @param {Object} props
+ * @param {string} props.title - heading
+ * @param {Object} props.body - rich text content
+ * @param {string} props.icon - fontawesome icon
+ */
 const PromoCard = ({ title, body, icon }) => {
   return (
     <div className="bg-gray-900 text-white p-6">

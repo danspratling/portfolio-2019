@@ -1,8 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import dengro from '../images/dengro-preview-slice.png'
-
 import {
   Layout,
   MegaHeading,
@@ -14,8 +12,7 @@ import {
 } from '../components'
 
 const IndexPage = ({ data }) => {
-  const projects = [...Array(3).keys()]
-
+  //descructure our pagedata as js objects so we can use them
   const {
     pageIntro,
     projectIntro,
@@ -24,12 +21,12 @@ const IndexPage = ({ data }) => {
     contactSection,
   } = data.contentfulHomepage
 
-  console.log(projectList)
-
+  //Render the page
   return (
     <Layout>
       {/* <SEO title="Home" /> */}
 
+      {/* page section - Introduction */}
       <section
         id="intro"
         className="relative h-screen min-h-1024 bg-black pt-40 pb-40"
@@ -46,6 +43,8 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </section>
+
+      {/* page section - Projects */}
       <section id="projects" className="min-h-screen bg-black pt-64 pb-32">
         <div className="container mx-auto">
           <div
@@ -70,10 +69,14 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </section>
+
+      {/* page section - Blog */}
       {/* <section
         id="blog"
         className="min-h-screen bg-black pt-40 pb-40"
       ></section> */}
+
+      {/* page section - Contact */}
       <section id="contact" className="min-h-screen bg-black pt-32 pb-32">
         <div className="container mx-auto">
           <div className="grid grid-cols-5 gap-24">
@@ -96,6 +99,7 @@ const IndexPage = ({ data }) => {
   )
 }
 
+//Graphql query getting all the data we need from contentful (gatsby-config.js)
 export const query = graphql`
   query {
     contentfulHomepage {
