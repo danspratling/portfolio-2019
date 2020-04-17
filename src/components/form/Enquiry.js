@@ -3,13 +3,16 @@ import { useForm } from 'react-hook-form'
 import { Input, TextArea, Select } from './elements'
 
 const Enquiry = () => {
-  const { register, handleSubmit, errors } = useForm()
-  const onSubmit = data => {
-    // push form somewhere
-  }
+  const { register, errors } = useForm()
 
   return (
-    <form className="w-full max-w-xl" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="w-full max-w-xl"
+      name="enquiry"
+      method="POST"
+      data-netlify="true"
+    >
+      <input type="hidden" name="form-name" value="enquiry" />
       <div className="flex flex-wrap -mx-3 mb-6">
         <Input
           label="name"
@@ -49,7 +52,10 @@ const Enquiry = () => {
       </div>
 
       <div className="w-full flex justify-center">
-        <button className="w-auto h-auto bg-green-400 px-6 py-3 text-lg">
+        <button
+          type="submit"
+          className="w-auto h-auto bg-green-400 px-6 py-3 text-lg"
+        >
           Submit
         </button>
       </div>
