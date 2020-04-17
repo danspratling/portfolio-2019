@@ -8,7 +8,9 @@ import {
 } from '../components'
 import { Enquiry } from '../components/form'
 
-const ContactPage = () => {
+const ContactPage = ({ data }) => {
+  const pageIntro = data.contentfulPage.intro
+
   return (
     <Layout>
       {/* <SEO title="Home" /> */}
@@ -18,21 +20,7 @@ const ContactPage = () => {
           <div className="flex justify-center items-center">
             <div className="w-1/2">
               <SectionIntro
-                data={{
-                  heading: `Contact`,
-                  title: `Get a website which stands out`,
-                  body: `<p className="pb-4">
-                          Many brands have websites which aren't fit for purpose. Others don't have an online presence at all.
-                          Don't miss out on the opportunities of the web. Expand your reach. Get more customers.
-                        </p><br />
-                        <p>
-                          Stand out by taking pride in your website. Make it beautiful. Make people remember you.
-                        </p>`,
-                  link: {
-                    url: '#contact',
-                    title: 'Enquire now',
-                  },
-                }}
+                data={pageIntro}
                 animation={{
                   visibility: true,
                   direction: 'from top',
@@ -58,5 +46,24 @@ const ContactPage = () => {
     </Layout>
   )
 }
+
+//Graphql query getting all the data we need from contentful (gatsby-config.js)
+export const query = graphql`
+  query {
+    contentfulPage(slug: { eq: "contact" }) {
+      intro {
+        heading
+        title
+        body {
+          json
+        }
+        link {
+          link
+          title
+        }
+      }
+    }
+  }
+`
 
 export default ContactPage
