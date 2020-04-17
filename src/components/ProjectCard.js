@@ -27,10 +27,9 @@ const ProjectCard = ({ title, categories, image, link }) => {
         </Link>
       </header>
       <Image
-        fluid={image.fluid}
-        height="460"
-        className="object-cover"
-        style={{ height: 380 }}
+        fixed={image.fixed}
+        className="w-full object-cover"
+        // style={{ height: 380 }}
       />
     </div>
   )

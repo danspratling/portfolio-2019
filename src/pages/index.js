@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => {
         <div className="container mx-auto">
           <div
             className="flex flex-col flex-wrap -mx-24"
-            style={{ maxHeight: 1200 }}
+            style={{ maxHeight: 1400 }}
           >
             <div className="w-1/2 px-24 my-12">
               <SectionIntro
@@ -130,7 +130,7 @@ export const query = graphql`
         slug
         categories
         previewImage {
-          fluid {
+          fixed(width: 600) {
             base64
             tracedSVG
             srcWebp

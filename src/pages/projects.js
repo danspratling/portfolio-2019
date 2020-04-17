@@ -94,7 +94,7 @@ export const query = graphql`
         slug
         categories
         previewImage {
-          fluid {
+          fixed(width: 600) {
             base64
             tracedSVG
             srcWebp
