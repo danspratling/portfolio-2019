@@ -47,7 +47,7 @@ const Social = ({ imagePosition = 'start' }) => {
         href={data.site.siteMetadata.socials.twitter}
         className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         <FontAwesomeIcon icon={faTwitter} className="mr-2" />
       </a>
@@ -55,7 +55,7 @@ const Social = ({ imagePosition = 'start' }) => {
         href={data.site.siteMetadata.socials.github}
         className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         <FontAwesomeIcon icon={faGithub} className="mr-2" />
       </a>
@@ -63,7 +63,7 @@ const Social = ({ imagePosition = 'start' }) => {
         href={data.site.siteMetadata.socials.instagram}
         className="pr-6 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         <FontAwesomeIcon icon={faInstagram} className="mr-2" />
       </a>

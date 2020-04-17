@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { Input, TextArea, Select } from './elements'
 
 const Enquiry = () => {
-  const { register, handleSubmit, watch, errors } = useForm()
+  const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => {
     // push form somewhere
   }

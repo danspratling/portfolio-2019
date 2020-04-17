@@ -13,7 +13,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
  */
 const ProjectCard = ({ title, categories, image, link }) => {
   return (
-    <div className="bg-gray-900">
+    <div className="flex flex-col bg-gray-900">
       <header className="flex items-center justify-between text-white">
         <div className="p-8">
           <h3 className="text-xl">{title}</h3>
@@ -29,7 +29,7 @@ const ProjectCard = ({ title, categories, image, link }) => {
       <Image
         fixed={image.fixed}
         className="w-full object-cover"
-        // style={{ height: 380 }}
+        style={{ height: 380 }}
       />
     </div>
   )

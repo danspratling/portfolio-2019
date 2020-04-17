@@ -1,17 +1,14 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import {
   Layout,
   MegaHeading,
-  ProjectCard,
   // SEO
   SectionIntro,
   Social,
 } from '../components'
 
 const errorPage = () => {
-
   const url = typeof window !== 'undefined' && window.location.href
 
   return (
