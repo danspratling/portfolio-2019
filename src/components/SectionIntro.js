@@ -2,13 +2,15 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { BLOCKS } from '@contentful/rich-text-types'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import VisibilitySensor from 'react-visibility-sensor'
-
-
 
 const SectionIntro = ({ data, animation }) => {
   const animationVisibility = animation && animation.visibility
   const animationDirection = animation && animation.direction
+
+  const { heading, title, body, link } = data
 
   return (
     <VisibilitySensor partialVisibility={true} delayedCall={true}>
@@ -22,38 +24,62 @@ const SectionIntro = ({ data, animation }) => {
 
         return (
           <div className={classes.join(' ')}>
-            <p className="tracking-wider text-gray-600 font-bold mb-6">
-              <FontAwesomeIcon icon={faMinus} className="mr-4" />
-              {data.heading}
-              <FontAwesomeIcon icon={faMinus} className="ml-4" />
-            </p>
-            <h2 className="text-3xl text-white mb-6">{data.title}</h2>
+            <SectionPreHeading>{heading}</SectionPreHeading>
+            <h2 className="text-3xl text-white mb-6">{title}</h2>
             <div className="text-gray-600">
-              <div dangerouslySetInnerHTML={{ __html: data.body }} />
-              {data.link && data.link.url && data.link.title && typeof window !== 'undefined' && (
-                <Link
-                  to={
-                    data.link.url[0] === '#'
-                      ? `${window.location.pathname}/${data.link.url}`
-                      : data.link.url
-                  }
-                  className="block text-lg text-white mx-4 mt-8 mb-6 hover:text-green-400 transition duration-200 hover:underline"
-                >
-                  {data.link.title}
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="ml-6"
-                    style={{
-                      transform: data.link.url[0] === '#' && 'rotate(90deg)',
-                    }}
-                  />
-                </Link>
-              )}
+              <div>
+                {documentToReactComponents(body.json, documentRichTextOptions)}
+              </div>
+              <SectionLink {...link} />
             </div>
           </div>
         )
       }}
     </VisibilitySensor>
+  )
+}
+
+/**
+ * The pre-heading
+ * @param {Object} props
+ * @param {string} props.children
+ */
+const SectionPreHeading = ({ children }) => (
+  <p className="tracking-wider text-gray-600 font-bold mb-6">
+    <FontAwesomeIcon icon={faMinus} className="mr-4" />
+    {children}
+    <FontAwesomeIcon icon={faMinus} className="ml-4" />
+  </p>
+)
+
+/**
+ * The link component
+ * @param {Object} props
+ * @param {string} props.title
+ * @param {string} props.link
+ */
+const SectionLink = ({ title, link }) => {
+  if (!title || !link) {
+    return null
+  }
+
+  const linkStyle = { transform: link[0] === '#' && 'rotate(90deg)' }
+  const getLink = link[0] === '#' ? `${window.location.pathname}/${link}` : link
+
+  return (
+    typeof window !== 'undefined' && (
+      <Link
+        to={getLink}
+        className="block text-lg text-white mx-4 mt-8 mb-6 hover:text-green-400 transition duration-200 hover:underline"
+      >
+        {title}
+        <FontAwesomeIcon
+          icon={faArrowRight}
+          className="ml-6"
+          style={linkStyle}
+        />
+      </Link>
+    )
   )
 }
 
@@ -84,9 +110,14 @@ const getAnimationDirection = direction => {
     return null
   }
 
-  console.log(margin)
-
   return margin
+}
+
+//Options adjusting rich text elements
+const documentRichTextOptions = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-4">{children}</p>,
+  },
 }
 
 export default SectionIntro
