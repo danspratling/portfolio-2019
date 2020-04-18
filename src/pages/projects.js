@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import MagicGrid from 'react-magic-grid'
 import { graphql } from 'gatsby'
+import Image from 'gatsby-image'
 
 import {
   Layout,
@@ -30,13 +31,16 @@ const ProjectPage = ({ data }) => {
     <Layout>
       {/* <SEO title="Home" /> */}
 
-      <section id="projects" className="min-h-screen bg-black py-32">
+      <section
+        id="projects"
+        className="min-h-screen min-w-full bg-black px-6 py-32"
+      >
         <div className="container mx-auto">
-          <div className="-mx-24">
+          <div className="xl:-mx-24">
             {/* This is the magic which lets the masonry grid work */}
             <MagicGrid items={projects.length + 2} gutter={0}>
               {/* The first item is always the intro component */}
-              <div className="w-1/2 px-24 py-12">
+              <div className="md:w-1/2 px-6 md:px-8 xl:px-24 pb-20 md:py-12">
                 <SectionIntro
                   data={pageIntro}
                   animation={{
@@ -48,13 +52,16 @@ const ProjectPage = ({ data }) => {
 
               {/* show cards for all the projects */}
               {projects.map(project => (
-                <div key={project.slug} className="w-1/2 px-24 py-12">
+                <div
+                  key={project.slug}
+                  className="md:w-1/2 md:px-4 xl:px-24 py-4 xl:py-12"
+                >
                   <ProjectCard {...project} image={project.previewImage} />
                 </div>
               ))}
 
               {/* The last element is a 'load more' button unless there are no more elements */}
-              <div className="w-1/2 px-24 py-12 flex justify-center items-center">
+              <div className="md:w-1/2 px-24 py-12 flex justify-center items-center">
                 {projects.length < projectList.length && (
                   <button
                     onClick={handleClick}
@@ -94,7 +101,7 @@ export const query = graphql`
         slug
         categories
         previewImage {
-          fixed(width: 600) {
+          fixed(width: 600, height: 380) {
             base64
             tracedSVG
             srcWebp

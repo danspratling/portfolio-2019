@@ -15,7 +15,7 @@ const ProjectCard = ({ title, categories, image, link }) => {
   return (
     <div className="flex flex-col bg-gray-900">
       <header className="flex items-center justify-between text-white">
-        <div className="p-8">
+        <div className="py-8 px-6 md:px-8">
           <h3 className="text-xl">{title}</h3>
           <p className="text-sm text-gray-500">{categories.join(', ')}</p>
         </div>
@@ -28,8 +28,7 @@ const ProjectCard = ({ title, categories, image, link }) => {
       </header>
       <Image
         fixed={image.fixed}
-        className="w-full object-cover"
-        style={{ height: 380 }}
+        className="min-h-300 md:min-h-380 lg:min-h-480"
       />
     </div>
   )
