@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import {
   Layout,
   MegaHeading,
-  ProjectCard,
+  ProjectList,
   // SEO
   SectionIntro,
   Social,
@@ -29,15 +29,19 @@ const IndexPage = ({ data }) => {
       {/* page section - Introduction */}
       <section
         id="intro"
-        className="relative h-screen min-h-1024 bg-black pt-40 pb-40"
+        className="relative min-h-screen lg:min-h-1024 bg-black py-12 lg:py-40 px-6"
       >
         <div className="container mx-auto">
-          <div className="grid grid-cols-5 gap-10">
-            <div className="col-span-3">
-              <MegaHeading>Dan Spratling.</MegaHeading>
-              <Social />
+          <div className="my-10 md:my-0">
+            <MegaHeading>Dan Spratling.</MegaHeading>
+          </div>
+          <div className="flex flex-row flex-wrap lg:flex-no-wrap -mx-5">
+            <div className="w-full md:w-2/5 lg:w-3/5 mx-5 order-last lg:order-first ml-auto lg:ml-0">
+              <div className="md:flex">
+                <Social />
+              </div>
             </div>
-            <div className="col-span-2 z-10">
+            <div className="w-full md:w-3/5 lg:w-2/5 mx-5 md:mx-auto lg:mx-5 z-10">
               <SectionIntro data={pageIntro} />
             </div>
           </div>
@@ -45,28 +49,21 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* page section - Projects */}
-      <section id="projects" className="min-h-screen bg-black pt-64 pb-32">
+      <section
+        id="projects"
+        className="min-h-screen min-w-full bg-black px-6 py-12 lg:pt-64 lg:pb-32"
+      >
         <div className="container mx-auto">
-          <div
-            className="flex flex-col flex-wrap -mx-24"
-            style={{ maxHeight: 1400 }}
-          >
-            <div className="w-1/2 px-24 my-12">
-              <SectionIntro
-                data={projectIntro}
-                animation={{
-                  visibility: true,
-                  direction: 'from top',
-                }}
-              />
-            </div>
-
-            {projectList.map(project => (
-              <div key={project.slug} className="w-1/2 px-24 my-12">
-                <ProjectCard {...project} image={project.previewImage} />
-              </div>
-            ))}
-          </div>
+          <ProjectList
+            sectionIntro={{
+              data: projectIntro,
+              animation: {
+                visibility: true,
+                direction: 'from top',
+              },
+            }}
+            projectList={projectList}
+          />
         </div>
       </section>
 
@@ -77,13 +74,13 @@ const IndexPage = ({ data }) => {
       ></section> */}
 
       {/* page section - Contact */}
-      <section id="contact" className="min-h-screen bg-black pt-32 pb-32">
+      <section id="contact" className="min-h-screen bg-black pt-32 pb-32 px-6">
         <div className="container mx-auto">
-          <div className="grid grid-cols-5 gap-24">
-            <div className="col-span-3">
+          <div className="grid md:grid-cols-5 gap-24">
+            <div className="md:col-span-3">
               <Upsell {...contactSection} />
             </div>
-            <div className="col-span-2">
+            <div className="md:col-span-2">
               <SectionIntro
                 data={contactIntro}
                 animation={{

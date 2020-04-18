@@ -15,15 +15,21 @@ const MegaHeading = ({ children }) => {
 }
 
 const defaultClasses = [
-  'absolute',
+  'md:absolute',
   'left-0',
   'bottom-0',
-  'pb-20',
-  'text-9xl',
+  'pb-10',
+  'md:pb-20',
+  'text-6xl',
+  'md:text-7xl',
+  'lg:text-8xl',
+  'xl:text-9xl',
   'leading-squish',
   'text-green-400',
   'font-semibold',
-  'transition-all',
+  'max-w-full',
+  'overflow-visible',
+  'transition-fade',
   'duration-1000',
 ]
 

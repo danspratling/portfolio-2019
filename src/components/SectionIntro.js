@@ -39,7 +39,7 @@ const SectionIntro = ({ data, animation }) => {
         return (
           <div className={classes.join(' ')}>
             <SectionPreHeading>{heading}</SectionPreHeading>
-            <h2 className="text-3xl text-white mb-6">{title}</h2>
+            <h2 className="text-2xl md:text-3xl text-white mb-6">{title}</h2>
             <div className="text-gray-600">
               <div>
                 {documentToReactComponents(body.json, documentRichTextOptions)}

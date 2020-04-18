@@ -8,8 +8,8 @@ import {
   Social,
 } from '../components'
 
-const errorPage = () => {
-  const url = typeof window !== 'undefined' && window.location.href
+const errorPage = ({ data }) => {
+  const pageIntro = data.contentfulPage.intro
 
   return (
     <Layout>
@@ -17,34 +17,24 @@ const errorPage = () => {
 
       <section
         id="intro"
-        className="relative h-screen min-h-1024 bg-black pt-40 pb-40"
+        className="relative min-h-screen lg:min-h-1024 bg-black py-12 lg:py-40 px-6"
       >
         <div className="container mx-auto">
-          <div className="grid grid-cols-5 gap-10">
-            <div className="col-span-3">
-              <MegaHeading>
-                404
-                <br />
-                Game Over
-              </MegaHeading>
-              <Social />
+          <div className="my-10 md:my-0">
+            <MegaHeading>
+              404
+              <br />
+              Game Over.
+            </MegaHeading>
+          </div>
+          <div className="flex flex-row flex-wrap lg:flex-no-wrap -mx-5">
+            <div className="w-full md:w-2/5 lg:w-3/5 mx-5 order-last lg:order-first ml-auto lg:ml-0">
+              <div className="md:flex">
+                <Social />
+              </div>
             </div>
-            <div className="col-span-2 z-10">
-              <SectionIntro
-                data={{
-                  heading: 'Mission failed',
-                  title: 'Snake? Snake?! SNAAAAKE!',
-                  body: `<p className="pb-4">
-                        There's no page at <i>${url}</i>.
-                        <br />
-                        Don't abandon your mission! Go back and try again.
-                      </p>`,
-                  link: {
-                    url: '/',
-                    title: 'Continue',
-                  },
-                }}
-              />
+            <div className="w-full md:w-3/5 lg:w-2/5 mx-5 md:mx-auto lg:mx-5 z-10">
+              <SectionIntro data={pageIntro} />
             </div>
           </div>
         </div>
@@ -52,5 +42,24 @@ const errorPage = () => {
     </Layout>
   )
 }
+
+//Graphql query getting all the data we need from contentful (gatsby-config.js)
+export const query = graphql`
+  query {
+    contentfulPage(slug: { eq: "404" }) {
+      intro {
+        heading
+        title
+        body {
+          json
+        }
+        link {
+          link
+          title
+        }
+      }
+    }
+  }
+`
 
 export default errorPage

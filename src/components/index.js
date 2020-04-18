@@ -4,6 +4,7 @@ import Layout from './Layout'
 import Link from './Link'
 import MegaHeading from './MegaHeading'
 import ProjectCard from './ProjectCard'
+import ProjectList from './ProjectList'
 import PromoCard from './PromoCard'
 import SEO from './SEO'
 import SectionIntro from './SectionIntro'
@@ -17,6 +18,7 @@ export {
   Link,
   MegaHeading,
   ProjectCard,
+  ProjectList,
   PromoCard,
   SEO,
   SectionIntro,

@@ -38,10 +38,12 @@ const Social = ({ imagePosition = 'start' }) => {
   return (
     <div className="flex items-center justify-center py-10 text-xl text-white">
       {imagePosition === 'start' && (
-        <Image
-          fixed={data.file.childImageSharp.fixed}
-          className="rounded-full mr-10"
-        />
+        <div className="hidden md:block">
+          <Image
+            fixed={data.file.childImageSharp.fixed}
+            className="rounded-full mr-10"
+          />
+        </div>
       )}
       <a
         href={data.site.siteMetadata.socials.twitter}
@@ -68,10 +70,12 @@ const Social = ({ imagePosition = 'start' }) => {
         <FontAwesomeIcon icon={faInstagram} />
       </a>
       {imagePosition === 'end' && (
-        <Image
-          fixed={data.file.childImageSharp.fixed}
-          className="rounded-full mr-10"
-        />
+        <div className="hidden md:block">
+          <Image
+            fixed={data.file.childImageSharp.fixed}
+            className="rounded-full mr-10"
+          />
+        </div>
       )}
     </div>
   )

@@ -14,20 +14,20 @@ import { Link, PromoCard } from '../components'
 const Upsell = ({ title, body, link, cards }) => {
   return (
     <>
-      <h2 className="text-3xl text-white mb-12">{title}</h2>
-      <div className="grid grid-cols-2 gap-8 mb-10">
+      <h2 className="text-xl md:text-3xl text-white mb-12">{title}</h2>
+      <div className="grid md:grid-cols-2 gap-8 mb-10">
         {cards.map((card, index) => (
           <PromoCard key={index} {...card} />
         ))}
       </div>
 
       {/* Render contentful rich text as html */}
-      <div className="text-gray-600">
+      <div className="text-gray-600 mb-12 text-center md:text-left">
         {documentToReactComponents(body.json, documentRichTextOptions)}
       </div>
 
       {/* Clickable link */}
-      <div className="flex justify-end">
+      <div className="flex justify-center md:justify-end">
         <Link to={link.link}>{link.title}</Link>
       </div>
     </>

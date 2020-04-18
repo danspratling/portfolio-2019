@@ -7,7 +7,8 @@ module.exports = {
       lg: '1.125rem',
       lg: '1.25rem',
       xl: '1.5rem',
-      '2xl': '2rem',
+      '2xl': '1.75rem',
+      '3xl': '2.125rem',
       '4xl': '2.5rem',
       '5xl': '3.5rem',
       '6xl': '5rem',
@@ -60,6 +61,7 @@ module.exports = {
           'background-color, color, border, border-color, fill, stroke, opacity, box-shadow',
         size: 'width, min-width, max-width, height, min-height, max-height',
         flex: 'flex',
+        fade: 'margin, opacity',
       },
       transitionTimingFunction: {
         'ease-in-out': 'cubic-bezier(.21, 0, .45, 1)',
