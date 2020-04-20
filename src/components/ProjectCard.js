@@ -21,7 +21,7 @@ const ProjectCard = ({ title, categories, image, link }) => {
         </div>
         <Link
           to={link}
-          name={`${title} project page`}
+          title={`${title} project page`}
           className="text-xl py-8 px-12 hover:text-green-400 transition duration-200"
         >
           <FontAwesomeIcon icon={faArrowRight} />
