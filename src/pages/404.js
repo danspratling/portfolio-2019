@@ -1,19 +1,13 @@
 import React from 'react'
 
-import {
-  Layout,
-  MegaHeading,
-  // SEO
-  SectionIntro,
-  Social,
-} from '../components'
+import { Layout, MegaHeading, SEO, SectionIntro, Social } from '../components'
 
 const errorPage = ({ data }) => {
-  const pageIntro = data.contentfulPage.intro
+  const { seo, intro: pageIntro } = data.contentfulPage
 
   return (
     <Layout>
-      {/* <SEO title="Home" /> */}
+      <SEO title={seo.title} description={seo.description} />
 
       <section
         id="intro"
@@ -47,6 +41,10 @@ const errorPage = ({ data }) => {
 export const query = graphql`
   query {
     contentfulPage(slug: { eq: "404" }) {
+      seo {
+        title
+        description
+      }
       intro {
         heading
         title

@@ -1,19 +1,14 @@
 import React from 'react'
 
-import {
-  Layout,
-  // SEO
-  SectionIntro,
-  Social,
-} from '../components'
+import { Layout, SEO, SectionIntro, Social } from '../components'
 import { Enquiry } from '../components/form'
 
 const ContactPage = ({ data }) => {
-  const pageIntro = data.contentfulPage.intro
+  const { seo, intro: pageIntro } = data.contentfulPage
 
   return (
     <Layout>
-      {/* <SEO title="Home" /> */}
+      <SEO title={seo.title} description={seo.description} />
 
       <section
         id="intro"
@@ -54,6 +49,10 @@ const ContactPage = ({ data }) => {
 export const query = graphql`
   query {
     contentfulPage(slug: { eq: "contact" }) {
+      seo {
+        title
+        description
+      }
       intro {
         heading
         title

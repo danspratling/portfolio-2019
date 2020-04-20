@@ -5,7 +5,7 @@ import {
   Layout,
   MegaHeading,
   ProjectList,
-  // SEO
+  SEO,
   SectionIntro,
   Social,
   Upsell,
@@ -14,6 +14,7 @@ import {
 const IndexPage = ({ data }) => {
   //descructure our pagedata as js objects so we can use them
   const {
+    seo,
     pageIntro,
     projectIntro,
     projectList,
@@ -24,7 +25,7 @@ const IndexPage = ({ data }) => {
   //Render the page
   return (
     <Layout>
-      {/* <SEO title="Home" /> */}
+      <SEO title={seo.title} description={seo.description} />
 
       {/* page section - Introduction */}
       <section
@@ -100,6 +101,10 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
   query {
     contentfulHomepage {
+      seo {
+        title
+        description
+      }
       pageIntro {
         heading
         title

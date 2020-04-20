@@ -8,7 +8,7 @@ import {
 
 const BlogPage = () => (
   <Layout>
-    {/* <SEO title="Home" /> */}
+    {/* <SEO title={seo.title} description={seo.description} /> */}
 
     <section className="min-h-screen bg-gray-900 pt-20 pb-40">
       <div className="container mx-auto">

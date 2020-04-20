@@ -1,13 +1,14 @@
 const path = require(`path`)
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Dan Spratling - UI & JavaScript Developer`,
+    description: `Freelance Web and App developer, building high quality headless websites for small businesses.`,
+    baseUrl: `danspratling.dev`,
+    author: `@dan_spratling`,
     socials: {
       twitter: `https://twitter.com/dan_spratling`,
       github: `https://github.com/danspratling`,
@@ -27,12 +28,12 @@ module.exports = {
         ],
       },
     },
-    { 
+    {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true,
         tailwind: true,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -49,7 +50,7 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

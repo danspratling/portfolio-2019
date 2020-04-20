@@ -1,20 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 
-import {
-  Layout,
-  ProjectList,
-  // SEO
-} from '../components'
+import { Layout, ProjectList, SEO } from '../components'
 
 const ProjectPage = ({ data }) => {
   //Get the page sections from the graphql data
+  const seo = data.contentfulPage.seo
   const pageIntro = data.contentfulPage.intro
   const projectList = data.allContentfulProject.nodes
 
   return (
     <Layout>
-      {/* <SEO title="Home" /> */}
+      <SEO title={seo.title} description={seo.description} />
 
       <section
         id="projects"
@@ -41,6 +38,10 @@ const ProjectPage = ({ data }) => {
 export const query = graphql`
   query {
     contentfulPage(slug: { eq: "projects" }) {
+      seo {
+        title
+        description
+      }
       intro {
         heading
         title
