@@ -47,6 +47,7 @@ const Social = ({ imagePosition = 'start' }) => {
       )}
       <a
         href={data.site.siteMetadata.socials.twitter}
+        name="Twitter profile"
         className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
@@ -55,6 +56,7 @@ const Social = ({ imagePosition = 'start' }) => {
       </a>
       <a
         href={data.site.siteMetadata.socials.github}
+        name="Github profile"
         className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
@@ -63,6 +65,7 @@ const Social = ({ imagePosition = 'start' }) => {
       </a>
       <a
         href={data.site.siteMetadata.socials.instagram}
+        name="Instagram account"
         className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"

@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main className="max-w-full overflow-hidden">{children}</main>
       <Footer />
     </>
