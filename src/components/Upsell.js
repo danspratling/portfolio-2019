@@ -11,10 +11,16 @@ import { Link, PromoCard } from '../components'
  * @param {Object} param.link
  * @param {array} param.cards
  */
-const Upsell = ({ title, body, link, cards }) => {
+const Upsell = ({ title, bodyStart, body, link, cards }) => {
   return (
     <>
-      <h2 className="text-xl md:text-3xl text-white mb-12">{title}</h2>
+      <h2 className="text-2xl md:text-3xl text-white mb-8">{title}</h2>
+
+      {/* Render contentful rich text as html */}
+      <div className="text-gray-600 mb-12">
+        {documentToReactComponents(bodyStart.json, documentRichTextOptions)}
+      </div>
+
       <div className="grid md:grid-cols-2 gap-8 mb-10">
         {cards.map((card, index) => (
           <PromoCard key={index} {...card} />
@@ -22,12 +28,12 @@ const Upsell = ({ title, body, link, cards }) => {
       </div>
 
       {/* Render contentful rich text as html */}
-      <div className="text-gray-600 mb-12 text-center md:text-left">
+      <div className="text-gray-600 mb-12">
         {documentToReactComponents(body.json, documentRichTextOptions)}
       </div>
 
       {/* Clickable link */}
-      <div className="flex justify-center md:justify-end">
+      <div className="flex justify-center md:justify-end mb-20">
         <Link to={link.link}>{link.title}</Link>
       </div>
     </>

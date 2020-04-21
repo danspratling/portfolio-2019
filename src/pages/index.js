@@ -77,11 +77,11 @@ const IndexPage = ({ data }) => {
       {/* page section - Contact */}
       <section id="contact" className="min-h-screen bg-black pt-32 pb-32 px-6">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-5 gap-24">
-            <div className="md:col-span-3">
+          <div className="flex flex-row flex-wrap lg:flex-no-wrap lg:-mx-12">
+            <div className="lg:w-3/5 lg:mx-6">
               <Upsell {...contactSection} />
             </div>
-            <div className="md:col-span-2">
+            <div className="lg:w-2/5 lg:mx-6">
               <SectionIntro
                 data={contactIntro}
                 animation={{
@@ -155,6 +155,9 @@ export const query = graphql`
       }
       contactSection {
         title
+        bodyStart {
+          json
+        }
         body {
           json
         }
