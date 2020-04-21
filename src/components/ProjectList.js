@@ -35,7 +35,7 @@ const ProjectList = ({ sectionIntro, projectList }) => {
         {projects.map(project => (
           <div
             key={project.slug}
-            className="md:w-1/2 md:px-4 xl:px-24 py-4 xl:py-12"
+            className="w-full md:w-1/2 md:px-4 xl:px-24 py-4 xl:py-12"
           >
             <ProjectCard {...project} image={project.previewImage} />
           </div>
