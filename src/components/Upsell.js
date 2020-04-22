@@ -1,7 +1,5 @@
 import React from 'react'
-import { BLOCKS } from '@contentful/rich-text-types'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { Link, PromoCard } from '../components'
+import { Link, PromoCard, RichText } from '../components'
 
 /**
  * Page section for promoting content
@@ -18,7 +16,7 @@ const Upsell = ({ title, bodyStart, body, link, cards }) => {
 
       {/* Render contentful rich text as html */}
       <div className="text-gray-600 mb-12">
-        {documentToReactComponents(bodyStart.json, documentRichTextOptions)}
+        <RichText body={bodyStart} />
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 mb-10">
@@ -29,7 +27,7 @@ const Upsell = ({ title, bodyStart, body, link, cards }) => {
 
       {/* Render contentful rich text as html */}
       <div className="text-gray-600 mb-12">
-        {documentToReactComponents(body.json, documentRichTextOptions)}
+        <RichText body={body} />
       </div>
 
       {/* Clickable link */}
@@ -38,13 +36,6 @@ const Upsell = ({ title, bodyStart, body, link, cards }) => {
       </div>
     </>
   )
-}
-
-//Options adjusting rich text elements
-const documentRichTextOptions = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-4">{children}</p>,
-  },
 }
 
 export default Upsell

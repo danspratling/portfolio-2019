@@ -52,7 +52,7 @@ const IndexPage = ({ data }) => {
       {/* page section - Projects */}
       <section
         id="projects"
-        className="min-h-screen min-w-full bg-black px-6 py-12 lg:pt-64 lg:pb-32"
+        className="min-h-screen min-w-full bg-black px-6 py-12 lg:py-32"
       >
         <div className="container mx-auto">
           <ProjectList

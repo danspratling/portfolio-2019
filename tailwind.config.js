@@ -1,10 +1,13 @@
 module.exports = {
   theme: {
+    fontFamily: {
+      'sans': 'Ubuntu, sans-serif',
+      'monospace': 'Fira Code, monospace'
+    },
     fontSize: {
       xs: '.75rem',
       sm: '.875rem',
       base: '1rem',
-      lg: '1.125rem',
       lg: '1.25rem',
       xl: '1.5rem',
       '2xl': '1.75rem',

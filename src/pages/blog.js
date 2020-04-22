@@ -1,46 +1,71 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import {
-  Layout,
-  // SEO
-} from '../components'
+import { Layout, ProjectList, SEO } from '../components'
 
-const BlogPage = () => (
-  <Layout>
-    {/* <SEO title={seo.title} description={seo.description} /> */}
+const ProjectPage = ({ data }) => {
+  //Get the page sections from the graphql data
+  const seo = data.contentfulPage.seo
+  const pageIntro = data.contentfulPage.intro
+  const projectList = data.allContentfulProject.nodes
 
-    <section className="min-h-screen bg-gray-900 pt-20 pb-40">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-3 gap-4">
-          <div className="col-span-2">
-            <h1 className="text-2xl text-white">Recent posts</h1>
-            {/* <h2 class="text-5xl">Developer, Designer, Writer</h2> */}
-            <div className="text-gray-600">
-              <p>
-                I'm a Software Engineer who makes Websites and Apps. I love
-                turning beautiful designs into interactive websites.
-              </p>
-              <p>
-                I try to help out the developer community where I can, through
-                blog posts or on twitter. I'll often share my experiences during
-                the creative process.
-              </p>
-              <p>
-                I'm available for freelance work, and always looking for
-                interesting challenges to take on.
-              </p>
-              <button>Get in touch</button>
-              <Link to="/page-2/">Go to page 2</Link>
-            </div>
-          </div>
-          <div className="col-span-1">
-            {/* A column with tags and promoted links */}
+  return (
+    <Layout>
+      <SEO title={seo.title} description={seo.description} />
+
+      <section
+        id="projects"
+        className="min-h-screen min-w-full bg-black px-6 py-32"
+      >
+        <div className="container mx-auto">
+          <div className="flex flex-row flex-wrap text-white">
+            <div className="w-full md:w-2/3">Blog post</div>
+            <div className="w-full md:w-1/3">Sidebar</div>
           </div>
         </div>
-      </div>
-    </section>
-  </Layout>
-)
+      </section>
+    </Layout>
+  )
+}
 
-export default BlogPage
+//Graphql query getting all the data we need from contentful (gatsby-config.js)
+export const query = graphql`
+  query {
+    contentfulPage(slug: { eq: "projects" }) {
+      seo {
+        title
+        description
+      }
+      intro {
+        heading
+        title
+        body {
+          json
+        }
+        link {
+          link
+          title
+        }
+      }
+    }
+    allContentfulProject {
+      nodes {
+        title
+        slug
+        categories
+        previewImage {
+          fixed(width: 600, height: 380) {
+            base64
+            tracedSVG
+            srcWebp
+            srcSetWebp
+            srcSet
+            src
+          }
+        }
+      }
+    }
+  }
+`
+
+export default ProjectPage

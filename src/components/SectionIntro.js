@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { BLOCKS } from '@contentful/rich-text-types'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import VisibilitySensor from 'react-visibility-sensor'
+
+import { RichText } from '../components'
 
 /**
  * Short intro paragraph with call to action
@@ -29,6 +29,7 @@ const SectionIntro = ({ data, animation }) => {
       {({ isVisible }) => {
         //adaptive classes based on visibility
         const classes = [
+          'text-gray-300',
           'transition-all',
           'duration-700',
           !isVisible && animationVisibility ? 'opacity-0' : null,
@@ -41,9 +42,7 @@ const SectionIntro = ({ data, animation }) => {
             <SectionPreHeading>{heading}</SectionPreHeading>
             <h2 className="text-2xl md:text-3xl text-white mb-6">{title}</h2>
             <div className="text-gray-600">
-              <div>
-                {documentToReactComponents(body.json, documentRichTextOptions)}
-              </div>
+              <RichText body={body} />
               <SectionLink {...link} />
             </div>
           </div>
@@ -123,13 +122,6 @@ const getAnimationDirection = direction => {
   }
 
   return margin
-}
-
-//Options adjusting rich text elements
-const documentRichTextOptions = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-4">{children}</p>,
-  },
 }
 
 export default SectionIntro

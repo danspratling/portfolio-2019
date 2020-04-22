@@ -26,7 +26,7 @@ const defaultClasses = [
   'xl:text-9xl',
   'leading-squish',
   'text-green-400',
-  'font-semibold',
+  'font-medium',
   'max-w-full',
   'overflow-visible',
   'transition-fade',
