@@ -27,6 +27,7 @@
     "react-helmet": "^5.2.1",
     "react-hook-form": "^5.2.0",
     "react-magic-grid": "^1.1.0",
+    "react-syntax-highlighter": "^12.2.1",
     "react-visibility-sensor": "^5.1.1"
   },
   "devDependencies": {

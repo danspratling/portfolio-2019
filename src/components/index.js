@@ -9,6 +9,7 @@ import PromoCard from './PromoCard'
 import SEO from './SEO'
 import SectionIntro from './SectionIntro'
 import Social from './Social'
+import SyntaxHighlighter from './SyntaxHighlighter'
 import Upsell from './Upsell'
 
 export {
@@ -23,5 +24,6 @@ export {
   SEO,
   SectionIntro,
   Social,
+  SyntaxHighlighter,
   Upsell,
 }
