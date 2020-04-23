@@ -54,6 +54,12 @@ const documentRichTextOptions = {
     [BLOCKS.LIST_ITEM]: (node, children) => (
       <li>{node.content[0].content[0].value}</li>
     ),
+    [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
+      <img
+        src={node.data.target.fields.file['en-GB'].url}
+        alt={node.data.target.fields.title['en-GB']}
+      />
+    ),
   },
 }
 

@@ -133,12 +133,7 @@ export const query = graphql`
         categories
         previewImage {
           fixed(width: 600) {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
-            srcSet
-            src
+            ...GatsbyContentfulFixed_withWebp
           }
         }
       }

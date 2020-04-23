@@ -1,8 +1,8 @@
 module.exports = {
   theme: {
     fontFamily: {
-      'sans': 'Ubuntu, sans-serif',
-      'monospace': 'Fira Code, monospace'
+      sans: 'Ubuntu, sans-serif',
+      monospace: 'Fira Code, monospace',
     },
     fontSize: {
       xs: '.75rem',
@@ -50,6 +50,40 @@ module.exports = {
         '420': '420px',
         '480': '480px',
         '640': '640px',
+        '768': '768px',
+        '1024': '1024px',
+      },
+      maxHeight: {
+        '180': '180px',
+        '240': '240px',
+        '300': '300px',
+        '380': '380px',
+        '420': '420px',
+        '480': '480px',
+        '640': '640px',
+        '768': '768px',
+        '1024': '1024px',
+      },
+      minWidth: {
+        '180': '180px',
+        '240': '240px',
+        '300': '300px',
+        '380': '380px',
+        '420': '420px',
+        '480': '480px',
+        '640': '640px',
+        '768': '768px',
+        '1024': '1024px',
+      },
+      maxWidth: {
+        '180': '180px',
+        '240': '240px',
+        '300': '300px',
+        '380': '380px',
+        '420': '420px',
+        '480': '480px',
+        '640': '640px',
+        '768': '768px',
         '1024': '1024px',
       },
       borderRadius: {
