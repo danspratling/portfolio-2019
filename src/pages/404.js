@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { graphql } from 'gatsby'
 import { Layout, MegaHeading, SEO, SectionIntro, Social } from '../components'
 
 const errorPage = ({ data }) => {

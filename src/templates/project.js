@@ -4,7 +4,7 @@ import Image from 'gatsby-image'
 
 import { Layout, RichText, ContentList, SEO } from '../components'
 
-const ProjectPage = ({ data }) => {
+const ProjectTemplate = ({ data }) => {
   //Get the page sections from the graphql data
   const {
     seo,
@@ -74,8 +74,8 @@ const getDate = (date, locale) => {
 
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
 export const query = graphql`
-  query {
-    contentfulProject(slug: { eq: "dengro" }) {
+  query getProject($id: String!) {
+    contentfulProject(contentful_id: { eq: $id }) {
       seo {
         title
         description
@@ -102,4 +102,4 @@ export const query = graphql`
   }
 `
 
-export default ProjectPage
+export default ProjectTemplate

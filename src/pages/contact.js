@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { graphql } from 'gatsby'
 import { Layout, SEO, SectionIntro, Social } from '../components'
 import { Enquiry } from '../components/form'
 
