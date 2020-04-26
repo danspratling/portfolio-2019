@@ -37,7 +37,11 @@ const ProjectList = ({ sectionIntro, projectList }) => {
             key={project.slug}
             className="w-full md:w-1/2 md:px-4 xl:px-24 py-4 xl:py-12"
           >
-            <ProjectCard {...project} image={project.previewImage} />
+            <ProjectCard
+              {...project}
+              image={project.previewImage}
+              url={`/projects/${project.slug}`}
+            />
           </div>
         ))}
 

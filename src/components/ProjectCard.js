@@ -11,7 +11,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
  * @param {Object} props.image -
  * @param {Object} props.link
  */
-const ProjectCard = ({ title, categories, image, link }) => {
+const ProjectCard = ({ title, categories, image, url }) => {
   return (
     <div className="flex flex-col bg-gray-900">
       <header className="flex items-center justify-between text-white">
@@ -22,7 +22,7 @@ const ProjectCard = ({ title, categories, image, link }) => {
           </p>
         </div>
         <Link
-          to={link}
+          to={url}
           title={`${title} project page`}
           className="text-xl py-8 px-12 hover:text-green-400 transition duration-200"
         >
