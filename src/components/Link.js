@@ -17,7 +17,10 @@ const Link = ({ to, children }) => {
 
 //External links ar the default
 const ExternalLink = ({ link, children }) => (
-  <a href={link} className="w-auto h-auto bg-green-400 px-6 py-3 text-lg">
+  <a
+    href={link}
+    className="inline-block w-auto h-auto bg-green-400 px-8 py-3 text-lg uppercase tracking-wider text-black"
+  >
     {children}
   </a>
 )
@@ -26,7 +29,7 @@ const ExternalLink = ({ link, children }) => (
 const InternalLink = ({ link, children }) => (
   <GatsbyLink
     to={link}
-    className="w-auto h-auto bg-green-400 px-6 py-3 text-lg"
+    className="inline-block w-auto h-auto bg-green-400 px-8 py-3 text-lg uppercase tracking-wider text-black"
   >
     {children}
   </GatsbyLink>

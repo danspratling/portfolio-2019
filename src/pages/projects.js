@@ -58,7 +58,9 @@ export const query = graphql`
       nodes {
         title
         slug
-        categories
+        categories: skills {
+          title
+        }
         previewImage {
           fixed(width: 600, height: 380) {
             ...GatsbyContentfulFixed_withWebp

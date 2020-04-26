@@ -31,7 +31,7 @@ const Upsell = ({ title, bodyStart, body, link, cards }) => {
       </div>
 
       {/* Clickable link */}
-      <div className="flex justify-center md:justify-end mb-20">
+      <div className="md:text-right mb-20">
         <Link to={link.link}>{link.title}</Link>
       </div>
     </>

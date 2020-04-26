@@ -130,7 +130,9 @@ export const query = graphql`
       projectList {
         title
         slug
-        categories
+        categories: skills {
+          title
+        }
         previewImage {
           fixed(width: 600) {
             ...GatsbyContentfulFixed_withWebp
