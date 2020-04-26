@@ -13,7 +13,6 @@ import {
 const ProjectTemplate = ({ data }) => {
   //Get the page sections from the graphql data
   const {
-    seo,
     title,
     body,
     link,
@@ -25,7 +24,10 @@ const ProjectTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={seo.title} description={seo.description} />
+      <SEO
+        title={`${title} Project - Dan Spratling's projects`}
+        description={`See my impact on ${title}, the tools and skills required for the build and the outcome`}
+      />
 
       <section
         id="projects"
@@ -104,10 +106,6 @@ const getDate = (date, locale) => {
 export const query = graphql`
   query getProject($id: String!) {
     contentfulProject(contentful_id: { eq: $id }) {
-      seo {
-        title
-        description
-      }
       title
       body {
         body
