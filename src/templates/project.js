@@ -15,7 +15,7 @@ const ProjectTemplate = ({ data }) => {
   const {
     title,
     body,
-    link,
+    url,
     industries,
     skills,
     tools,
@@ -52,7 +52,7 @@ const ProjectTemplate = ({ data }) => {
                 <p>{body.body}</p>
               </div>
 
-              <Link to={link.link}>{link.title}</Link>
+              {url && <Link to={url}>See the project</Link>}
             </div>
             <div className="w-full md:w-1/2 lg:px-6">IMAGE GALLERY</div>
           </div>
@@ -78,11 +78,13 @@ const ProjectTemplate = ({ data }) => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-1 items-center text-white my-20">
-            {process.map(stage => (
-              <ProgressStep {...stage} />
-            ))}
-          </div>
+          {process && (
+            <div className="grid md:grid-cols-3 gap-1 items-center text-white my-20">
+              {process.map(stage => (
+                <ProgressStep {...stage} />
+              ))}
+            </div>
+          )}
 
           {/* <div className="md:w-2/3 m-auto">
             <Quote />
@@ -110,10 +112,7 @@ export const query = graphql`
       body {
         body
       }
-      link {
-        title
-        link
-      }
+      url
       industries {
         title
       }
