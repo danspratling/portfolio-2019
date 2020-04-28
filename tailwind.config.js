@@ -100,6 +100,9 @@ module.exports = {
         '12': '12px',
         '16': '16px',
       },
+      boxShadow: {
+        button: `0 0.25rem #38a169`,
+      },
       transitionProperty: {
         inputs:
           'background-color, color, border, border-color, fill, stroke, opacity, box-shadow',
@@ -113,10 +116,11 @@ module.exports = {
     },
   },
   variants: {
-    flex: ['responsive', 'hover'],
-    width: ['responsive', 'hover'],
-    minWidth: ['responsive', 'hover'],
-    margin: ['responsive', 'hover'],
+    flex: ['responsive', 'hover', 'focus'],
+    width: ['responsive', 'hover', 'focus'],
+    minWidth: ['responsive', 'hover', 'focus'],
+    boxShadow: ['responsive', 'hover', 'focus'],
+    margin: ['responsive', 'hover', 'focus'],
   },
   plugins: [],
 }

@@ -11,36 +11,6 @@ import {
   Lightbox,
 } from '../components'
 
-const MasonryImage = ({ image, index, openLightbox }) => {
-  return (
-    <div
-      onClick={() => openLightbox(index)}
-      className="hover:-mt-2 hover:mb-2 transition-all duration-200 cursor-pointer"
-    >
-      <Image fluid={image.fluid} className="max-w-full mb-4" />
-    </div>
-  )
-}
-
-const MasonryGallery = ({ images, openLightbox }) => {
-  const firstCol = images.slice(0, 2)
-  const secondCol = images.slice(2, 4)
-  return (
-    <div className="w-full flex flex-row justify-center lg:-mx-2">
-      <div className="flex flex-col w-1/2 lg:min-w-180 mx-2">
-        {firstCol.map((img, index) => (
-          <MasonryImage image={img} index={index} openLightbox={openLightbox} />
-        ))}
-      </div>
-      <div className="flex flex-col w-1/2 lg:min-w-180 mx-2 mt-16">
-        {secondCol.map((img, index) => (
-          <MasonryImage image={img} index={index} openLightbox={openLightbox} />
-        ))}
-      </div>
-    </div>
-  )
-}
-
 const ProjectTemplate = ({ data }) => {
   //Get the page sections from the graphql data
   const {
@@ -111,8 +81,8 @@ const ProjectTemplate = ({ data }) => {
 
           {process && (
             <div className="grid md:grid-cols-3 gap-1 items-center text-white my-20">
-              {process.map(stage => (
-                <ProgressStep {...stage} />
+              {process.map((stage, index) => (
+                <ProgressStep key={index} {...stage} />
               ))}
             </div>
           )}
@@ -133,14 +103,55 @@ const ProjectTemplate = ({ data }) => {
   )
 }
 
-//Gets date in locale format
-const getDate = (date, locale) => {
-  return new Intl.DateTimeFormat(locale, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(new Date(date))
+const MasonryImage = ({ image, index, openLightbox }) => {
+  return (
+    <button
+      onClick={() => openLightbox(index)}
+      onKeyDown={e => (e.keyCode === 13 ? openLightbox(index) : null)}
+      className="hover:-mt-2 hover:mb-2 transition-all duration-200 cursor-pointer"
+    >
+      <Image fluid={image.fluid} className="max-w-full mb-4" />
+    </button>
+  )
 }
+
+const MasonryGallery = ({ images, openLightbox }) => {
+  const firstCol = images.slice(0, 2)
+  const secondCol = images.slice(2, 4)
+  return (
+    <div className="w-full flex flex-row justify-center lg:-mx-2">
+      <div className="flex flex-col w-1/2 lg:min-w-180 mx-2">
+        {firstCol.map((img, index) => (
+          <MasonryImage
+            key={index}
+            image={img}
+            index={index}
+            openLightbox={openLightbox}
+          />
+        ))}
+      </div>
+      <div className="flex flex-col w-1/2 lg:min-w-180 mx-2 mt-16">
+        {secondCol.map((img, index) => (
+          <MasonryImage
+            key={index}
+            image={img}
+            index={index}
+            openLightbox={openLightbox}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+//Gets date in locale format
+// const getDate = (date, locale) => {
+//   return new Intl.DateTimeFormat(locale, {
+//     year: 'numeric',
+//     month: 'long',
+//     day: 'numeric',
+//   }).format(new Date(date))
+// }
 
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
 export const query = graphql`
@@ -152,12 +163,12 @@ export const query = graphql`
       }
       url
       thumbs: gallery {
-        fluid(maxWidth: 200, maxHeight: 280) {
+        fluid(maxWidth: 400, maxHeight: 520) {
           ...GatsbyContentfulFluid_withWebp
         }
       }
       gallery {
-        fluid(maxHeight: 640) {
+        fluid(maxWidth: 640) {
           ...GatsbyContentfulFluid_withWebp
         }
       }

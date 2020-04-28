@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -13,38 +13,60 @@ const Lightbox = ({
   currentIndex,
   setCurrentIndex,
 }) => {
-  if (!lightboxState) {
-    return null
-  }
-
-  const rootEl = document.getElementById('___gatsby')
-  rootEl.classList.add('max-h-screen')
-  rootEl.classList.add('overflow-hidden')
-
   const onChange = value => {
-    console.log(value)
     setCurrentIndex(value)
   }
 
-  const closeLightbox = () => {
-    rootEl.classList.remove('max-h-screen')
-    rootEl.classList.remove('overflow-hidden')
-    setLightboxState(false)
+  const handleKeypress = e => {
+    //escape
+    if (e.keyCode === 27) {
+      setLightboxState(false)
+    }
+
+    //left arrow or A
+    if ((e.keyCode === 37 || e.key === 'a') && currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+    }
+
+    //right arrow or D
+    if (
+      (e.keyCode === 39 || e.key === 'd') &&
+      currentIndex < images.length - 1
+    ) {
+      setCurrentIndex(currentIndex + 1)
+    }
   }
 
-  const handleEscape = e => e.keyCode === 27 && closeLightbox
+  useEffect(() => {
+    const rootEl = document.getElementById('___gatsby')
 
-  document.addEventListener('keydown', e => handleEscape(e))
+    //mount
 
+    rootEl.classList.add('max-h-screen')
+    rootEl.classList.add('overflow-hidden')
+    document.addEventListener('keydown', e => handleKeypress(e))
+
+    //unmount
+    return () => {
+      rootEl.classList.remove('max-h-screen')
+      rootEl.classList.remove('overflow-hidden')
+      document.addEventListener('keydown', e => handleKeypress(e))
+    }
+  }, [])
+
+  if (!lightboxState) {
+    return null
+  }
   return (
     <div className="absolute top-0 bottom-0 left-0 right-0">
       <div className="relative z-20 max-h-full">
-        <div
+        <button
           className="absolute top-0 right-0 p-3 lg:p-10 text-gray-400 hover:text-white transition duration-300 cursor-pointer"
-          onClick={closeLightbox}
+          onClick={() => setLightboxState(false)}
+          onKeyDown={e => (e.keyCode === 13 ? setLightboxState(false) : null)}
         >
           <FontAwesomeIcon icon={faTimes} className="text-2xl" />
-        </div>
+        </button>
         <Carousel value={currentIndex} onChange={onChange} arrows>
           {images.map(image => (
             <Image
