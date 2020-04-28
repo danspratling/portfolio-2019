@@ -1,0 +1,50 @@
+.BrainhubCarousel {
+  max-height: 100vh;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  overflow: scroll;
+  align-items: flex-start;
+}
+
+.BrainhubCarouselItem {
+  align-items: flex-start;
+  height: 0;
+
+  &--active {
+    height: auto;
+  }
+}
+
+.BrainhubCarousel__arrows {
+  align-self: center;
+  background: transparent;
+
+  @media (min-width: 768px) {
+    padding: 60px;
+  }
+
+  span {
+    padding: 9px;
+    border-color: transparentize(white, 0.2);
+  }
+
+  &:disabled {
+    background: transparent;
+    color: transparentize(white, 0.8);
+    cursor: none;
+
+    span {
+      border-color: transparentize(white, 0.7);
+    }
+  }
+
+  &:hover:enabled {
+    background-color: transparent;
+    color: white;
+
+    span {
+      padding: 9px;
+      border-color: white;
+    }
+  }
+}

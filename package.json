@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@brainhubeu/react-carousel": "^1.13.40",
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -28,6 +29,7 @@
     "react-helmet": "^5.2.1",
     "react-hook-form": "^5.2.0",
     "react-magic-grid": "^1.1.0",
+    "react-responsive-carousel": "^3.2.5",
     "react-syntax-highlighter": "^12.2.1",
     "react-visibility-sensor": "^5.1.1"
   },

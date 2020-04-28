@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
@@ -8,7 +8,38 @@ import {
   Link,
   ProgressStep,
   // Quote,
+  Lightbox,
 } from '../components'
+
+const MasonryImage = ({ image, index, openLightbox }) => {
+  return (
+    <div
+      onClick={() => openLightbox(index)}
+      className="hover:-mt-2 hover:mb-2 transition-all duration-200 cursor-pointer"
+    >
+      <Image fluid={image.fluid} className="max-w-full mb-4" />
+    </div>
+  )
+}
+
+const MasonryGallery = ({ images, openLightbox }) => {
+  const firstCol = images.slice(0, 2)
+  const secondCol = images.slice(2, 4)
+  return (
+    <div className="w-full flex flex-row justify-center lg:-mx-2">
+      <div className="flex flex-col w-1/2 lg:min-w-180 mx-2">
+        {firstCol.map((img, index) => (
+          <MasonryImage image={img} index={index} openLightbox={openLightbox} />
+        ))}
+      </div>
+      <div className="flex flex-col w-1/2 lg:min-w-180 mx-2 mt-16">
+        {secondCol.map((img, index) => (
+          <MasonryImage image={img} index={index} openLightbox={openLightbox} />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const ProjectTemplate = ({ data }) => {
   //Get the page sections from the graphql data
@@ -16,11 +47,21 @@ const ProjectTemplate = ({ data }) => {
     title,
     body,
     url,
+    thumbs,
+    gallery,
     industries,
     skills,
     tools,
     process,
   } = data.contentfulProject
+
+  const [lightboxState, setLightboxState] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
+
+  const openLightbox = index => {
+    setLightboxIndex(index)
+    setLightboxState(true)
+  }
 
   return (
     <Layout>
@@ -33,19 +74,9 @@ const ProjectTemplate = ({ data }) => {
         id="projects"
         className="min-h-screen min-w-full bg-black px-6 py-32"
       >
-        {/* <div className="-mx-12 pt-20 mb-20 bg-gray-900 border-b-2 border-green-400">
-          <Image
-            fluid={[
-              mobileImage.fluid,
-              { ...desktopImage.fluid, media: `(min-width: 768px)` },
-            ]}
-            className="w-full min-w-768"
-          />
-        </div> */}
-
         <div className="container mx-auto">
-          <div className="w-full md:w-4/5 flex flex-row flex-wrap items-center text-white mx-auto mb-32">
-            <div className="w-full md:w-1/2 lg:px-6">
+          <div className="lg:w-5/6 mx-auto grid lg:grid-cols-2 lg:gap-20 items-center text-white mx-auto mb-32">
+            <div className="w-full mb-40 lg:my-0">
               <h1 className="text-5xl text-bold text-green-400">{title}</h1>
 
               <div className="pt-4 pb-8 text-lg text-gray-300">
@@ -54,7 +85,7 @@ const ProjectTemplate = ({ data }) => {
 
               {url && <Link to={url}>See the project</Link>}
             </div>
-            <div className="w-full md:w-1/2 lg:px-6">IMAGE GALLERY</div>
+            <MasonryGallery images={thumbs} openLightbox={openLightbox} />
           </div>
 
           <div className="grid md:grid-cols-3 gap-1 items-stretch text-white my-20">
@@ -91,6 +122,13 @@ const ProjectTemplate = ({ data }) => {
           </div> */}
         </div>
       </section>
+      <Lightbox
+        lightboxState={lightboxState}
+        setLightboxState={setLightboxState}
+        images={gallery}
+        currentIndex={lightboxIndex}
+        setCurrentIndex={setLightboxIndex}
+      />
     </Layout>
   )
 }
@@ -113,6 +151,16 @@ export const query = graphql`
         body
       }
       url
+      thumbs: gallery {
+        fluid(maxWidth: 200, maxHeight: 280) {
+          ...GatsbyContentfulFluid_withWebp
+        }
+      }
+      gallery {
+        fluid(maxHeight: 640) {
+          ...GatsbyContentfulFluid_withWebp
+        }
+      }
       industries {
         title
       }

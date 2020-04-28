@@ -2,6 +2,7 @@ import ContentList from './ContentList'
 import Footer from './Footer'
 import Header from './Header'
 import Layout from './Layout'
+import Lightbox from './Lightbox'
 import Link from './Link'
 import MegaHeading from './MegaHeading'
 import ProgressStep from './ProgressStep'
@@ -22,6 +23,7 @@ export {
   Header,
   Layout,
   Link,
+  Lightbox,
   MegaHeading,
   ProgressStep,
   ProjectCard,
