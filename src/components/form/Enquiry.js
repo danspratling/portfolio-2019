@@ -1,13 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Input, TextArea, Select } from './elements'
 
 const Enquiry = () => {
-  const { register, errors } = useForm()
+  const [formSubmitted, setFormSubmitted] = useState(false)
+  const { register, errors, handleSubmit } = useForm()
+  const onSubmit = data => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'enquiry', ...data }),
+    }).then(() => setFormSubmitted(true))
+  }
+
+  if (formSubmitted) {
+    return (
+      <div className="w-full max-w-xl text-center">
+        <p className="text-2xl md:text-4xl text-green-400 mb-2">
+          Thanks for enquiring!
+        </p>
+        <p className="text-lg text-white">I'll be in touch shortly</p>
+      </div>
+    )
+  }
 
   return (
     <form
       className="w-full max-w-xl"
+      onSubmit={handleSubmit(onSubmit)}
       name="enquiry"
       method="POST"
       data-netlify="true"
@@ -61,55 +81,12 @@ const Enquiry = () => {
       </div>
     </form>
   )
+}
 
-  // return (
-  // <form className="w-full max-w-lg" onSubmit={handleSubmit(onSubmit)}>
-  //     {!submitted ? (
-  //       <div className="flex flex-wrap -mx-3 mb-6">
-  //         <InputText
-  //           label="Name"
-  //           placeholder="Jane Doe"
-  //           width="w-full"
-  //           error={errors.name}
-  //           register={register}
-  //         />
-  //         <InputText
-  //           label="Email"
-  //           placeholder="janedoe@webmail.com"
-  //           width="w-full"
-  //           error={errors.email}
-  //           register={register}
-  //         />
-  //         <InputText
-  //           label="Current website"
-  //           placeholder="www.company.com"
-  //           width="w-1/2"
-  //           error={errors.currentWebsite}
-  //           register={register}
-  //         />
-  //         {/* <Select
-  //           label="Budget"
-  //           placeholder="Select a budget"
-  //           width="w-1/2"
-  //           items={['£1500', '£2500', '£3500', '£4500+']}
-  //           register={register}
-  //         />
-  //         <TextArea
-  //           label="Message"
-  //           placeholder="Tell me what you're looking for"
-  //           register={register}
-  //         /> */}
-  //         <div className="w-full flex justify-center">
-  //           <button className="w-auto h-auto bg-green-400 px-6 py-3 text-lg">
-  //             Submit
-  //           </button>
-  //         </div>
-  //       </div>
-  //     ) : (
-  //       <div className="text-white">Form submitted!</div>
-  //     )}
-  //   </form>
-  // )
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
 export default Enquiry
