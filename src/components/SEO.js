@@ -26,7 +26,7 @@ const SEO = ({ title, description, image, article, slug }) => {
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${baseUrl}${image}` || `${baseUrl}${defaultImage}`,
+    image: `https://${baseUrl}${image}` || `https://${baseUrl}${defaultImage}`,
     url: `${baseUrl}${pathname.trim('/')}`,
   }
 
@@ -35,6 +35,7 @@ const SEO = ({ title, description, image, article, slug }) => {
       <html lang="en" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
+
       {seo.url && <meta property="og:url" content={seo.url} />}
       {(article ? true : null) && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
@@ -42,6 +43,7 @@ const SEO = ({ title, description, image, article, slug }) => {
         <meta property="og:description" content={seo.description} />
       )}
       {seo.image && <meta property="og:image" content={seo.image} />}
+
       <meta name="twitter:card" content="summary_large_image" />
       {author && <meta name="twitter:creator" content={author} />}
       {seo.title && <meta name="twitter:title" content={seo.title} />}
