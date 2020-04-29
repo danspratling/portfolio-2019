@@ -6,8 +6,6 @@ import tailwindConfig from '../../tailwind.config.js'
 
 const fullConfig = resolveConfig(tailwindConfig)
 
-console.log(fullConfig)
-
 ReactSyntaxHighlighter.registerLanguage('javascript', js)
 
 const SyntaxHighlighter = ({ showLineNumbers, children }) => {

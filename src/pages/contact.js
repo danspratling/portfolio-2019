@@ -8,7 +8,11 @@ const ContactPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={seo.title} description={seo.description} />
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={'/images/seo/contact.png'}
+      />
 
       <section
         id="intro"

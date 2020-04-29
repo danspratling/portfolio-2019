@@ -25,7 +25,11 @@ const IndexPage = ({ data }) => {
   //Render the page
   return (
     <Layout>
-      <SEO title={seo.title} description={seo.description} />
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={'/images/seo/home.png'}
+      />
 
       {/* page section - Introduction */}
       <section

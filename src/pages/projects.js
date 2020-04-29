@@ -11,7 +11,11 @@ const ProjectPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={seo.title} description={seo.description} />
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={'/images/seo/projects.png'}
+      />
 
       <section
         id="projects"

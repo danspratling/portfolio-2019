@@ -11,7 +11,7 @@ import {
   Lightbox,
 } from '../components'
 
-const ProjectTemplate = ({ data }) => {
+const ProjectTemplate = ({ data, pageContext }) => {
   //Get the page sections from the graphql data
   const {
     title,
@@ -24,6 +24,7 @@ const ProjectTemplate = ({ data }) => {
     tools,
     process,
   } = data.contentfulProject
+  const { seoImage } = pageContext
 
   const [lightboxState, setLightboxState] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
@@ -38,6 +39,7 @@ const ProjectTemplate = ({ data }) => {
       <SEO
         title={`${title} Project - Dan Spratling's projects`}
         description={`See my impact on ${title}, the tools and skills required for the build and the outcome`}
+        image={seoImage}
       />
 
       <section

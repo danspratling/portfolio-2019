@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import defaultImage from '../images/dengro-preview.png'
 
-const SEO = ({ title, description, image, article }) => {
+const SEO = ({ title, description, image, article, slug }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -22,6 +22,8 @@ const SEO = ({ title, description, image, article }) => {
     baseUrl,
     author,
   } = site.siteMetadata
+
+  const defaultImage = '/static/images/seo/home.png'
 
   const seo = {
     title: title || defaultTitle,
