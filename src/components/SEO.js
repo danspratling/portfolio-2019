@@ -10,8 +10,6 @@ import { Helmet } from 'react-helmet'
 import { useLocation } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import defaultImage from '../images/dengro-preview.png'
-
 const SEO = ({ title, description, image, article, slug }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
@@ -23,13 +21,13 @@ const SEO = ({ title, description, image, article, slug }) => {
     author,
   } = site.siteMetadata
 
-  const defaultImage = '/static/images/seo/home.png'
+  const defaultImage = '/images/seo/home.png'
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: image || defaultImage,
-    url: `${baseUrl}${pathname}`,
+    image: `${baseUrl}${image}` || `${baseUrl}${defaultImage}`,
+    url: `${baseUrl}${pathname.trim('/')}`,
   }
 
   return (
