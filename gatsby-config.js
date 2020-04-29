@@ -29,7 +29,7 @@ module.exports = {
           },
           {
             family: `Fira Code`,
-            variants: [`400`, `700`]
+            variants: [`400`, `700`],
           },
         ],
       },
@@ -65,9 +65,20 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Dan Spratling - Freelance web developer`,
+        short_name: `Dan_Spratling`,
+        start_url: `/`,
+        background_color: `#000000`,
+        theme_color: `#68D391`,
+        display: `minimal-ui`,
+        icon: `static/images/favicon.png`,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
