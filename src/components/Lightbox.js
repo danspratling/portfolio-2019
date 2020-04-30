@@ -13,6 +13,20 @@ const Lightbox = ({
   currentIndex,
   setCurrentIndex,
 }) => {
+  const rootEl = document.getElementById('___gatsby')
+
+  const init = () => {
+    rootEl.classList.add('max-h-screen')
+    rootEl.classList.add('overflow-hidden')
+    document.addEventListener('keydown', e => handleKeypress(e))
+  }
+
+  const exit = () => {
+    rootEl.classList.remove('max-h-screen')
+    rootEl.classList.remove('overflow-hidden')
+    document.addEventListener('keydown', e => handleKeypress(e))
+  }
+
   const onChange = value => {
     setCurrentIndex(value)
   }
@@ -37,26 +51,21 @@ const Lightbox = ({
     }
   }
 
+  //initialize
+  init()
+
+  //Clean up on unmount
   useEffect(() => {
-    const rootEl = document.getElementById('___gatsby')
-
-    //mount
-
-    rootEl.classList.add('max-h-screen')
-    rootEl.classList.add('overflow-hidden')
-    document.addEventListener('keydown', e => handleKeypress(e))
-
-    //unmount
-    return () => {
-      rootEl.classList.remove('max-h-screen')
-      rootEl.classList.remove('overflow-hidden')
-      document.addEventListener('keydown', e => handleKeypress(e))
-    }
+    return (() => exit())
   }, [])
 
+  //exit early if lightbox is closed
   if (!lightboxState) {
+    exit()
     return null
   }
+
+  //render lightbox
   return (
     <div className="absolute top-0 bottom-0 left-0 right-0">
       <div className="relative z-20 max-h-full">
