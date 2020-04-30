@@ -13,15 +13,25 @@ const Lightbox = ({
   currentIndex,
   setCurrentIndex,
 }) => {
-  const rootEl = document.getElementById('___gatsby')
+  //Clean up on unmount
+  useEffect(() => {
+    return (() => exit())
+  }, [])
+
+  //exit early if server
+  if(typeof document === 'undefined') {
+    return null
+  }
 
   const init = () => {
+    const rootEl =  document.getElementById('___gatsby')
     rootEl.classList.add('max-h-screen')
     rootEl.classList.add('overflow-hidden')
     document.addEventListener('keydown', e => handleKeypress(e))
   }
 
   const exit = () => {
+    const rootEl =  document.getElementById('___gatsby')
     rootEl.classList.remove('max-h-screen')
     rootEl.classList.remove('overflow-hidden')
     document.addEventListener('keydown', e => handleKeypress(e))
@@ -51,19 +61,14 @@ const Lightbox = ({
     }
   }
 
-  //initialize
-  init()
-
-  //Clean up on unmount
-  useEffect(() => {
-    return (() => exit())
-  }, [])
-
   //exit early if lightbox is closed
   if (!lightboxState) {
     exit()
     return null
   }
+
+  //initialize
+  init()
 
   //render lightbox
   return (
