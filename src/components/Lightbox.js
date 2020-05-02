@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import Image from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -13,62 +13,72 @@ const Lightbox = ({
   currentIndex,
   setCurrentIndex,
 }) => {
-  //Clean up on unmount
-  useEffect(() => {
-    return (() => exit())
-  }, [])
-
-  //exit early if server
-  if(typeof document === 'undefined') {
-    return null
-  }
-
-  const init = () => {
-    const rootEl =  document.getElementById('___gatsby')
-    rootEl.classList.add('max-h-screen')
-    rootEl.classList.add('overflow-hidden')
-    document.addEventListener('keydown', e => handleKeypress(e))
-  }
-
-  const exit = () => {
-    const rootEl =  document.getElementById('___gatsby')
-    rootEl.classList.remove('max-h-screen')
-    rootEl.classList.remove('overflow-hidden')
-    document.addEventListener('keydown', e => handleKeypress(e))
-  }
+  const rootEl =
+    typeof document !== 'undefined'
+      ? document.getElementById('___gatsby')
+      : null
 
   const onChange = value => {
     setCurrentIndex(value)
   }
 
-  const handleKeypress = e => {
-    //escape
-    if (e.keyCode === 27) {
-      setLightboxState(false)
-    }
+  const handleKeypress = useCallback(
+    e => {
+      //escape
+      if (e.keyCode === 27) {
+        setLightboxState(false)
+      }
 
-    //left arrow or A
-    if ((e.keyCode === 37 || e.key === 'a') && currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1)
-    }
+      //left arrow or A
+      if ((e.keyCode === 37 || e.key === 'a') && currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1)
+      }
 
-    //right arrow or D
-    if (
-      (e.keyCode === 39 || e.key === 'd') &&
-      currentIndex < images.length - 1
-    ) {
-      setCurrentIndex(currentIndex + 1)
+      //right arrow or D
+      if (
+        (e.keyCode === 39 || e.key === 'd') &&
+        currentIndex < images.length - 1
+      ) {
+        setCurrentIndex(currentIndex + 1)
+      }
+    },
+    [currentIndex, setCurrentIndex, setLightboxState, images]
+  )
+
+  const init = rootEl => {
+    if (rootEl) {
+      rootEl.classList.add('max-h-screen')
+      rootEl.classList.add('overflow-hidden')
+      document.addEventListener('keydown', e => handleKeypress(e))
     }
+  }
+
+  const exit = useCallback(() => {
+    if (rootEl) {
+      rootEl.classList.remove('max-h-screen')
+      rootEl.classList.remove('overflow-hidden')
+      document.addEventListener('keydown', e => handleKeypress(e))
+    }
+  }, [rootEl, handleKeypress])
+
+  //Clean up on unmount
+  useEffect(() => {
+    return () => exit(rootEl)
+  }, [exit, rootEl])
+
+  //exit early if server
+  if (typeof document === 'undefined') {
+    return null
   }
 
   //exit early if lightbox is closed
   if (!lightboxState) {
-    exit()
+    exit(rootEl)
     return null
   }
 
   //initialize
-  init()
+  init(rootEl)
 
   //render lightbox
   return (

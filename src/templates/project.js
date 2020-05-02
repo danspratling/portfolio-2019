@@ -17,7 +17,6 @@ const ProjectTemplate = ({ data, pageContext }) => {
     title,
     body,
     url,
-    thumbs,
     gallery,
     industries,
     skills,
@@ -57,7 +56,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
 
               {url && <Link to={url}>See the project</Link>}
             </div>
-            <MasonryGallery images={thumbs} openLightbox={openLightbox} />
+            <MasonryGallery images={gallery} openLightbox={openLightbox} />
           </div>
 
           <div className="grid md:grid-cols-3 gap-1 items-stretch text-white my-20">
@@ -157,21 +156,16 @@ const MasonryGallery = ({ images, openLightbox }) => {
 
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
 export const query = graphql`
-  query getProject($id: String!) {
+  query getThing($id: String!) {
     contentfulProject(contentful_id: { eq: $id }) {
       title
       body {
         body
       }
       url
-      thumbs: gallery {
-        fluid(maxWidth: 400, maxHeight: 520) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
       gallery {
-        fluid(maxWidth: 640) {
-          ...GatsbyContentfulFluid_withWebp
+        fluid {
+          src
         }
       }
       industries {

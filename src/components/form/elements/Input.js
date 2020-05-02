@@ -1,5 +1,4 @@
 import React from 'react'
-import FieldElement from 'react-hook-form'
 
 /**
  * The form input, designed to be able to stretch to your needs. Note that the label and error may collide

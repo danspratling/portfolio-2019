@@ -7,7 +7,7 @@ const Quote = () => {
   return (
     <div className="flex flex-wrap md:flex-no-wrap items-center text-white bg-gray-900">
       <div className="flex-0 text-center p-8">
-        <img src={image} className="max-w-full md:max-w-300" />
+        <img src={image} alt="" className="max-w-full md:max-w-300" />
       </div>
       <div className="flex-auto text-center p-8">
         <FontAwesomeIcon

@@ -29,10 +29,6 @@ const documentRichTextOptions = {
     },
     [BLOCKS.HEADING_3]: (node, children) => {
       const ref = `#${children[0].toLowerCase().replace(' ', '')}`
-      const anchor =
-        typeof window !== 'undefined'
-          ? `#${window.location.href.split('#')[1]}`
-          : ''
       return (
         <a href={ref}>
           <p className="text-sm pl-5 py-2 transition duration-400 hover:text-green-400">
