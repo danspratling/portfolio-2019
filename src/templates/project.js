@@ -111,7 +111,10 @@ const MasonryImage = ({ image, index, openLightbox }) => {
       onKeyDown={e => (e.keyCode === 13 ? openLightbox(index) : null)}
       className="hover:-mt-2 hover:mb-2 transition-all duration-200 cursor-pointer"
     >
-      <Image fluid={image.fluid} className="max-w-full mb-4" />
+      <Image
+        fluid={image.fluid}
+        className="mb-4 max-h-240 md:max-h-380 lg:max-h-240"
+      />
     </button>
   )
 }
@@ -165,7 +168,7 @@ export const query = graphql`
       url
       gallery {
         fluid {
-          src
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       industries {
