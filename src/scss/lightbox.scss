@@ -1,50 +1,49 @@
 .BrainhubCarousel {
-  max-height: 100vh;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  overflow: scroll;
-  align-items: flex-start;
+  @apply max-h-screen;
+  @apply py-12;
+  @apply overflow-scroll;
+  @apply items-start;
 }
 
 .BrainhubCarouselItem {
-  align-items: flex-start;
-  height: 0;
+  @apply h-0;
+  @apply items-start;
 
   &--active {
-    height: auto;
+    @apply h-auto;
   }
 }
 
 .BrainhubCarousel__arrows {
-  align-self: center;
-  background: transparent;
+  @apply self-center;
+  @apply bg-transparent;
 
-  @media (min-width: 768px) {
-    padding: 60px;
+  @screen md {
+    @apply p-16;
   }
 
   span {
-    padding: 9px;
-    border-color: transparentize(white, 0.2);
+    @apply p-3;
+    @apply border-gray-200;
   }
 
   &:disabled {
-    background: transparent;
-    color: transparentize(white, 0.8);
+    @apply bg-transparent;
+    @apply text-gray-200;
     cursor: none;
 
     span {
-      border-color: transparentize(white, 0.7);
+      @apply border-gray-300;
     }
   }
 
   &:hover:enabled {
-    background-color: transparent;
-    color: white;
+    @apply bg-transparent;
+    @apply text-white;
 
     span {
-      padding: 9px;
-      border-color: white;
+      @apply p-3;
+      @apply border-white;
     }
   }
 }
