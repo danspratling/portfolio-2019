@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import { Layout, SectionIntro, Markdown, SEO } from '../components'
+import { Layout, SectionIntro, SEO } from '../components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,11 +13,11 @@ const ProjectPage = ({ data }) => {
 
   return (
     <Layout>
-      {/* <SEO
+      <SEO
         title={seo.title}
         description={seo.description}
         image={'/images/seo/projects.png'}
-      /> */}
+      />
 
       <section
         id="projects"

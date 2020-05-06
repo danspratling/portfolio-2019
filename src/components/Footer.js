@@ -21,6 +21,12 @@ const Footer = () => {
               Projects
             </Link>
             <Link
+              to="/blog"
+              className="px-4 hover:text-green-400 transition duration-200"
+            >
+              Blog
+            </Link>
+            <Link
               to="/contact"
               className="px-4 hover:text-green-400 transition duration-200"
             >
