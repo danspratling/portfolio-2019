@@ -6,10 +6,9 @@ import '../scss/markdown.scss'
 import { Info, Warn, Star } from '../components/shortcodes'
 const shortcodes = { Info, Warn, Star }
 
-const Markdown = ({ className, children }) => {
-  const classes = ['markdown', className || null]
+const Markdown = ({ children }) => {
   return (
-    <div className={classes.join(' ')}>
+    <div className="markdown">
       <MDXProvider components={shortcodes}>
         <MDXRenderer>{children}</MDXRenderer>
       </MDXProvider>

@@ -21,7 +21,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             <div className="w-full lg:w-1/2 mx-auto">
               <h1 className="text-3xl text-green-400 mb-6">{title}</h1>
               <h2 className="text-lg mb-6">{description}</h2>
-              <Markdown className="py-6">{body.childMdx.body}</Markdown>
+              <Markdown>{body.childMdx.body}</Markdown>
             </div>
           </div>
         </div>

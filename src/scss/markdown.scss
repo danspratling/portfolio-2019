@@ -1,7 +1,65 @@
 @import '../scss/prism-syntax.scss';
 
 .markdown {
+  h1,
+  h2 {
+    @apply text-2xl;
+    @apply my-6;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-xl;
+    @apply my-3;
+  }
+
+  a {
+    @apply text-green-400;
+    @apply underline;
+    @apply transition-colors;
+    @apply duration-200;
+
+    &:hover {
+      @apply text-green-200;
+    }
+  }
+
   p {
     @apply mb-6;
+  }
+
+  /* Lists */
+  ul,
+  ol {
+    @apply mb-4;
+    @apply ml-8;
+  }
+
+  li > p,
+  li > ul,
+  li > ol {
+    @apply mb-0;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  /* Blockquotes */
+  blockquote {
+    @apply p-6;
+    @apply -mx-6;
+    @apply mb-4;
+    @apply bg-gray-900;
+
+    p {
+      @apply mb-0;
+    }
   }
 }
