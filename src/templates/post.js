@@ -1,69 +1,46 @@
-// import React from 'react'
-// import { graphql } from 'gatsby'
-// import Image from 'gatsby-image'
+import React from 'react'
+import { graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from '@mdx-js/react'
+import '../scss/markdown.scss'
+import '../scss/prism-syntax.scss'
 
-// import { Layout, RichText, ContentList, SEO } from '../components'
+import { Layout, SEO } from '../components'
+import { Info, Warn, Star } from '../components/shortcodes'
+const shortcodes = { Info, Warn, Star }
 
-// const ProjectTemplate = ({ data }) => {
-//   //Get the page sections from the graphql data
-//   const {
-//     seo,
-//     createdAt,
-//     updatedAt,
-//     title,
-//     desktopImage,
-//     mobileImage,
-//     body,
-//     categories,
-//     node_locale,
-//   } = data.contentfulProject
+const ProjectTemplate = ({ data, pageContext }) => {
+  //Get the page sections from the graphql data
+  const { title, description, tags, body } = data.contentfulPost
+  const { seoImage } = pageContext
 
-//   return (
-//     <Layout>
-//       <SEO title={seo.title} description={seo.description} />
+  return (
+    <Layout>
+      <SEO title={title} description={description} image={seoImage} />
 
-//       <section
-//         id="projects"
-//         className="min-h-screen min-w-full bg-black px-6 pb-32"
-//       >
-//         <div className="-mx-12 pt-20 mb-20 bg-gray-900 border-b-2 border-green-400">
-//           <Image
-//             fluid={[
-//               mobileImage.fluid,
-//               { ...desktopImage.fluid, media: `(min-width: 768px)` },
-//             ]}
-//             className="w-full min-w-768"
-//           />
-//         </div>
+      <section
+        id="projects"
+        className="min-h-screen min-w-full bg-black px-6 py-32"
+      >
+        <div className="container mx-auto">
+          <div className="flex flex-col flex-wrap text-white">
+            <div className="w-full lg:w-1/2 mx-auto">
+              <h1 className="text-3xl text-green-400 mb-6">{title}</h1>
+              <h2 className="text-lg mb-6">{description}</h2>
+              <div className="markdown py-6">
+                <MDXProvider components={shortcodes}>
+                  <MDXRenderer>{body.childMdx.body}</MDXRenderer>
+                </MDXProvider>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  )
+}
 
-//         <div className="container mx-auto">
-//           <h1 className="text-4xl text-green-400 lg:px-8">{title}</h1>
-//           <div className="flex flex-row flex-wrap text-white">
-//             <div className="w-full hidden md:block md:order-last md:w-1/3 lg:px-8 mt-12">
-//               <ContentList body={body} />
-//             </div>
-//             <div className="w-full md:order-first md:w-2/3 lg:px-8">
-//               <RichText body={body} />
-//             </div>
-//           </div>
-//           <div className="py-6 lg:px-8">
-//             <p className="text-xs text-gray-600 uppercase font-bold">
-//               {updatedAt > createdAt ? 'Last updated' : 'Created on'}
-//             </p>
-//             <p className="text-xl text-white">
-//               {getDate(
-//                 updatedAt > createdAt ? updatedAt : createdAt,
-//                 node_locale
-//               )}
-//             </p>
-//           </div>
-//         </div>
-//       </section>
-//     </Layout>
-//   )
-// }
-
-// //Gets date in locale format
+//Gets date in locale format
 // const getDate = (date, locale) => {
 //   return new Intl.DateTimeFormat(locale, {
 //     year: 'numeric',
@@ -72,34 +49,20 @@
 //   }).format(new Date(date))
 // }
 
-// //Graphql query getting all the data we need from contentful (gatsby-config.js)
-// export const query = graphql`
-//   query getProject($id: String!) {
-//     contentfulProject(contentful_id: { eq: $id }) {
-//       seo {
-//         title
-//         description
-//       }
-//       title
-//       createdAt(formatString: "")
-//       updatedAt(formatString: "")
-//       desktopImage: headerImage {
-//         fluid {
-//           ...GatsbyContentfulFluid_withWebp
-//         }
-//       }
-//       mobileImage: headerImage {
-//         fluid(maxWidth: 900, maxHeight: 260, quality: 100) {
-//           ...GatsbyContentfulFluid_withWebp
-//         }
-//       }
-//       body {
-//         json
-//       }
-//       categories
-//       node_locale
-//     }
-//   }
-// `
+//Graphql query getting all the data we need from contentful (gatsby-config.js)
+export const query = graphql`
+  query getProject($id: String!) {
+    contentfulPost(contentful_id: { eq: $id }) {
+      title
+      description
+      tags
+      body {
+        childMdx {
+          body
+        }
+      }
+    }
+  }
+`
 
-// export default ProjectTemplate
+export default ProjectTemplate

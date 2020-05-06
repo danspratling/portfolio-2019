@@ -1,7 +1,6 @@
 import React from 'react'
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
+import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { SyntaxHighlighter } from '../components'
 
 const RichText = ({ body }) => {
   return (
@@ -11,15 +10,6 @@ const RichText = ({ body }) => {
 
 //Options adjusting rich text elements
 const documentRichTextOptions = {
-  renderMark: {
-    [MARKS.CODE]: text => {
-      return (
-        <div className="text-sm">
-          <SyntaxHighlighter>{text}</SyntaxHighlighter>
-        </div>
-      )
-    },
-  },
   renderNode: {
     [BLOCKS.HEADING_2]: (node, children) => (
       <h2

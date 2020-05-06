@@ -8,15 +8,24 @@ generateImage({
 })
 generateImage({ title: '- Dan Spratling - Get in touch', slug: 'contact' })
 generateImage({ title: '- Dan Spratling - Explore projects', slug: 'projects' })
+generateImage({ title: '- Dan Spratling - Inside my head', slug: 'blog' })
 // generateImage({ title: '', slug: 'uses' })
 
-//create our pages
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   //get data from contentful, assigning the values we need
   const { data } = await graphql(`
     query {
+      posts: allContentfulPost {
+        edges {
+          node {
+            id: contentful_id
+            title
+            slug
+          }
+        }
+      }
       projects: allContentfulProject {
         edges {
           node {
@@ -46,14 +55,20 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // //create posts from data
-  // data.posts.edges.forEach(({ node }) => {
-  //   createPage({
-  //     path: `/${node.category.slug}/${node.slug}`,
-  //     component: path.resolve('./src/templates/post-template.js'),
-  //     context: {
-  //       id: node.id,
-  //     },
-  //   })
-  // })
+  //create blog posts from data
+  data.posts.edges.forEach(({ node }) => {
+    const seoImage = generateImage({
+      title: node.title,
+      slug: node.slug,
+    })
+
+    createPage({
+      path: `/blog/${node.slug}`,
+      component: path.resolve('./src/templates/post.js'),
+      context: {
+        id: node.id,
+        seoImage: seoImage,
+      },
+    })
+  })
 }

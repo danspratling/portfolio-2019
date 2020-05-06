@@ -4,4 +4,28 @@
 
 html {
   scroll-behavior: smooth;
+  @apply bg-black;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  @apply bg-transparent;
+}
+// ::-webkit-scrollbar-button {
+//   /* 2 */
+// }
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-900;
+  @apply rounded;
+  @apply transition-colors;
+  @apply duration-200;
+
+  &:hover {
+    @apply bg-gray-800;
+  }
 }

@@ -20,6 +20,19 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: 'language-',
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
@@ -48,7 +61,7 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true,
-        ignore: ['src/scss', '/react-carousel/']
+        ignore: ['src/scss', '/react-carousel/', 'prismjs/'],
       },
     },
     {

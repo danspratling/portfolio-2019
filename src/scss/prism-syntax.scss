@@ -1,0 +1,113 @@
+code[class*='language-'],
+pre[class*='language-'] {
+  @apply text-sm;
+  @apply text-gray-400;
+}
+
+pre[class*='language-'],
+:not(pre) > code[class*='language-'] {
+  @apply bg-gray-900;
+  @apply bg-opacity-50;
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  @apply py-4;
+  @apply px-6;
+  @apply my-8;
+  @apply -mx-6;
+  @apply overflow-auto;
+  @apply border;
+  @apply border-solid;
+  @apply border-gray-700;
+  @apply rounded;
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  @apply px-2;
+  @apply py-1;
+  @apply rounded;
+  @apply border;
+  @apply border-solid;
+  @apply border-gray-700;
+  @apply whitespace-normal;
+}
+
+.gatsby-highlight-code-line {
+  @apply block;
+  @apply -mx-6;
+  @apply px-6;
+  @apply bg-gray-800;
+  @apply bg-opacity-50;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-gray-600;
+}
+
+.token.function-variable,
+.token.function {
+  @apply text-orange-300;
+}
+
+.token.parameter {
+  @apply text-pink-600;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+  @apply text-red-400;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-gray-400;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  @apply text-gray-400;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  @apply text-purple-500;
+}
+
+.token.regex,
+.token.important {
+  @apply text-purple-500;
+}
+
+.token.important,
+.token.bold {
+  @apply font-bold;
+}
+.token.italic {
+  @apply italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.deleted {
+  @apply text-red-600;
+}
