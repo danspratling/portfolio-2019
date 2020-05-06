@@ -42,7 +42,7 @@ const SectionIntro = ({ data, animation }) => {
             <SectionPreHeading>{heading}</SectionPreHeading>
             <h2 className="text-2xl md:text-3xl text-white mb-6">{title}</h2>
             <div className="text-gray-600">
-              <RichText body={body} />
+              {body && <RichText body={body} />}
               <SectionLink {...link} />
             </div>
           </div>

@@ -1,13 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { MDXProvider } from '@mdx-js/react'
-import '../scss/markdown.scss'
-import '../scss/prism-syntax.scss'
 
-import { Layout, SEO } from '../components'
-import { Info, Warn, Star } from '../components/shortcodes'
-const shortcodes = { Info, Warn, Star }
+import { Layout, SEO, Markdown } from '../components'
 
 const ProjectTemplate = ({ data, pageContext }) => {
   //Get the page sections from the graphql data
@@ -27,11 +21,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             <div className="w-full lg:w-1/2 mx-auto">
               <h1 className="text-3xl text-green-400 mb-6">{title}</h1>
               <h2 className="text-lg mb-6">{description}</h2>
-              <div className="markdown py-6">
-                <MDXProvider components={shortcodes}>
-                  <MDXRenderer>{body.childMdx.body}</MDXRenderer>
-                </MDXProvider>
-              </div>
+              <Markdown className="py-6">{body.childMdx.body}</Markdown>
             </div>
           </div>
         </div>

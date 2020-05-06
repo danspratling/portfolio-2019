@@ -5,6 +5,7 @@
 html {
   scroll-behavior: smooth;
   @apply bg-black;
+  @apply text-gray-400;
 }
 
 ::-webkit-scrollbar {

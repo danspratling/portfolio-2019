@@ -4,6 +4,7 @@ import Header from './Header'
 import Layout from './Layout'
 import Lightbox from './Lightbox'
 import Link from './Link'
+import Markdown from './Markdown'
 import MegaHeading from './MegaHeading'
 import ProgressStep from './ProgressStep'
 import ProjectCard from './ProjectCard'
@@ -23,6 +24,7 @@ export {
   Layout,
   Link,
   Lightbox,
+  Markdown,
   MegaHeading,
   ProgressStep,
   ProjectCard,
