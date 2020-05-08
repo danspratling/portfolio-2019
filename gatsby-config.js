@@ -61,7 +61,7 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true,
-        ignore: ['src/scss', '/react-carousel/', 'prismjs/'],
+        ignore: ['./src/scss', '/react-carousel/', '/prismjs/'],
       },
     },
     {
