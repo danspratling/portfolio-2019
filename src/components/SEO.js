@@ -27,7 +27,7 @@ const SEO = ({ title, description, image, article, slug }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `https://${baseUrl}${image}` || `https://${baseUrl}${defaultImage}`,
-    url: `${baseUrl}${pathname.trim('/')}`,
+    url: `${baseUrl}${pathname}`.trim('/'),
   }
 
   return (
