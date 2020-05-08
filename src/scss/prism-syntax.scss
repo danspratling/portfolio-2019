@@ -7,7 +7,7 @@ pre[class*='language-'] {
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
   @apply bg-gray-900;
-  // apply bg-opacity-50;
+  @apply bg-opacity-50;
 }
 
 /* Code blocks */
@@ -39,7 +39,7 @@ pre[class*='language-'] {
   @apply -mx-6;
   @apply px-6;
   @apply bg-gray-800;
-  // apply bg-opacity-50;
+  @apply bg-opacity-50;
 }
 
 .token.comment,

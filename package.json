@@ -42,7 +42,7 @@
   "devDependencies": {
     "babel-preset-gatsby": "^0.2.26",
     "prettier": "^1.19.1",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.4.5"
   },
   "keywords": [
     "gatsby"
