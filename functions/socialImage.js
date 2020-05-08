@@ -22,7 +22,7 @@ function generateImage({ title, slug }) {
   context.shadowOffsetX = 0
   context.shadowOffsetY = 0
   context.shadowBlur = 25
-  context.shadowColor = 'rgba(0,0,0,0.9)'
+  context.shadowColor = 'rgba(0,0,0,0.7)'
   context.fillStyle = '#000'
   roundRect(context, 25, 25, width, height, 15, true, false)
   // context.fillRect(25, 25, width, height)
