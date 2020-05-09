@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useStaticQuery } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { useForm } from 'react-hook-form'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { Input, Button } from './elements'

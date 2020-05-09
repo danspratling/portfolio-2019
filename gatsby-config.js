@@ -59,9 +59,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
+        develop: true,
         printRejected: true,
         tailwind: true,
-        ignore: ['./src/scss', '/react-carousel/', '/prismjs/'],
+        ignore: ['/src/scss/', '/react-carousel/'],
       },
     },
     {

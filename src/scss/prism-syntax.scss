@@ -1,13 +1,12 @@
 code[class*='language-'],
 pre[class*='language-'] {
-  @apply text-sm;
   @apply text-gray-400;
 }
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
   @apply bg-gray-900;
-  @apply bg-opacity-50;
+  @apply bg-opacity-75;
 }
 
 /* Code blocks */
@@ -17,9 +16,6 @@ pre[class*='language-'] {
   @apply my-8;
   @apply -mx-6;
   @apply overflow-auto;
-  @apply border;
-  @apply border-solid;
-  @apply border-gray-700;
   @apply rounded;
 }
 
@@ -28,9 +24,6 @@ pre[class*='language-'] {
   @apply px-2;
   @apply py-1;
   @apply rounded;
-  @apply border;
-  @apply border-solid;
-  @apply border-gray-700;
   @apply whitespace-normal;
 }
 
@@ -40,6 +33,9 @@ pre[class*='language-'] {
   @apply px-6;
   @apply bg-gray-800;
   @apply bg-opacity-50;
+  @apply border-l-2;
+  @apply border-solid;
+  @apply border-green-400;
 }
 
 .token.comment,
