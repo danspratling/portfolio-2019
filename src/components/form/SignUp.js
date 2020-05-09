@@ -74,7 +74,7 @@ const Enquiry = () => {
         <div className="w-full lg:w-5/12 max-w-lg lg:px-6 py-8 lg:py-0 mr-auto">
           <div className="flex flex-row flex-wrap justifyitems-center -mx-3 mb-2">
             <Input
-              key="newsletter"
+              formName="newsletter"
               label="name"
               placeholder="Jane Doe"
               width="w-full"

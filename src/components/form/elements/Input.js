@@ -4,7 +4,7 @@ import React from 'react'
  * The form input, designed to be able to stretch to your needs. Note that the label and error may collide
  * on smaller widths (suggested smaller sizes are reserved for non-required fields)
  * @param {Object} props
- * @param {string} [props.key] - Unique ID to differentiate between forms
+ * @param {string} [props.formName] - Unique ID to differentiate between forms
  * @param {string} props.label - The label for the input
  * @param {string} props.placeholder - The placeholder for the input
  * @param {string} props.type - The input type
@@ -15,7 +15,7 @@ import React from 'react'
  */
 
 const Input = ({
-  key,
+  formName,
   label,
   placeholder,
   type = 'text',
@@ -34,7 +34,7 @@ const Input = ({
       </div>
 
       <input
-        name={key ? `${key}-${label}` : label}
+        name={formName ? `${formName}-${label}` : label}
         className={classList.join(' ')}
         type={type}
         placeholder={placeholder}

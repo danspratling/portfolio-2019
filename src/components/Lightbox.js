@@ -3,8 +3,6 @@ import Image from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import Carousel from '@brainhubeu/react-carousel'
-import '@brainhubeu/react-carousel/lib/style.css'
-import '../scss/lightbox.scss'
 
 const Lightbox = ({
   lightboxState,

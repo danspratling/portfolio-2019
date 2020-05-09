@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
   scroll-behavior: smooth;
   @apply bg-black;
@@ -26,3 +30,8 @@ html {
     @apply bg-gray-800;
   }
 }
+
+@import '~@brainhubeu/react-carousel/lib/style.css';
+@import './lightbox.scss';
+@import './markdown.scss';
+@import './prism-syntax.scss';
