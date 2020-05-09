@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-
-import { Layout, SectionIntro, SEO } from '../components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+
+import { Layout, SectionIntro, SEO } from '../components'
 
 const ProjectPage = ({ data }) => {
   //Get the page sections from the graphql data

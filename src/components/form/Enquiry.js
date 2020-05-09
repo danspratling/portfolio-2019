@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Input, TextArea, Select } from './elements'
+import { Input, TextArea, Select, Button } from './elements'
 
 const Enquiry = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -72,12 +72,7 @@ const Enquiry = () => {
       </div>
 
       <div className="w-full flex justify-center">
-        <button
-          type="submit"
-          className="w-auto h-auto bg-green-400 px-6 py-3 text-lg"
-        >
-          Submit
-        </button>
+        <Button>Submit</Button>
       </div>
     </form>
   )

@@ -10,6 +10,7 @@ import {
   Social,
   Upsell,
 } from '../components'
+import { SignUp } from '../components/form'
 
 const IndexPage = ({ data }) => {
   //descructure our pagedata as js objects so we can use them
@@ -79,7 +80,7 @@ const IndexPage = ({ data }) => {
       ></section> */}
 
       {/* page section - Contact */}
-      <section id="contact" className="min-h-screen bg-black pt-32 pb-32 px-6">
+      <section id="contact" className="min-h-screen bg-black py-32 px-6">
         <div className="container mx-auto">
           <div className="flex flex-row flex-wrap lg:flex-no-wrap lg:-mx-12">
             <div className="lg:w-3/5 lg:mx-6">
@@ -94,6 +95,18 @@ const IndexPage = ({ data }) => {
                 }}
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* page section - Newsletter */}
+      <section
+        id="newsletter"
+        className="md:min-h-640 bg-black px-6 py-12 lg:py-32"
+      >
+        <div className="container mx-auto">
+          <div className="w-full flex justify-center">
+            <SignUp />
           </div>
         </div>
       </section>

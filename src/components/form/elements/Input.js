@@ -8,6 +8,7 @@ import React from 'react'
  * @param {string} props.placeholder - The placeholder for the input
  * @param {string} props.type - The input type
  * @param {string} props.width - The desktop width of the input
+ * @param {Function} [props.onChange] - Function handling onchange event
  * @param {FieldElement} props.register - react-hook-form register function which creates a reference for the input
  * @param {Object} props.error - react-hook-form error object holding the error associated with this input (if any)
  */
@@ -17,6 +18,7 @@ const Input = ({
   placeholder,
   type = 'text',
   width,
+  onChange,
   register,
   error,
 }) => {
@@ -35,6 +37,7 @@ const Input = ({
         type={type}
         placeholder={placeholder}
         ref={register}
+        onChange={onChange}
       />
     </div>
   )
