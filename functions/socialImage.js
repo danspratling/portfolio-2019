@@ -28,8 +28,8 @@ function generateImage({ title, slug }) {
   // context.fillRect(25, 25, width, height)
 
   //set the copy style
-  context.font = 'bold 70pt Fira Code'
-  context.textAlign = 'center'
+  context.font = 'bold 82pt Ubuntu'
+  context.textAlign = 'left'
   context.textBaseline = 'top'
   context.fillStyle = '#fff'
 
@@ -40,18 +40,18 @@ function generateImage({ title, slug }) {
   //redraw the title over multiple lines
   const words = title.split(' ')
   let line = ''
-  let fromTop = 100
+  let fromTop = 70
   words.forEach(word => {
     let testLine = line + word + ' '
     if (context.measureText(testLine).width > width) {
-      context.fillText(line.trim(), 600, fromTop)
+      context.fillText(line.trim(), 60, fromTop)
       line = word + ' '
-      fromTop = fromTop + 110
+      fromTop = fromTop + 125
     } else {
       line = line + word + ' '
     }
   })
-  context.fillText(line.trim(), 600, fromTop)
+  context.fillText(line.trim(), 60, fromTop)
   context.fillStyle = '#fff'
 
   // const textWidth = context.measureText(title).width
@@ -62,9 +62,15 @@ function generateImage({ title, slug }) {
   // context.fillText(title, 600, 170)
 
   //insert domain
-  context.fillStyle = '#718096'
-  context.font = 'bold 30pt Fira Code'
-  context.fillText('danspratling.dev', 600, 500)
+  context.fillStyle = '#ccc'
+  context.font = 'bold 24pt Ubuntu'
+  context.fillText('danspratling.dev', 60, 540)
+
+  //insert domain
+  context.fillStyle = '#ccc'
+  context.font = 'bold 24pt Ubuntu'
+  context.textAlign = 'right'
+  context.fillText('@dan_spratling', 1140, 540)
 
   //export image
   const buffer = canvas.toBuffer('image/png')

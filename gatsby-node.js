@@ -3,12 +3,21 @@ const generateImage = require('./functions/socialImage')
 
 //Build our social media (twitter/og) images using canvas
 generateImage({
-  title: '- Dan Spratling - Freelance web developer',
+  title: 'Dan Spratling Freelance developer & designer',
   slug: 'home',
 })
-generateImage({ title: '- Dan Spratling - Get in touch', slug: 'contact' })
-generateImage({ title: '- Dan Spratling - Explore projects', slug: 'projects' })
-generateImage({ title: '- Dan Spratling - Inside my head', slug: 'blog' })
+generateImage({
+  title: 'Contact me about your next project',
+  slug: 'contact',
+})
+generateImage({
+  title: 'Explore my recent projects & find inspiration for yours',
+  slug: 'projects',
+})
+generateImage({
+  title: 'Keep up to date with the latest articles',
+  slug: 'blog',
+})
 // generateImage({ title: '', slug: 'uses' })
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -41,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
   //create project pages from data
   data.projects.edges.forEach(({ node }) => {
     const seoImage = generateImage({
-      title: `- Project review - ${node.title}`,
+      title: `From my portfolio: ${node.title}`,
       slug: node.slug,
     })
 
