@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import { Layout, SEO, Markdown } from '../components'
 
-const ProjectTemplate = ({ data, pageContext }) => {
+const Post = ({ data, pageContext }) => {
   //Get the page sections from the graphql data
   const { title, description, tags, body } = data.contentfulPost
   const { seoImage } = pageContext
@@ -55,4 +55,4 @@ export const query = graphql`
   }
 `
 
-export default ProjectTemplate
+export default Post
