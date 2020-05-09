@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './main';
+@import './lightbox';
+@import './markdown';
+@import './prism-syntax';
