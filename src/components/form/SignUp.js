@@ -18,8 +18,6 @@ const Enquiry = () => {
     }
   `)
 
-  console.log(intro)
-
   const [submitted, setSubmitted] = useState(false)
   const { register, errors, handleSubmit } = useForm()
 

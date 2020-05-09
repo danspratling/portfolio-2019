@@ -123,5 +123,5 @@ module.exports = {
     margin: ['responsive', 'hover', 'focus'],
   },
   plugins: [],
-  purge: false,
+  purge: ['./src/**/*.js'],
 }
