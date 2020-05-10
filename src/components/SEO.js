@@ -22,12 +22,13 @@ const SEO = ({ title, description, image, article, slug }) => {
   } = site.siteMetadata
 
   const defaultImage = '/images/seo/home.png'
+  const url = baseUrl + pathname
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `https://${baseUrl}${image}` || `https://${baseUrl}${defaultImage}`,
-    url: `${baseUrl}${pathname}`.trim('/'),
+    url: url[url.length - 1] === '/' ? url.slice(0, -1) : url,
   }
 
   return (
