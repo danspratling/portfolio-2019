@@ -11,7 +11,7 @@ generateImage({
   slug: 'contact',
 })
 generateImage({
-  title: 'Explore my recent projects & find inspiration for yours',
+  title: 'Explore recent projects & find inspiration',
   slug: 'projects',
 })
 generateImage({
