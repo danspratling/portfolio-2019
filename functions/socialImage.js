@@ -28,7 +28,7 @@ function generateImage({ title, slug }) {
   // context.fillRect(25, 25, width, height)
 
   //set the copy style
-  context.font = 'bold 82pt Ubuntu'
+  context.font = 'bold 76pt Ubuntu'
   context.textAlign = 'left'
   context.textBaseline = 'top'
   context.fillStyle = '#fff'
@@ -46,7 +46,7 @@ function generateImage({ title, slug }) {
     if (context.measureText(testLine).width > width) {
       context.fillText(line.trim(), 60, fromTop)
       line = word + ' '
-      fromTop = fromTop + 125
+      fromTop = fromTop + 115
     } else {
       line = line + word + ' '
     }
