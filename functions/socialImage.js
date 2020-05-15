@@ -1,8 +1,8 @@
 const fs = require('fs')
 const { registerFont, createCanvas } = require('canvas')
-registerFont('static/fonts/ubuntu/4iCv6KVjbNBYlgoCjC3jsGyL.woff', {
-  family: 'Ubuntu',
-})
+// registerFont('static/fonts/ubuntu/4iCv6KVjbNBYlgoCjC3jsGyL.woff', {
+//   family: 'Ubuntu',
+// })
 
 function generateImage({ title, slug }) {
   //define canvas size
@@ -31,7 +31,8 @@ function generateImage({ title, slug }) {
   // context.fillRect(25, 25, width, height)
 
   //set the copy style
-  context.font = 'bold 82pt Ubuntu'
+  // context.font = 'bold 82pt Ubuntu'
+  context.font = 'bold 76pt Ubuntu'
   context.textAlign = 'left'
   context.textBaseline = 'top'
   context.fillStyle = '#fff'
@@ -43,13 +44,15 @@ function generateImage({ title, slug }) {
   //redraw the title over multiple lines
   const words = title.split(' ')
   let line = ''
-  let fromTop = 50
+  // let fromTop = 50
+  let fromTop = 70
   words.forEach(word => {
     let testLine = line + word + ' '
     if (context.measureText(testLine).width > width) {
       context.fillText(line.trim(), 60, fromTop)
       line = word + ' '
-      fromTop = fromTop + 125
+      // fromTop = fromTop + 125
+      fromTop = fromTop + 115
     } else {
       line = line + word + ' '
     }
