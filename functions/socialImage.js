@@ -1,6 +1,6 @@
 const fs = require('fs')
 const { registerFont, createCanvas } = require('canvas')
-registerFont('public/google-fonts/s/ubuntu/v14/4iCv6KVjbNBYlgoCjC3jsGyL.woff', {
+registerFont('static/fonts/ubuntu/4iCv6KVjbNBYlgoCjC3jsGyL.woff', {
   family: 'Ubuntu',
 })
 
