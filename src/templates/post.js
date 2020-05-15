@@ -41,7 +41,7 @@ const Post = ({ data, pageContext }) => {
 
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
 export const query = graphql`
-  query getProject($id: String!) {
+  query getPost($id: String!) {
     contentfulPost(contentful_id: { eq: $id }) {
       title
       description
