@@ -26,3 +26,8 @@ html {
     @apply bg-gray-800;
   }
 }
+
+.appearance-none {
+  appearance: none;
+  -webkit-appearance: none;
+}
