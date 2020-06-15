@@ -83,10 +83,28 @@ const SectionLink = ({ title, link }) => {
   const linkStyle = { transform: link[0] === '#' && 'rotate(90deg)' }
   const getLink = link[0] === '#' ? `${window.location.pathname}/${link}` : link
 
+  const classes = "block mx-4 mt-8 mb-6 text-lg text-white text-center md:text-left leading-loose hover:text-green-400 transition duration-200 hover:underline"
+
+  if (getLink.includes(window.location.hostname)) {
+    return (
+      <Link
+        to={getLink}
+        className={classes}
+      >
+        {title}
+        <FontAwesomeIcon
+          icon={faArrowRight}
+          className="ml-6 mr-6"
+          style={linkStyle}
+        />
+      </Link>
+    )
+  }
+
   return (
-    <Link
-      to={getLink}
-      className="block mx-4 mt-8 mb-6 text-lg text-white text-center md:text-left leading-loose hover:text-green-400 transition duration-200 hover:underline"
+    <a
+      href={getLink}
+      className={classes}
     >
       {title}
       <FontAwesomeIcon
@@ -94,7 +112,7 @@ const SectionLink = ({ title, link }) => {
         className="ml-6 mr-6"
         style={linkStyle}
       />
-    </Link>
+    </a>
   )
 }
 
