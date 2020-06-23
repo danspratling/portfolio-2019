@@ -32,6 +32,13 @@ const Enquiry = () => {
       method="POST"
       data-netlify="true"
     >
+      <div className="mb-12">
+        <h2 className="text-2xl md:text-3xl text-white mb-4">Get in touch</h2>
+        <p className="mb-4">
+          Whether you're looking for a new website, or just asking a question,
+          let me know using the form below.
+        </p>
+      </div>
       <input type="hidden" name="form-name" value="enquiry" />
       <div className="flex flex-wrap -mx-3 mb-6">
         <Input
