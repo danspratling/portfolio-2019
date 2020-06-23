@@ -18,7 +18,6 @@ const Link = ({ to, children }) => {
 //External links ar the default
 const ExternalLink = ({ link, children }) => (
   <a href={link} className={classes.join(' ')}>
-    {link}
     {children}
   </a>
 )
