@@ -36,19 +36,17 @@ const Enquiry = () => {
       <div className="flex flex-wrap -mx-3 mb-6">
         <Input
           label="name"
-          placeholder="Jane Doe"
-          width="w-full"
+          width="w-1/2"
           register={register({ required: true })}
           error={errors.name}
         />
         <Input
           label="email"
-          placeholder="janedoe@webmail.com"
-          width="w-full"
+          width="w-1/2"
           register={register({ required: true })}
           error={errors.email}
         />
-        <Input
+        {/* <Input
           label="current website"
           placeholder="www.company.com"
           width="w-1/2"
@@ -62,10 +60,9 @@ const Enquiry = () => {
           items={['£1500', '£2500', '£3500', '£4500+']}
           register={register}
           error={errors.budget}
-        />
+        /> */}
         <TextArea
-          label="message"
-          placeholder="Tell me what you're looking for"
+          label="What are you looking for?"
           register={register({ required: true })}
           error={errors.message}
         />

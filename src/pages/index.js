@@ -10,7 +10,6 @@ import {
   Social,
   Upsell,
 } from '../components'
-import { SignUp } from '../components/form'
 
 const IndexPage = ({ data }) => {
   //descructure our pagedata as js objects so we can use them
@@ -95,18 +94,6 @@ const IndexPage = ({ data }) => {
                 }}
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* page section - Newsletter */}
-      <section
-        id="newsletter"
-        className="md:min-h-640 bg-black px-6 py-12 lg:py-32"
-      >
-        <div className="container mx-auto">
-          <div className="w-full flex justify-center">
-            <SignUp />
           </div>
         </div>
       </section>

@@ -63,36 +63,35 @@ const Enquiry = () => {
       name="newsletter"
       method="POST"
     >
+      <div className="mb-12">
+        <h2 className="text-2xl md:text-3xl text-white mb-4">
+          Keep up to date
+        </h2>
+        <p className="mb-4">
+          Sign up for the newsletter to keep up with my regular blog posts, and
+          get exclusive tips and tricks right in your inbox.
+        </p>
+      </div>
       <div className="w-full flex flex-row flex-wrap justify-center lg:-mx-6">
-        <div className="w-full lg:w-7/12 lg:px-6 lg:mt-4">
-          <SectionIntro
-            data={intro.contentfulIntro}
-            animation={{ visibility: true, direction: 'from left' }}
-          />
-        </div>
-
-        <div className="w-full lg:w-5/12 max-w-lg lg:px-6 py-8 lg:py-0 mr-auto">
-          <div className="flex flex-row flex-wrap justifyitems-center -mx-3 mb-2">
+        <div className="w-full lg:px-6 py-8 lg:py-0">
+          <div className="flex flex-row flex-wrap justify-center items-center -mx-3 mb-2">
             <Input
               formName="newsletter"
-              label="name"
-              placeholder="Jane Doe"
-              width="w-full"
+              label="First name"
+              width="w-auto"
               register={register({ required: true })}
               error={errors.name}
             />
             <Input
               key="newsletter"
               label="email"
-              placeholder="janedoe@webmail.com"
-              width="w-full"
+              width="w-auto"
               register={register({ required: true })}
               error={errors.email}
             />
-          </div>
-
-          <div className="w-full flex">
-            <Button>Sign up</Button>
+            <div className="w-full md:w-auto flex justify-center md:pl-6">
+              <Button>Sign up</Button>
+            </div>
           </div>
         </div>
       </div>

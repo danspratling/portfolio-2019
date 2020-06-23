@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import { Layout, SEO, Markdown } from '../components'
+import { SignUp } from '../components/form'
 
 const Post = ({ data, pageContext }) => {
   //Get the page sections from the graphql data
@@ -23,6 +24,18 @@ const Post = ({ data, pageContext }) => {
               <h2 className="text-lg mb-6">{description}</h2>
               <Markdown>{body.childMdx.body}</Markdown>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* page section - Newsletter */}
+      <section
+        id="newsletter"
+        className="md:min-h-320 bg-black px-6 py-12 lg:py-32"
+      >
+        <div className="container mx-auto">
+          <div className="w-full flex justify-center">
+            <SignUp />
           </div>
         </div>
       </section>

@@ -17,7 +17,6 @@ import React from 'react'
 const Input = ({
   formName,
   label,
-  placeholder,
   type = 'text',
   width,
   onChange,
@@ -27,8 +26,8 @@ const Input = ({
   const classList = error ? [...inputClasses, ...errorClasses] : inputClasses
 
   return (
-    <div className={`w-full md:${width} px-3 mb-6`}>
-      <div className="w-full flex justify-between">
+    <div className={`flex-1 w-full md:${width} px-3 mb-6`}>
+      <div className="relative w-full flex justify-between py-4">
         <InputLabel label={label} />
         {error && <InputError label={label} />}
       </div>
@@ -37,7 +36,6 @@ const Input = ({
         name={formName ? `${formName}-${label}` : label}
         className={classList.join(' ')}
         type={type}
-        placeholder={placeholder}
         ref={register}
         onChange={onChange}
       />
@@ -57,7 +55,7 @@ const InputError = ({ label }) => {
 
 const InputLabel = ({ label }) => (
   <label
-    className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2 mr-4"
+    className="absolute top-0 block uppercase tracking-wide text-gray-300 text-xs font-bold py-2 mr-4"
     htmlFor={label}
   >
     {label}
@@ -71,23 +69,26 @@ const inputClasses = [
   'appearance-none',
   'block',
   'w-full',
-  'bg-gray-800',
+  'bg-black',
   'text-gray-100',
-  'border',
-  'border-transparent',
-  'rounded',
+  'border-b-2',
+  'border-gray-700',
   'py-3',
   'px-4',
   'mb-3',
   'leading-tight',
   'focus:outline-none',
-  'focus:bg-gray-700',
-  'focus:border-gray-600',
+  'focus:border-green-400',
   'transition-all',
   'duration-500',
   'ease-in-out',
 ]
 
-const errorClasses = ['border-red-600', 'border-l-16', 'focus:border-red-500']
+const errorClasses = [
+  'border-red-600',
+  'bg-red-300',
+  'border-l-16',
+  'focus:border-red-500',
+]
 
 export default Input
