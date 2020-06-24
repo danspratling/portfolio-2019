@@ -5,6 +5,7 @@
   h2 {
     @apply text-2xl;
     @apply my-6;
+    @apply text-white;
   }
 
   h3,
@@ -13,6 +14,7 @@
   h6 {
     @apply text-xl;
     @apply my-3;
+    @apply text-white;
   }
 
   a {
@@ -48,7 +50,26 @@
   }
 
   ul {
-    @apply list-disc;
+    @apply list-none;
+    @apply ml-4;
+
+    li {
+      @apply mb-0;
+
+      @screen md {
+        @apply mb-1;
+      }
+
+      &:before {
+        content: '-';
+        @apply pl-0;
+        @apply pr-2;
+
+        @screen md {
+          @apply pr-4;
+        }
+      }
+    }
   }
 
   /* Blockquotes */
