@@ -4,6 +4,7 @@ const { registerFont, createCanvas } = require('canvas')
 function generateImage({ title, slug }) {
   registerFont('static/fonts/ubuntu/4iCv6KVjbNBYlgoCjC3jsGyL.woff', {
     family: 'Ubuntu',
+    weight: '700',
   })
 
   //define canvas size
@@ -33,7 +34,7 @@ function generateImage({ title, slug }) {
 
   //set the copy style
   // context.font = 'bold 82pt Ubuntu'
-  context.font = 'bold 76pt "Ubuntu"'
+  context.font = '700 76pt Ubuntu'
   context.textAlign = 'left'
   context.textBaseline = 'top'
   context.fillStyle = '#fff'
@@ -70,12 +71,12 @@ function generateImage({ title, slug }) {
 
   //insert domain
   context.fillStyle = '#ccc'
-  context.font = 'bold 24pt Ubuntu'
+  context.font = '700 24pt Ubuntu'
   context.fillText('danspratling.dev', 60, 540)
 
   //insert domain
   context.fillStyle = '#ccc'
-  context.font = 'bold 24pt Ubuntu'
+  context.font = '700 24pt Ubuntu'
   context.textAlign = 'right'
   context.fillText('@dan_spratling', 1140, 540)
 
