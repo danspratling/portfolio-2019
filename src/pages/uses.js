@@ -10,7 +10,7 @@ const UsesPage = ({ data }) => {
       <SEO
         title={seo.title}
         description={seo.description}
-        image={'/images/seo/contact.png'}
+        image={'/images/seo/uses.png'}
       />
 
       <section
