@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 /**
  *
@@ -13,10 +13,17 @@ const TextArea = ({ label, register, error }) => {
     ? [...textareaClasses, ...errorClasses]
     : textareaClasses
 
+  const [focus, setFocus] = useState(false)
+  const [value, setValue] = useState('')
+
+  const active = value || focus
+
+  const handleChange = e => setValue(e.target.value)
+
   return (
     <div className="w-full px-3 mb-6">
       <div className="relative w-full flex justify-between py-4">
-        <TextAreaLabel label={label} />
+        <TextAreaLabel label={label} active={active} />
         {error && <TextAreaError label={label} />}
       </div>
 
@@ -24,7 +31,10 @@ const TextArea = ({ label, register, error }) => {
         name={label}
         className={classList.join(' ')}
         ref={register}
-        rows="4"
+        rows={4}
+        onChange={handleChange}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
       />
     </div>
   )
@@ -40,14 +50,22 @@ const TextAreaError = ({ label }) => {
   )
 }
 
-const TextAreaLabel = ({ label }) => (
-  <label
-    className="absolute top-0 block uppercase tracking-wide text-gray-300 text-xs font-bold py-2 mr-4"
-    htmlFor={label}
-  >
-    {label}
-  </label>
-)
+const TextAreaLabel = ({ label, active }) => {
+  const classes =
+    'absolute top-0 pointer-events-none block uppercase tracking-wide py-2 mr-4 transition-all duration-500 transform'
+
+  const inactiveClasses = 'text-gray-500 translate-y-full -mt-2'
+  const activeClasses = 'text-gray-300 text-sm'
+
+  return (
+    <label
+      className={`${classes} ${active ? activeClasses : inactiveClasses}`}
+      htmlFor={label}
+    >
+      {label}
+    </label>
+  )
+}
 
 const checkArticle = char =>
   ['a', 'e', 'i', 'o', 'u'].indexOf(char.toLowerCase()) !== -1
@@ -66,7 +84,7 @@ const textareaClasses = [
   'leading-tight',
   'focus:outline-none',
   'focus:border-green-400',
-  'transition-inputs',
+  'transition-all',
   'duration-500',
   'ease-in-out',
 ]
