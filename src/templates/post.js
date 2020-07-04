@@ -34,7 +34,16 @@ const Post = ({ data, pageContext }) => {
         className="md:min-h-320 bg-black px-6 py-12 lg:py-32"
       >
         <div className="container mx-auto">
-          <div className="w-full flex justify-center">
+          <div className="w-full flex flex-wrap justify-center">
+            <div className="w-full lg:w-3/4 mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl text-white mb-4">
+                Keep up to date
+              </h2>
+              <p className="mb-4">
+                Sign up for the newsletter to keep up with my regular blog
+                posts, and get exclusive tips and tricks right in your inbox.
+              </p>
+            </div>
             <SignUp />
           </div>
         </div>

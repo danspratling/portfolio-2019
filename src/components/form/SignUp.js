@@ -41,15 +41,6 @@ const Enquiry = () => {
         name="newsletter"
         method="POST"
       >
-        <div className="mb-12">
-          <h2 className="text-2xl md:text-3xl text-white mb-4">
-            Keep up to date
-          </h2>
-          <p className="mb-4">
-            Sign up for the newsletter to keep up with my regular blog posts,
-            and get exclusive tips and tricks right in your inbox.
-          </p>
-        </div>
         <div className="w-full flex flex-row flex-wrap justify-center lg:-mx-6">
           <div className="w-full lg:px-6 py-8 lg:py-0">
             <div className="flex flex-wrap items-baseline -mx-4 mb-2">

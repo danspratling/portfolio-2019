@@ -80,8 +80,6 @@ const SectionLink = ({ title, link }) => {
     return null
   }
 
-  console.log(window.location.pathname, link)
-
   const linkStyle = { transform: link[0] === '#' && 'rotate(90deg)' }
   const getLink = link[0] === '#' ? `${window.location.pathname}${link}` : link
 
