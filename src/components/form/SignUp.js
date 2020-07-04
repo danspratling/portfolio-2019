@@ -10,7 +10,9 @@ const Enquiry = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const onSubmit = data => {
-    addToMailchimp(data.email, data)
+    addToMailchimp(data.email, {
+      FNAME: data['first-name'],
+    })
       .then(result => {
         setFormSubmitted(result)
       })
