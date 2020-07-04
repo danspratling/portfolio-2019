@@ -45,7 +45,7 @@ const Enquiry = () => {
       >
         <div className="w-full flex flex-row flex-wrap justify-center lg:-mx-6">
           <div className="w-full lg:px-6 py-8 lg:py-0">
-            <div className="flex flex-wrap items-baseline -mx-4 mb-2">
+            <div className="flex flex-wrap items-end -mx-4 mb-2">
               <div className="flex-1 px-4">
                 <Input label="First name" required />
               </div>
@@ -53,7 +53,9 @@ const Enquiry = () => {
                 <Input label="Email" required />
               </div>
               <div className="flex-0 px-4">
-                <Button>Sign up</Button>
+                <div className="mt-6 mb-3">
+                  <Button>Sign up</Button>
+                </div>
               </div>
             </div>
           </div>
