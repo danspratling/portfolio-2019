@@ -7,34 +7,34 @@ const Footer = () => {
     <footer className="bg-black text-white px-4">
       <div className="container mx-auto">
         <div className="md:flex items-center justify-between">
-          <div className="text-center md:text-left w-auto py-5">
+          <div className="flex flex-wrap text-center md:text-left justify-center md:justify-start w-auto -mx-4 py-5">
             <Link
               to="/"
-              className="px-4 hover:text-green-400 transition duration-200"
+              className="w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
             >
               Home
             </Link>
             <Link
               to="/projects"
-              className="px-4 hover:text-green-400 transition duration-200"
+              className="w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
             >
               Projects
             </Link>
             <Link
               to="/blog"
-              className="px-4 hover:text-green-400 transition duration-200"
+              className="w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
             >
               Blog
             </Link>
             <Link
               to="/uses"
-              className="px-4 hover:text-green-400 transition duration-200"
+              className="w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
             >
               Uses
             </Link>
             <Link
               to="/contact"
-              className="px-4 hover:text-green-400 transition duration-200"
+              className=" w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
             >
               Contact
             </Link>
