@@ -8,7 +8,11 @@ const newsletterPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={seo.title} description={seo.description} />
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={'/images/seo/newsletter.png'}
+      />
 
       <section id="intro" className="relative bg-black py-12 lg:py-40 px-6">
         <div className="container mx-auto mb-24">

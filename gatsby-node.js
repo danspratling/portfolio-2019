@@ -22,6 +22,10 @@ generateImage({
   title: 'Everything that makes me an effective developer',
   slug: 'uses',
 })
+generateImage({
+  title: 'Sign up to my newsletter',
+  slug: 'newsletter',
+})
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
