@@ -54,7 +54,8 @@ const SEO = ({ title, description, image, article, slug }) => {
       {seo.image && <meta name="twitter:image" content={seo.image} />}
 
       <script
-        src="https://cdn.usefathom.com/script.js"
+        src="https://rhinoceros.danspratling.dev/script.js"
+        spa="auto"
         site="KNXTCNOS"
         defer
       ></script>
