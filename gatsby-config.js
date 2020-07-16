@@ -8,6 +8,7 @@ module.exports = {
     title: `Dan Spratling - UI & JavaScript Developer`,
     description: `Freelance Web and App developer, building high quality headless websites for small businesses.`,
     baseUrl: `danspratling.dev`,
+    siteUrl: `https://danspratling.dev`,
     author: `@dan_spratling`,
     socials: {
       twitter: `https://twitter.com/dan_spratling`,
@@ -19,6 +20,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
