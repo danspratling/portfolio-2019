@@ -1,13 +1,13 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faLightbulb,
   faShoppingCart,
-  faSortAmountUp,
-  faUsers,
+  faSortAmountUp
+  faFunnelDollar,
+  faUndoAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
 const initIcons = () => {
-  library.add(faLightbulb, faShoppingCart, faSortAmountUp, faUsers)
+  library.add(faShoppingCart, faSortAmountUp, faFunnelDollar, faUndoAlt)
 }
 
 export default initIcons
