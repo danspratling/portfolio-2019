@@ -6,6 +6,8 @@ import {
   faTwitter,
   faGithub,
   faInstagram,
+  faLinkedinIn,
+  faDev,
 } from '@fortawesome/free-brands-svg-icons'
 
 /**
@@ -29,6 +31,8 @@ const Social = ({ imagePosition = 'start' }) => {
             twitter
             github
             instagram
+            linkedin
+            dev
           }
         }
       }
@@ -71,6 +75,24 @@ const Social = ({ imagePosition = 'start' }) => {
         rel="noopener noreferrer"
       >
         <FontAwesomeIcon icon={faInstagram} />
+      </a>
+      <a
+        href={data.site.siteMetadata.socials.linkedin}
+        title="LinkedIn Account"
+        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faLinkedinIn} />
+      </a>
+      <a
+        href={data.site.siteMetadata.socials.dev}
+        title="Dev.to Blog"
+        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faDev} />
       </a>
       {imagePosition === 'end' && (
         <div className="hidden md:block">

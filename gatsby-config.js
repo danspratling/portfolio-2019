@@ -14,6 +14,8 @@ module.exports = {
       twitter: `https://twitter.com/dan_spratling`,
       github: `https://github.com/danspratling`,
       instagram: `https://www.instagram.com/danspratling`,
+      linkedin: `https://www.linkedin.com/in/dan-spratling`,
+      dev: `https://www.dev.to/danspratling`,
     },
   },
   plugins: [
