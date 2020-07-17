@@ -11,6 +11,10 @@ const Enquiry = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const onSubmit = data => {
+    /* Analytics */
+    window.fathom.trackGoal('2CZG537F', 0)
+
+    /* Submit form */
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

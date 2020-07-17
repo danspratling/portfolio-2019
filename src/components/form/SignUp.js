@@ -10,6 +10,10 @@ const Enquiry = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const onSubmit = data => {
+    /* Analytics */
+    window.fathom.trackGoal('ZZ6KQHVV', 0)
+
+    /* Newsletter */
     addToMailchimp(data.email, {
       FNAME: data['first-name'],
     })
