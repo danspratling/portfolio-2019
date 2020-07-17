@@ -81,11 +81,9 @@ const IndexPage = ({ data }) => {
       {/* page section - Contact */}
       <section id="contact" className="min-h-screen bg-black py-32 px-6">
         <div className="container mx-auto">
-          <div className="flex flex-row flex-wrap lg:flex-no-wrap lg:-mx-12">
-            <div className="lg:w-3/5 lg:mx-6">
-              <Upsell {...contactSection} />
-            </div>
-            <div className="lg:w-2/5 lg:mx-6">
+          <Upsell {...contactSection} />
+
+          {/* <div className="lg:w-2/5 lg:mx-6">
               <SectionIntro
                 data={contactIntro}
                 animation={{
@@ -93,8 +91,7 @@ const IndexPage = ({ data }) => {
                   direction: 'from right',
                 }}
               />
-            </div>
-          </div>
+            </div> */}
         </div>
       </section>
     </Layout>
@@ -143,23 +140,9 @@ export const query = graphql`
           }
         }
       }
-      contactIntro {
-        heading
-        title
-        body {
-          json
-        }
-        link {
-          link
-          title
-        }
-      }
       contactSection {
         title
         bodyStart {
-          json
-        }
-        body {
           json
         }
         link {
