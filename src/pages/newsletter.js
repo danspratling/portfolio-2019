@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import analytics from '../components/analytics'
 import { Layout, SEO, SectionIntro } from '../components'
 import { SignUp } from '../components/form'
 
 const newsletterPage = ({ data }) => {
   const { seo, intro: pageIntro } = data.contentfulPage
 
-  //Analytics
-  window.fathom.trackGoal('G5AALGJX', 0)
+  analytics({ id: 'G5AALGJX' })
 
   return (
     <Layout>

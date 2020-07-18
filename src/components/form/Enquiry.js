@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useForm, FormContext } from 'react-hook-form'
+import analytics from '../../components/analytics'
 
 import Button from './elements/Button'
 import Input from './elements/Input'
@@ -11,8 +12,7 @@ const Enquiry = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const onSubmit = data => {
-    //Analytics
-    window.fathom.trackGoal('2CZG537F', 0)
+    analytics({ id: '2CZG537F' })
 
     /* Submit form */
     fetch('/', {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-
+import analytics from '../components/analytics'
 import { Layout, SEO, Markdown } from '../components'
 import { SignUp } from '../components/form'
 
@@ -9,8 +9,7 @@ const Post = ({ data, pageContext }) => {
   const { title, description, tags, body } = data.contentfulPost
   const { seoImage } = pageContext
 
-  //Analytics
-  window.fathom.trackGoal('IN9ZFF9A', 0)
+  analytics({ id: 'IN9ZFF9A' })
 
   return (
     <Layout>
