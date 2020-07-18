@@ -6,6 +6,9 @@ import { Enquiry } from '../components/form'
 const ContactPage = ({ data }) => {
   const { seo, intro: pageIntro } = data.contentfulPage
 
+  //Analytics
+  window.fathom.trackGoal('21PFYGOO', 0)
+
   return (
     <Layout>
       <SEO

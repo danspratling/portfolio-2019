@@ -10,7 +10,7 @@ const Enquiry = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const onSubmit = data => {
-    /* Analytics */
+    //Analytics
     window.fathom.trackGoal('ZZ6KQHVV', 0)
 
     /* Newsletter */

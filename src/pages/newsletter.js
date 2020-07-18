@@ -6,6 +6,9 @@ import { SignUp } from '../components/form'
 const newsletterPage = ({ data }) => {
   const { seo, intro: pageIntro } = data.contentfulPage
 
+  //Analytics
+  window.fathom.trackGoal('G5AALGJX', 0)
+
   return (
     <Layout>
       <SEO

@@ -33,6 +33,9 @@ const ProjectTemplate = ({ data, pageContext }) => {
     setLightboxState(true)
   }
 
+  //Analytics
+  window.fathom.trackGoal('VXP0B2JW', 0)
+
   return (
     <Layout>
       <SEO

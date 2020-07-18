@@ -9,6 +9,9 @@ const Post = ({ data, pageContext }) => {
   const { title, description, tags, body } = data.contentfulPost
   const { seoImage } = pageContext
 
+  //Analytics
+  window.fathom.trackGoal('IN9ZFF9A', 0)
+
   return (
     <Layout>
       <SEO title={title} description={description} image={seoImage} />
