@@ -18,7 +18,6 @@ const IndexPage = ({ data }) => {
     pageIntro,
     projectIntro,
     projectList,
-    contactIntro,
     contactSection,
   } = data.contentfulHomepage
 

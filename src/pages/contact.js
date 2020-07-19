@@ -1,12 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import analytics from '../components/analytics'
+import { trackPageview } from 'fathom-client'
 import { Layout, SEO, SectionIntro, Social } from '../components'
 import { Enquiry } from '../components/form'
 
 const ContactPage = ({ data }) => {
   const { seo, intro: pageIntro } = data.contentfulPage
-  analytics({ id: '21PFYGOO' })
+
+  trackPageview()
 
   return (
     <Layout>

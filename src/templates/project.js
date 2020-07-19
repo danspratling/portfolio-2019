@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import analytics from '../components/analytics'
+import { trackPageview } from 'fathom-client'
 import {
   Layout,
   SEO,
@@ -33,7 +33,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
     setLightboxState(true)
   }
 
-  analytics({ id: 'VXP0B2JW' })
+  trackPageview()
 
   return (
     <Layout>

@@ -52,13 +52,6 @@ const SEO = ({ title, description, image, article, slug }) => {
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-
-      <script
-        src="https://rhinoceros.danspratling.dev/script.js"
-        spa="auto"
-        site="KNXTCNOS"
-        defer
-      ></script>
     </Helmet>
   )
 }

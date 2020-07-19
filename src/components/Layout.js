@@ -1,9 +1,13 @@
 import React from 'react'
+import { load as loadFathom } from 'fathom-client'
 import { Footer } from '.'
 import { initIcons } from '../utils'
 
 const Layout = ({ children }) => {
   initIcons()
+  loadFathom('KNXTCNOS', {
+    url: 'https://rhinoceros.danspratling.dev/script.js',
+  })
 
   return (
     <>

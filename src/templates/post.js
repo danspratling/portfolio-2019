@@ -1,15 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import analytics from '../components/analytics'
+import { trackPageview } from 'fathom-client'
 import { Layout, SEO, Markdown } from '../components'
 import { SignUp } from '../components/form'
 
 const Post = ({ data, pageContext }) => {
   //Get the page sections from the graphql data
-  const { title, description, tags, body } = data.contentfulPost
+  const { title, description, body } = data.contentfulPost
   const { seoImage } = pageContext
 
-  analytics({ id: 'IN9ZFF9A' })
+  trackPageview()
 
   return (
     <Layout>
