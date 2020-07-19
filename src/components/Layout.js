@@ -7,6 +7,7 @@ const Layout = ({ children }) => {
   initIcons()
   loadFathom('KNXTCNOS', {
     url: 'https://rhinoceros.danspratling.dev/script.js',
+    excludedDomains: ['localhost'],
   })
 
   return (
