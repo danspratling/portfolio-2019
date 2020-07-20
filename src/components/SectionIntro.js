@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link } from '../components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMinus, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
 import VisibilitySensor from 'react-visibility-sensor'
 
 import { RichText } from '../components'
@@ -43,7 +43,9 @@ const SectionIntro = ({ data, animation }) => {
             <h2 className="text-2xl md:text-3xl text-white mb-6">{title}</h2>
             <div className="text-gray-600">
               {body && <RichText body={body} />}
-              <SectionLink {...link} />
+              <Link to={link.link} variant="secondary">
+                {link.title}
+              </Link>
             </div>
           </div>
         )
@@ -64,52 +66,6 @@ const SectionPreHeading = ({ children }) => (
     <FontAwesomeIcon icon={faMinus} className="ml-4" />
   </p>
 )
-
-/**
- * A secondary link component, never expectes external links but can accept hashes (same page links)
- * @param {Object} props
- * @param {string} props.title
- * @param {string} props.link
- */
-const SectionLink = ({ title, link }) => {
-  if (!title || !link) {
-    return null
-  }
-
-  if (typeof window === 'undefined') {
-    return null
-  }
-
-  const linkStyle = { transform: link[0] === '#' && 'rotate(90deg)' }
-  const getLink = link[0] === '#' ? `${window.location.pathname}${link}` : link
-
-  const classes =
-    'block mx-4 mt-8 mb-6 text-lg text-white text-center md:text-left leading-loose hover:text-green-400 transition duration-200 hover:underline'
-
-  if (getLink.includes(window.location.hostname)) {
-    return (
-      <Link to={getLink} className={classes}>
-        {title}
-        <FontAwesomeIcon
-          icon={faArrowRight}
-          className="ml-6 mr-6"
-          style={linkStyle}
-        />
-      </Link>
-    )
-  }
-
-  return (
-    <a href={getLink} className={classes}>
-      {title}
-      <FontAwesomeIcon
-        icon={faArrowRight}
-        className="ml-6 mr-6"
-        style={linkStyle}
-      />
-    </a>
-  )
-}
 
 /**
  * returns classes controlling animation directions

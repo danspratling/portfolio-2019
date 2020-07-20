@@ -1,3 +1,5 @@
 import initIcons from './icons'
 
-export { initIcons }
+const isBrowser = typeof window !== 'undefined'
+
+export { isBrowser, initIcons }

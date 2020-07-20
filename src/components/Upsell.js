@@ -30,7 +30,10 @@ const Upsell = ({ title, bodyStart, body, link, cards }) => {
 
         {/* Clickable link */}
         <div className="mb-20">
-          <Link to={link.link}>{link.title}</Link>
+          {/* {console.log(link)} */}
+          <Link to={link.link} variant="primary">
+            {link.title}
+          </Link>
         </div>
       </div>
     </div>

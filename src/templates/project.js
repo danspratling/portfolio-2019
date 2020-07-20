@@ -5,9 +5,9 @@ import { trackPageview } from 'fathom-client'
 import {
   Layout,
   SEO,
-  Link,
   ProgressStep,
   // Quote,
+  Link,
   Lightbox,
 } from '../components'
 
@@ -56,7 +56,11 @@ const ProjectTemplate = ({ data, pageContext }) => {
                 <p>{body.body}</p>
               </div>
 
-              {url && <Link to={url}>See the project</Link>}
+              {url && (
+                <Link to={url} variant="secondary">
+                  See the project
+                </Link>
+              )}
             </div>
             <MasonryGallery images={gallery} openLightbox={openLightbox} />
           </div>
