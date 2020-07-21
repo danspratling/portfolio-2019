@@ -43,9 +43,11 @@ const SectionIntro = ({ data, animation }) => {
             <h2 className="text-2xl md:text-3xl text-white mb-6">{title}</h2>
             <div className="text-gray-600">
               {body && <RichText body={body} />}
-              <Link to={link.link} variant="secondary">
-                {link.title}
-              </Link>
+              {link && (
+                <Link to={link.link} variant="secondary">
+                  {link.title}
+                </Link>
+              )}
             </div>
           </div>
         )
