@@ -26,26 +26,10 @@ module.exports = {
       '8xl': '15rem',
       '9xl': '20rem',
     },
-    flex: {
-      none: 'none',
-      inherit: 'inherit',
-      initial: '0 1 auto',
-      auto: '1 1 auto',
-      '1': '1 0 auto',
-      '2': '2 0 auto',
-      full: '100 0 auto',
-    },
-    minWidth: {
-      '0': '0',
-      '1/4': '25%',
-      '1/3': '33.33%',
-      '1/2': '50%',
-      '2/3': '66.67%',
-      '3/4': '75%',
-      '50': '50px',
-      full: '100%',
-    },
     extend: {
+      flex: {
+        '1': '1 0 auto',
+      },
       inset: {
         '1/2': '50%',
       },
@@ -57,8 +41,6 @@ module.exports = {
         90: '0.9',
       },
       minHeight: {
-        '180': '180px',
-        '240': '240px',
         '300': '300px',
         '380': '380px',
         '420': '420px',
@@ -99,16 +81,6 @@ module.exports = {
         '640': '640px',
         '768': '768px',
         '1024': '1024px',
-      },
-      borderRadius: {
-        xl: '32px',
-      },
-      borderWidth: {
-        '12': '12px',
-        '16': '16px',
-      },
-      boxShadow: {
-        button: `0 0.25rem #38a169`,
       },
       transitionProperty: {
         inputs:

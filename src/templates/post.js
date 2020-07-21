@@ -31,10 +31,7 @@ const Post = ({ data, pageContext }) => {
       </section>
 
       {/* page section - Newsletter */}
-      <section
-        id="newsletter"
-        className="md:min-h-320 bg-black px-6 py-12 lg:py-32"
-      >
+      <section id="newsletter" className="bg-black px-6 py-12 lg:py-32">
         <div className="container mx-auto">
           <div className="w-full flex flex-wrap justify-center">
             <div className="w-full lg:w-3/4 mx-auto mb-12">
