@@ -50,7 +50,7 @@ const ProjectList = ({ sectionIntro, projectList }) => {
           {projects.length < projectList.length && (
             <button
               onClick={handleClick}
-              className="w-auto h-auto bg-green-400 px-6 py-3 my-8 text-lg"
+              className="w-auto h-auto bg-green-500 px-6 py-3 my-8 text-lg"
             >
               Load more
             </button>

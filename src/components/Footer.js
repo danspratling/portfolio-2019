@@ -10,31 +10,31 @@ const Footer = () => {
           <div className="flex flex-wrap text-center md:text-left justify-center md:justify-start w-auto -mx-4 py-5">
             <Link
               to="/"
-              className="w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
+              className="w-1/3 md:w-auto p-4 hover:text-green-500 transition duration-200"
             >
               Home
             </Link>
             <Link
               to="/projects"
-              className="w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
+              className="w-1/3 md:w-auto p-4 hover:text-green-500 transition duration-200"
             >
               Projects
             </Link>
             <Link
               to="/blog"
-              className="w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
+              className="w-1/3 md:w-auto p-4 hover:text-green-500 transition duration-200"
             >
               Blog
             </Link>
             <Link
               to="/uses"
-              className="w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
+              className="w-1/3 md:w-auto p-4 hover:text-green-500 transition duration-200"
             >
               Uses
             </Link>
             <Link
               to="/contact"
-              className=" w-1/3 md:w-auto p-4 hover:text-green-400 transition duration-200"
+              className=" w-1/3 md:w-auto p-4 hover:text-green-500 transition duration-200"
             >
               Contact
             </Link>

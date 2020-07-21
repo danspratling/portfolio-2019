@@ -14,13 +14,13 @@ const Primary = ({ to, children }) => {
   return (
     <Link
       to={to}
-      className="relative group inline-block pr-24 bg-gray-700 hover:bg-white bg-opacity-75 hover:bg-opacity-100 focus:bg-opacity-100 mb-1 overflow-hidden transition duration-200"
+      className="relative group inline-block pr-24 bg-gray-800 hover:bg-gray-100 focus:bg-opacity-100 mb-1 overflow-hidden transition duration-200"
     >
-      <span className="inline-block w-auto h-auto px-6 md:px-8 py-3 md:py-4 uppercase text-lg tracking-wider text-white group-hover:text-black transition duration-200">
+      <span className="inline-block w-auto h-auto px-6 md:px-8 py-3 md:py-4 uppercase text-lg tracking-wider text-white group-hover:text-gray-800 group-hover:bg-opacity-75 transition duration-200">
         {children}
       </span>
       <span
-        className="absolute top-0 right-0 w-20 group-hover:w-24 bg-green-400 transition-all duration-300 transform origin-right"
+        className="absolute top-0 right-0 w-20 group-hover:w-24 bg-green-500 transition-all duration-300 transform origin-right"
         style={{ height: '200%', '--transform-rotate': '20deg' }}
       />
       <FontAwesomeIcon

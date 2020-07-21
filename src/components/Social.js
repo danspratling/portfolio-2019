@@ -52,7 +52,7 @@ const Social = ({ imagePosition = 'start' }) => {
       <a
         href={data.site.siteMetadata.socials.twitter}
         title="Twitter profile"
-        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
+        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -61,7 +61,7 @@ const Social = ({ imagePosition = 'start' }) => {
       <a
         href={data.site.siteMetadata.socials.github}
         title="Github profile"
-        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
+        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -70,7 +70,7 @@ const Social = ({ imagePosition = 'start' }) => {
       <a
         href={data.site.siteMetadata.socials.instagram}
         title="Instagram account"
-        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
+        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -79,7 +79,7 @@ const Social = ({ imagePosition = 'start' }) => {
       <a
         href={data.site.siteMetadata.socials.linkedin}
         title="LinkedIn Account"
-        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
+        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -88,7 +88,7 @@ const Social = ({ imagePosition = 'start' }) => {
       <a
         href={data.site.siteMetadata.socials.dev}
         title="Dev.to Blog"
-        className="px-4 hover:text-green-400 cursor-pointer transition duration-200"
+        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
       >

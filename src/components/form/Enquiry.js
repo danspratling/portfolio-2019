@@ -25,7 +25,7 @@ const Enquiry = () => {
   if (formSubmitted) {
     return (
       <div className="w-full max-w-xl text-center">
-        <p className="text-2xl md:text-4xl text-green-400 mb-2">
+        <p className="text-2xl md:text-4xl text-green-500 mb-2">
           Thanks for enquiring!
         </p>
         <p className="text-lg text-white">I'll be in touch shortly</p>

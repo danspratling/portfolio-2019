@@ -50,7 +50,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
         <div className="container mx-auto">
           <div className="lg:w-5/6 mx-auto grid lg:grid-cols-2 lg:gap-20 items-center text-white mx-auto mb-32">
             <div className="w-full mb-40 lg:my-0">
-              <h1 className="text-5xl text-bold text-green-400">{title}</h1>
+              <h1 className="text-5xl text-bold text-green-500">{title}</h1>
 
               <div className="pt-4 pb-8 text-lg text-gray-300">
                 <p>{body.body}</p>

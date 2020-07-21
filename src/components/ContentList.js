@@ -21,7 +21,7 @@ const documentRichTextOptions = {
       const ref = `#${children[0].toLowerCase().replace(' ', '')}`
       return (
         <a href={ref}>
-          <p className="text-sm py-2 transition duration-400 hover:text-green-400">
+          <p className="text-sm py-2 transition duration-400 hover:text-green-500">
             {children}
           </p>
         </a>
@@ -31,7 +31,7 @@ const documentRichTextOptions = {
       const ref = `#${children[0].toLowerCase().replace(' ', '')}`
       return (
         <a href={ref}>
-          <p className="text-sm pl-5 py-2 transition duration-400 hover:text-green-400">
+          <p className="text-sm pl-5 py-2 transition duration-400 hover:text-green-500">
             {children}
           </p>
         </a>

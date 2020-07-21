@@ -26,7 +26,7 @@ const defaultClasses = [
   'lg:text-8xl',
   'xl:text-9xl',
   'leading-squish',
-  'text-green-400',
+  'text-green-500',
   'font-medium',
   'max-w-full',
   'overflow-visible',

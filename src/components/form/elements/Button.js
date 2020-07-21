@@ -15,7 +15,7 @@ const buttonClasses = [
   'inline-block',
   'w-auto',
   'h-auto',
-  'bg-green-400',
+  'bg-green-500',
   'px-8',
   'py-3',
   'hover:mt-1',

@@ -36,7 +36,7 @@ const ProjectPage = ({ data }) => {
               <div className="lg:w-1/2 lg:px-3 pb-6">
                 <Link
                   to={`/blog/${post.slug}`}
-                  className="block min-h-full py-6 px-6 bg-gray-900 rounded-lg text-white hover:text-green-400 transition-colors duration-200"
+                  className="block min-h-full py-6 px-6 bg-gray-900 rounded-lg text-white hover:text-green-500 transition-colors duration-200"
                 >
                   <h3 className="text-xl text-white mt-2 mb-3">{post.title}</h3>
                   <p className="text-gray-500 mb-4 text-sm">
