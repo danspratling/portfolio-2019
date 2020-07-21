@@ -46,8 +46,15 @@ module.exports = {
       full: '100%',
     },
     extend: {
+      inset: {
+        '1/2': '50%',
+      },
       lineHeight: {
         squish: 0.85,
+      },
+      opacity: {
+        10: '0.1',
+        90: '0.9',
       },
       minHeight: {
         '180': '180px',
@@ -115,13 +122,21 @@ module.exports = {
       },
     },
   },
-  variants: {
-    flex: ['responsive', 'hover', 'focus'],
-    width: ['responsive', 'hover', 'focus'],
-    minWidth: ['responsive', 'hover', 'focus'],
-    boxShadow: ['responsive', 'hover', 'focus'],
-    margin: ['responsive', 'hover', 'focus'],
-  },
+  variants: [
+    'responsive',
+    'group-hover',
+    'group-focus',
+    // 'focus-within',
+    // 'first',
+    // 'last',
+    // 'odd',
+    // 'even',
+    'hover',
+    'focus',
+    'active',
+    // 'visited',
+    // 'disabled',
+  ],
   plugins: [],
   purge: ['./src/**/*.js'],
 }

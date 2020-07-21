@@ -1,5 +1,5 @@
-import React from './node_modules/react'
-import GatsbyLink from './node_modules/gatsby-link'
+import React from 'react'
+import GatsbyLink from 'gatsby-link'
 import { isBrowser } from '../../utils'
 
 import Primary from './primary'
