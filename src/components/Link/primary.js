@@ -20,7 +20,7 @@ const Primary = ({ to, children }) => {
         {children}
       </span>
       <span
-        className="absolute top-0 right-0 w-20 group-hover:w-24 bg-green-400 hover:bg-gray-800 transition-all duration-300 transform origin-right"
+        className="absolute top-0 right-0 w-20 group-hover:w-24 bg-green-400 transition-all duration-300 transform origin-right"
         style={{ height: '200%', '--transform-rotate': '20deg' }}
       />
       <FontAwesomeIcon
