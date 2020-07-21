@@ -1,14 +1,17 @@
 import React from 'react'
 import { load as loadFathom } from 'fathom-client'
 import { Footer } from '.'
-import { initIcons } from '../utils'
+import { initIcons, isBrowser } from '../utils'
 
 const Layout = ({ children }) => {
   initIcons()
-  loadFathom('KNXTCNOS', {
-    url: 'https://rhinoceros.danspratling.dev/script.js',
-    excludedDomains: ['localhost'],
-  })
+
+  if (isBrowser) {
+    loadFathom('KNXTCNOS', {
+      url: 'https://rhinoceros.danspratling.dev/script.js',
+      excludedDomains: ['localhost'],
+    })
+  }
 
   return (
     <>

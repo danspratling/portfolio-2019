@@ -34,7 +34,7 @@ const Variant = ({ variant, ...rest }) => {
 const Link = ({ to, variant, className, children }) => {
   const classes = `block ${className}`.trim()
   const isHashLink = to[0] === '#'
-  console.log(isHashLink)
+  console.log(to, children)
 
   if (isBrowser && to.includes(window.location.hostname)) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { trackPageview } from 'fathom-client'
+// import { trackPageview } from 'fathom-client'
 import { Layout, SEO, Markdown } from '../components'
 import { SignUp } from '../components/form'
 
@@ -9,7 +9,7 @@ const Post = ({ data, pageContext }) => {
   const { title, description, body } = data.contentfulPost
   const { seoImage } = pageContext
 
-  trackPageview()
+  // trackPageview()
 
   return (
     <Layout>
