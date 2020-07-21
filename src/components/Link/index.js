@@ -5,54 +5,47 @@ import { isBrowser } from '../../utils'
 import Primary from './primary'
 import Secondary from './secondary'
 
-const linkVariants = {
+const styledLinks = {
   primary: Primary,
   secondary: Secondary,
 }
 
 /**
- * @param {Object} props
- * @param {string} props.variant - variant link style if any exist
- */
-const Variant = ({ variant, ...rest }) => {
-  if (!variant) {
-    return <span {...rest} />
-  }
-
-  const Wrapper = linkVariants[variant]
-  return <Wrapper {...rest} />
-}
-
-/**
+ * Default link component. Returns GatsbyLink or a based on internal/external
  * @param {Object} props
  * @param {string} props.to - href
  * @param {boolean} [props.variant] - predefined variations of links
- * @param {string} [props.className] - custom classes
  * @param {JSX.Element|String} props.children - content
  */
 
-const Link = ({ to, variant, className, children }) => {
-  const classes = `block ${className}`.trim()
-  const isHashLink = to[0] === '#'
-  console.log(to, children)
-
+const Link = ({ to, className, children }) => {
   if (isBrowser && to.includes(window.location.hostname)) {
     return (
-      <GatsbyLink to={to} className={classes}>
-        <Variant variant={variant} isHashLink={isHashLink}>
-          {children}
-        </Variant>
+      <GatsbyLink to={to} className={className}>
+        {children}
       </GatsbyLink>
     )
   }
 
   return (
-    <a href={to} className={classes}>
-      <Variant variant={variant} isHashLink={isHashLink}>
-        {children}
-      </Variant>
+    <a href={to} className={className}>
+      {children}
     </a>
   )
 }
 
-export default Link
+/**
+ * Adds preset custom styling to links if variant is defined
+ * @param {Object} props
+ * @param {string} props.variant - variant link style if any exist
+ */
+const StyledLink = ({ variant, ...rest }) => {
+  if (!variant) {
+    return <Link {...rest} />
+  }
+
+  const LinkVariant = styledLinks[variant]
+  return <LinkVariant {...rest} />
+}
+
+export default StyledLink
