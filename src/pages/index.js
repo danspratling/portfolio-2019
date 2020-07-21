@@ -134,7 +134,7 @@ export const query = graphql`
           title
         }
         previewImage {
-          fixed(width: 600) {
+          fixed(width: 600, height: 380, quality: 100) {
             ...GatsbyContentfulFixed_withWebp
           }
         }
