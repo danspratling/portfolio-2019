@@ -27,6 +27,14 @@ module.exports = {
       '9xl': '20rem',
     },
     extend: {
+      colors: {
+        text: 'var(--color-text)',
+        background: 'var(--color-background)',
+        primary: 'var(--color-primary)',
+        // secondary: 'var(--color-secondary)',
+        accent: 'var(--color-accent)',
+        muted: 'var(--color-muted)',
+      },
       flex: {
         '1': '1 0 auto',
       },
