@@ -19,27 +19,25 @@ const ContactPage = ({ data }) => {
 
       <section
         id="intro"
-        className="relative md:min-h-screen bg-black pt-32 p-12  md:px-0"
+        className="relative md:min-h-screen bg-black pt-32 p-6 md:px-0"
       >
         <div className="container mx-auto">
-          <div className="md:w-3/4 mx-auto grid grid-cols-2 gap-20 items-center">
-            <SectionIntro
-              data={pageIntro}
-              animation={{
-                visibility: true,
-                direction: 'from left',
-              }}
-            />
+          <div className="md:w-3/4 mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div className="px-6">
+              <SectionIntro
+                data={pageIntro}
+                animation={{
+                  visibility: true,
+                  direction: 'from left',
+                }}
+              />
+            </div>
 
             <div
-              className="w-full calendly-inline-widget"
+              className="w-full calendly-inline-widget h-full min-h-640"
               data-url="https://calendly.com/dan_spratling/discovery"
-              style={{ minWidth: 320, height: 630 }}
             ></div>
           </div>
-          {/* <div className="flex justify-center items-center">
-            <Social imagePosition="none" />
-          </div> */}
         </div>
       </section>
       <section
