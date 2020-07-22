@@ -36,6 +36,11 @@ const SEO = ({ title, description, image, article, slug }) => {
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <link rel="canonical" href={`https://danspratling.dev/${pathname}`} />
+      <script
+        type="text/javascript"
+        src="https://assets.calendly.com/assets/external/widget.js"
+        defer
+      ></script>
 
       {seo.url && <meta property="og:url" content={seo.url} />}
       {(article ? true : null) && <meta property="og:type" content="article" />}

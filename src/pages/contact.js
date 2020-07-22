@@ -5,7 +5,7 @@ import { Layout, SEO, SectionIntro, Social } from '../components'
 import { Enquiry } from '../components/form'
 
 const ContactPage = ({ data }) => {
-  const { seo, intro: pageIntro } = data.contentfulPage
+  const { seo, intro: pageIntro, formIntro } = data.contentfulContactPage
 
   // trackPageview()
 
@@ -19,23 +19,27 @@ const ContactPage = ({ data }) => {
 
       <section
         id="intro"
-        className="relative md:min-h-screen bg-black pt-32 p-12 md:py-64 md:px-0"
+        className="relative md:min-h-screen bg-black pt-32 p-12  md:px-0"
       >
         <div className="container mx-auto">
-          <div className="flex justify-center items-center">
-            <div className="w-full md:w-1/2">
-              <SectionIntro
-                data={pageIntro}
-                animation={{
-                  visibility: true,
-                  direction: 'from top',
-                }}
-              />
-            </div>
+          <div className="md:w-3/4 mx-auto grid grid-cols-2 gap-20 items-center">
+            <SectionIntro
+              data={pageIntro}
+              animation={{
+                visibility: true,
+                direction: 'from left',
+              }}
+            />
+
+            <div
+              className="w-full calendly-inline-widget"
+              data-url="https://calendly.com/dan_spratling/discovery"
+              style={{ minWidth: 320, height: 630 }}
+            ></div>
           </div>
-          <div className="flex justify-center items-center">
+          {/* <div className="flex justify-center items-center">
             <Social imagePosition="none" />
-          </div>
+          </div> */}
         </div>
       </section>
       <section
@@ -43,6 +47,18 @@ const ContactPage = ({ data }) => {
         className="flex justify-center items-center md:min-h-screen bg-black p-12 pb-24 md:pt-20 md:pb-40"
       >
         <div className="container mx-auto">
+          <div className="flex justify-center items-center">
+            <div className="w-full md:w-1/2 text-center">
+              <SectionIntro
+                data={formIntro}
+                animation={{
+                  visibility: true,
+                  direction: 'from top',
+                }}
+              />
+            </div>
+          </div>
+
           <div className="w-full flex justify-center">
             <Enquiry />
           </div>
@@ -55,12 +71,23 @@ const ContactPage = ({ data }) => {
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
 export const query = graphql`
   query {
-    contentfulPage(slug: { eq: "contact" }) {
+    contentfulContactPage {
       seo {
         title
         description
       }
       intro {
+        heading
+        title
+        body {
+          json
+        }
+        link {
+          link
+          title
+        }
+      }
+      formIntro {
         heading
         title
         body {

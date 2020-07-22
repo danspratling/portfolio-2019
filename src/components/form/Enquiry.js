@@ -36,19 +36,13 @@ const Enquiry = () => {
   return (
     <FormContext {...methods}>
       <form
-        className="w-full max-w-xl"
+        className="w-full max-w-xl my-16"
         onSubmit={methods.handleSubmit(onSubmit)}
         name="enquiry"
         method="POST"
         data-netlify="true"
       >
         <div className="mb-12">
-          <h2 className="text-2xl md:text-3xl text-white mb-4">Get in touch</h2>
-          <p className="mb-4">
-            Whether you're looking for a new website, or just asking a question,
-            let me know using the form below.
-          </p>
-
           <input type="hidden" name="form-name" value="enquiry" />
           <div className="grid md:grid-cols-2 gap-4">
             <Input label="Name" required />
