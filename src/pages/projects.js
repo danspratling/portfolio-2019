@@ -62,7 +62,7 @@ export const query = graphql`
       nodes {
         title
         slug
-        categories: skills {
+        categories: industries {
           title
         }
         previewImage {

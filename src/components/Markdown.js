@@ -5,9 +5,9 @@ import { MDXProvider } from '@mdx-js/react'
 import { Info, Warn, Star } from '../components/shortcodes'
 const shortcodes = { Info, Warn, Star }
 
-const Markdown = ({ children }) => {
+const Markdown = ({ className, children }) => {
   return (
-    <div className="markdown">
+    <div className={`markdown ${className}`}>
       <MDXProvider components={shortcodes}>
         <MDXRenderer>{children}</MDXRenderer>
       </MDXProvider>

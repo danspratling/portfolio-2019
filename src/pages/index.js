@@ -8,7 +8,7 @@ import {
   SEO,
   SectionIntro,
   Social,
-  Upsell,
+  ContactSection,
 } from '../components'
 
 const IndexPage = ({ data }) => {
@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
       {/* page section - Introduction */}
       <section
         id="intro"
-        className="relative min-h-screen lg:min-h-1024 bg-black py-12 lg:py-40 px-6"
+        className="relative min-h-screen lg:min-h-1024 bg-black py-12 lg:py-40"
       >
         <div className="container mx-auto">
           <div className="my-10 md:my-0">
@@ -55,7 +55,7 @@ const IndexPage = ({ data }) => {
       {/* page section - Projects */}
       <section
         id="projects"
-        className="min-h-screen min-w-full bg-black px-6 py-12 lg:py-32"
+        className="min-h-screen min-w-full bg-black py-12 lg:py-32"
       >
         <div className="container mx-auto">
           <ProjectList
@@ -78,19 +78,9 @@ const IndexPage = ({ data }) => {
       ></section> */}
 
       {/* page section - Contact */}
-      <section id="contact" className="min-h-screen bg-black py-32 px-6">
+      <section id="contact" className="min-h-screen bg-black py-32">
         <div className="container mx-auto">
-          <Upsell {...contactSection} />
-
-          {/* <div className="lg:w-2/5 lg:mx-6">
-              <SectionIntro
-                data={contactIntro}
-                animation={{
-                  visibility: true,
-                  direction: 'from right',
-                }}
-              />
-            </div> */}
+          <ContactSection {...contactSection} />
         </div>
       </section>
     </Layout>
@@ -130,7 +120,7 @@ export const query = graphql`
       projectList {
         title
         slug
-        categories: skills {
+        categories: industries {
           title
         }
         previewImage {
@@ -140,18 +130,20 @@ export const query = graphql`
         }
       }
       contactSection {
-        title
-        bodyStart {
-          json
-        }
-        link {
-          link
-          title
-        }
         cards {
           title
           body
           icon
+        }
+        title
+        body {
+          childMdx {
+            body
+          }
+        }
+        link {
+          link
+          title
         }
       }
     }

@@ -4,6 +4,15 @@ html {
   @apply text-gray-400;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 8px;
@@ -25,6 +34,10 @@ html {
   &:hover {
     @apply bg-gray-800;
   }
+}
+
+.container {
+  @apply px-6;
 }
 
 .appearance-none {

@@ -17,10 +17,7 @@ const ContactPage = ({ data }) => {
         image={'/images/seo/contact.png'}
       />
 
-      <section
-        id="intro"
-        className="relative md:min-h-screen bg-black pt-32 p-6 md:px-0"
-      >
+      <section id="intro" className="relative md:min-h-screen bg-black pt-32">
         <div className="container mx-auto">
           <div className="md:w-3/4 mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div className="px-6">
@@ -42,7 +39,7 @@ const ContactPage = ({ data }) => {
       </section>
       <section
         id="contact"
-        className="flex justify-center items-center md:min-h-screen bg-black p-12 pb-24 md:pt-20 md:pb-40"
+        className="flex justify-center items-center md:min-h-screen bg-black py-24 md:pt-20 md:pb-40"
       >
         <div className="container mx-auto">
           <div className="flex justify-center items-center">

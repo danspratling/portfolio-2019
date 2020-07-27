@@ -32,6 +32,10 @@ module.exports = {
             variants: [`400`, `500`],
           },
           {
+            family: `Cabin`,
+            variants: [`400`, `700`],
+          },
+          {
             family: `Fira Code`,
             variants: [`400`, `700`],
           },
