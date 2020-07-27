@@ -3,7 +3,7 @@ const generateImage = require('./functions/socialImage')
 
 //Build our social media (twitter/og) images using canvas
 generateImage({
-  title: 'Dan Spratling Web designer & developer',
+  title: 'Dan Spratling Website Specialist & UX Consultant',
   slug: 'home',
 })
 generateImage({
