@@ -22,10 +22,11 @@ const ProjectTemplate = ({ data, pageContext }) => {
   const {
     title,
     body,
-    url,
+    quote,
     featuredImage,
     artboardDesktop,
     artboardMobile,
+    url,
     industries,
     location,
     results,
@@ -44,9 +45,12 @@ const ProjectTemplate = ({ data, pageContext }) => {
 
       <section id="intro" className="pt-12 md:py-32">
         <div className="container mx-auto">
-          <div className="flex flex-wrap text-white -mx-6 md:mb-8">
-            <div className="w-full md:w-2/5 my-8 px-6">
-              <h1 className="text-4xl text-bold">{title}</h1>
+          <div className="flex flex-wrap text-white -mx-6 md:mb-8 items-center">
+            <div className="w-full md:w-2/5 my-8 px-6 md:pr-12">
+              <h1 className="text-3xl text-bold text-green-500 mb-4">
+                {title}
+              </h1>
+              <p className="text-6xl leading-tight">{quote.quote}</p>
             </div>
             <div className="w-full md:w-3/5 md:p-10 bg-gray-900 p-6">
               <Image fluid={featuredImage.fluid} className="rounded-md" />
@@ -57,7 +61,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
 
       <section id="case-study" className="mb-40">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-3 lg:gap-20">
+          <div className="grid lg:grid-cols-3 lg:gap-20 items-start">
             <ul className="bg-gray-900 md:max-w-300 -mx-6 md:mx-0 py-3">
               <DetailListItem
                 title="Company"
@@ -154,7 +158,9 @@ export const query = graphql`
           body
         }
       }
-      url
+      quote {
+        quote
+      }
       featuredImage {
         fluid(maxWidth: 1140) {
           ...GatsbyContentfulFluid_withWebp
@@ -170,11 +176,7 @@ export const query = graphql`
           ...GatsbyContentfulFluid_withWebp
         }
       }
-      gallery {
-        fluid {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
+      url
       industries {
         title
       }

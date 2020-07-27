@@ -50,26 +50,7 @@
   }
 
   ul {
-    @apply list-none;
-    @apply ml-4;
-
-    li {
-      @apply mb-0;
-
-      @screen md {
-        @apply mb-1;
-      }
-
-      &:before {
-        content: '-';
-        @apply pl-0;
-        @apply pr-2;
-
-        @screen md {
-          @apply pr-4;
-        }
-      }
-    }
+    @apply list-disc;
   }
 
   /* Blockquotes */
