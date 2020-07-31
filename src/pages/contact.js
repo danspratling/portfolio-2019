@@ -19,8 +19,8 @@ const ContactPage = ({ data }) => {
 
       <section id="intro" className="relative md:min-h-screen bg-black pt-32">
         <div className="container mx-auto">
-          <div className="md:w-3/4 mx-auto grid md:grid-cols-2 gap-20 items-center">
-            <div className="px-6">
+          <div className="flex flex-wrap mx-auto justify-around items-center">
+            <div className="w-full lg:w-1/2 px-6 mb-20">
               <SectionIntro
                 data={pageIntro}
                 animation={{
@@ -31,7 +31,8 @@ const ContactPage = ({ data }) => {
             </div>
 
             <div
-              className="w-full calendly-inline-widget h-full min-h-640"
+              className="w-full lg:w-1/3 calendly-inline-widget"
+              style={{ height: 640 }}
               data-url="https://calendly.com/dan_spratling/discovery"
             ></div>
           </div>
