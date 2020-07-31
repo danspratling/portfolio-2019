@@ -21,6 +21,7 @@
     "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-manifest": "^2.4.1",
     "gatsby-plugin-mdx": "^1.2.6",
+    "gatsby-plugin-netlify": "^2.3.11",
     "gatsby-plugin-offline": "^3.2.0",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.1.24",
