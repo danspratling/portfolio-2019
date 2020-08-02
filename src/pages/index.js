@@ -12,6 +12,9 @@ import {
 } from '../components'
 
 const IndexPage = ({ data }) => {
+  //Gets avatar for social image
+  const socialImage = data.file.childImageSharp
+
   //descructure our pagedata as js objects so we can use them
   const {
     seo,
@@ -42,7 +45,7 @@ const IndexPage = ({ data }) => {
           <div className="flex flex-row flex-wrap lg:flex-no-wrap -mx-5">
             <div className="w-full md:w-2/5 lg:w-3/5 mx-5 order-last lg:order-first ml-auto lg:ml-0">
               <div className="md:flex">
-                <Social />
+                <Social image={socialImage} />
               </div>
             </div>
             <div className="w-full md:w-3/5 lg:w-2/5 mx-5 md:mx-auto lg:mx-5 z-10">
@@ -90,6 +93,13 @@ const IndexPage = ({ data }) => {
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
 export const query = graphql`
   query {
+    file(relativePath: { eq: "avatar.jpg" }) {
+      childImageSharp {
+        fixed(width: 70, height: 70) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     contentfulHomepage {
       seo {
         title

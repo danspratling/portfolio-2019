@@ -15,16 +15,9 @@ import {
  * @param {Object} props
  * @param {'none' | 'start' | 'end'} props.imagePosition - alignment of the image
  */
-const Social = ({ imagePosition = 'start' }) => {
+const Social = ({ image }) => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "avatar.jpg" }) {
-        childImageSharp {
-          fixed(width: 70, height: 70) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
       site {
         siteMetadata {
           socials {
@@ -40,13 +33,10 @@ const Social = ({ imagePosition = 'start' }) => {
   `)
 
   return (
-    <div className="flex items-center justify-center py-10 text-xl text-white">
-      {imagePosition === 'start' && (
+    <div className="flex items-center justify-start -mx-4 py-10 text-xl text-white">
+      {image && (
         <div className="hidden md:block">
-          <Image
-            fixed={data.file.childImageSharp.fixed}
-            className="rounded-full mr-10"
-          />
+          <Image fixed={image.fixed} className="rounded-full mr-10" />
         </div>
       )}
       <a
@@ -94,14 +84,6 @@ const Social = ({ imagePosition = 'start' }) => {
       >
         <FontAwesomeIcon icon={faDev} />
       </a>
-      {imagePosition === 'end' && (
-        <div className="hidden md:block">
-          <Image
-            fixed={data.file.childImageSharp.fixed}
-            className="rounded-full mr-10"
-          />
-        </div>
-      )}
     </div>
   )
 }

@@ -5,7 +5,6 @@
   "version": "0.1.0",
   "author": "Dan Spratling <dan@danspratling.dev> @dan_spratling",
   "dependencies": {
-    "@brainhubeu/react-carousel": "^1.13.40",
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",

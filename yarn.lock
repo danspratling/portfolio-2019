@@ -1087,11 +1087,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@brainhubeu/react-carousel@^1.13.40":
-  version "1.13.40"
-  resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.13.40.tgz#ad83dcf366b40ddba628a7aaa1e5ce35cd7cb831"
-  integrity sha512-L2FxB3H7xVkrzL95lKzIAOfdFa3LdAtWNpjvAaeTZV7MVPlSSAUejTvH2YDJRdDmIf3F3VOiqFnbnt8WxjCpyw==
-
 "@contentful/rich-text-react-renderer@^13.4.0":
   version "13.4.0"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-13.4.0.tgz#2efb556f58d608472c2dde692153c7b7b985fae7"
