@@ -8,6 +8,14 @@ import {
   faInstagram,
   faLinkedinIn,
   faDev,
+  faFacebookSquare,
+  faPinterestSquare,
+  faSlackHash,
+  faDiscord,
+  faTwitch,
+  faYoutube,
+  faMedium,
+  faDribbbleSquare,
 } from '@fortawesome/free-brands-svg-icons'
 
 /**
@@ -42,60 +50,44 @@ const Social = ({ showAvatar = false }) => {
   return (
     <div className="flex items-center justify-start -mx-4 py-10 text-xl text-white">
       {showAvatar && (
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center">
           <Image
             fixed={data.file.childImageSharp.fixed}
             className="rounded-full mr-10"
           />
         </div>
       )}
-      <a
-        href={data.site.siteMetadata.socials.twitter}
-        title="Twitter profile"
-        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faTwitter} />
-      </a>
-      <a
-        href={data.site.siteMetadata.socials.github}
-        title="Github profile"
-        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faGithub} />
-      </a>
-      <a
-        href={data.site.siteMetadata.socials.instagram}
-        title="Instagram account"
-        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faInstagram} />
-      </a>
-      <a
-        href={data.site.siteMetadata.socials.linkedin}
-        title="LinkedIn Account"
-        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faLinkedinIn} />
-      </a>
-      <a
-        href={data.site.siteMetadata.socials.dev}
-        title="Dev.to Blog"
-        className="px-4 hover:text-green-500 cursor-pointer transition duration-200"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faDev} />
-      </a>
+      <div className="flex flex-wrap items-center max-w-380">
+        {Object.entries(data.site.siteMetadata.socials).map(([key, url]) => (
+          <a
+            href={url}
+            title={`Social profile - ${key}`}
+            className="px-4 py-2 hover:text-green-500 cursor-pointer transition duration-200"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={iconMap[key]} />
+          </a>
+        ))}
+      </div>
     </div>
   )
+}
+
+const iconMap = {
+  twitter: faTwitter,
+  facebook: faFacebookSquare,
+  instagram: faInstagram,
+  linkedin: faLinkedinIn,
+  dribbble: faDribbbleSquare,
+  pinterest: faPinterestSquare,
+  dev: faDev,
+  medium: faMedium,
+  github: faGithub,
+  youtube: faYoutube,
+  twitch: faTwitch,
+  slack: faSlackHash,
+  discord: faDiscord,
 }
 
 export default Social
