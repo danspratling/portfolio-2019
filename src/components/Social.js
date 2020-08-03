@@ -13,9 +13,9 @@ import {
 /**
  *
  * @param {Object} props
- * @param {'none' | 'start' | 'end'} props.imagePosition - alignment of the image
+ * @param {Boolean} props.showAvatar - alignment of the image
  */
-const Social = ({ image }) => {
+const Social = ({ showAvatar = false }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -29,14 +29,24 @@ const Social = ({ image }) => {
           }
         }
       }
+      file(relativePath: { eq: "avatar.jpg" }) {
+        childImageSharp {
+          fixed(width: 70, height: 70) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `)
 
   return (
     <div className="flex items-center justify-start -mx-4 py-10 text-xl text-white">
-      {image && (
+      {showAvatar && (
         <div className="hidden md:block">
-          <Image fixed={image.fixed} className="rounded-full mr-10" />
+          <Image
+            fixed={data.file.childImageSharp.fixed}
+            className="rounded-full mr-10"
+          />
         </div>
       )}
       <a

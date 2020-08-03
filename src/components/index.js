@@ -4,7 +4,6 @@ import Header from './Header'
 import Layout from './Layout'
 import Link from './Link'
 import Markdown from './Markdown'
-import MegaHeading from './MegaHeading'
 import ProjectCard from './ProjectCard'
 import ProjectList from './ProjectList'
 import PromoCard from './PromoCard'
@@ -23,7 +22,6 @@ export {
   Layout,
   Link,
   Markdown,
-  MegaHeading,
   ProjectCard,
   ProjectList,
   PromoCard,

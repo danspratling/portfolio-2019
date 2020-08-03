@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from '../components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMinus } from '@fortawesome/free-solid-svg-icons'
 import VisibilitySensor from 'react-visibility-sensor'
 
 import { RichText } from '../components'
@@ -19,7 +17,7 @@ import { RichText } from '../components'
  * @param {string} props.animation[].direction - animates direction if enabled,
  */
 const SectionIntro = ({ data, animation }) => {
-  const { heading, title, body, link } = data
+  const { title, body, link } = data
   const animationVisibility = animation && animation.visibility
   const animationDirection = animation && animation.direction
 
@@ -39,9 +37,6 @@ const SectionIntro = ({ data, animation }) => {
         //Render the SectionIntro
         return (
           <div className={classes.join(' ')}>
-            <p className="tracking-wider text-gray-600 font-bold mb-6">
-              {heading}
-            </p>
             <h2 className="text-2xl md:text-3xl text-white mb-6">{title}</h2>
             <div className="text-gray-600">
               {body && <RichText body={body} />}
