@@ -39,7 +39,9 @@ const SectionIntro = ({ data, animation }) => {
         //Render the SectionIntro
         return (
           <div className={classes.join(' ')}>
-            <SectionPreHeading>{heading}</SectionPreHeading>
+            <p className="tracking-wider text-gray-600 font-bold mb-6">
+              {heading}
+            </p>
             <h2 className="text-2xl md:text-3xl text-white mb-6">{title}</h2>
             <div className="text-gray-600">
               {body && <RichText body={body} />}
@@ -55,19 +57,6 @@ const SectionIntro = ({ data, animation }) => {
     </VisibilitySensor>
   )
 }
-
-/**
- * The pre-heading
- * @param {Object} props
- * @param {string} props.children
- */
-const SectionPreHeading = ({ children }) => (
-  <p className="tracking-wider text-gray-600 font-bold mb-6">
-    <FontAwesomeIcon icon={faMinus} className="mr-4" />
-    {children}
-    <FontAwesomeIcon icon={faMinus} className="ml-4" />
-  </p>
-)
 
 /**
  * returns classes controlling animation directions
