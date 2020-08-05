@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, ProjectList, SEO } from '../components'
+import { Layout, SEO } from '../components'
+import ProjectFeed from '../components/sections/ProjectFeed'
 
 const ProjectPage = ({ data }) => {
   //Get the page sections from the graphql data
-  const seo = data.contentfulPage.seo
-  const pageIntro = data.contentfulPage.intro
-  const projectList = data.allContentfulProject.nodes
+  const { seo, projectFeed } = data.contentfulPage
+  const { projects } = data.allContentfulProject
 
   return (
     <Layout>
@@ -17,23 +17,12 @@ const ProjectPage = ({ data }) => {
         image={'/images/seo/projects.png'}
       />
 
-      <section
-        id="projects"
-        className="min-h-screen min-w-full bg-black px-6 py-32"
-      >
-        <div className="container mx-auto">
-          <ProjectList
-            sectionIntro={{
-              data: pageIntro,
-              animation: {
-                visibility: true,
-                direction: 'from left',
-              },
-            }}
-            projectList={projectList}
-          />
-        </div>
-      </section>
+      <ProjectFeed
+        heading={projectFeed.title}
+        body={projectFeed.body}
+        link={projectFeed.link}
+        projects={projects}
+      />
     </Layout>
   )
 }
@@ -46,20 +35,20 @@ export const query = graphql`
         title
         description
       }
-      intro {
+      projectFeed: intro {
         heading
         title
         body {
           json
         }
         link {
-          link
+          to: link
           title
         }
       }
     }
     allContentfulProject {
-      nodes {
+      projects: nodes {
         title
         slug
         categories: industries {

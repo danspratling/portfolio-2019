@@ -1,17 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, ProjectList, SEO, ContactSection } from '../components'
+import { Layout, SEO, ContactSection } from '../components'
 
-import Hero from '../components/sections/Hero/Hero'
+import Hero from '../components/sections/Hero'
+import ProjectFeed from '../components/sections/ProjectFeed'
 
-const IndexPage = ({ data }) => {
+const HomePage = ({ data }) => {
   //descructure our pagedata as js objects so we can use them
   const {
     seo,
-    pageIntro,
-    projectIntro,
-    projectList,
+    hero,
+    projectFeed,
+    projects,
     contactSection,
   } = data.contentfulHomepage
 
@@ -26,35 +27,17 @@ const IndexPage = ({ data }) => {
 
       <Hero
         megaHeading="Dan Spratling"
-        heading={pageIntro.heading}
-        body={pageIntro.body}
-        link={{ title: pageIntro.link.title, to: pageIntro.link.link }}
+        heading={hero.title}
+        body={hero.body}
+        link={hero.link}
       />
 
-      {/* page section - Projects */}
-      <section
-        id="projects"
-        className="min-h-screen min-w-full bg-black py-12 lg:py-32"
-      >
-        <div className="container mx-auto">
-          <ProjectList
-            sectionIntro={{
-              data: projectIntro,
-              animation: {
-                visibility: true,
-                direction: 'from top',
-              },
-            }}
-            projectList={projectList}
-          />
-        </div>
-      </section>
-
-      {/* page section - Blog */}
-      {/* <section
-        id="blog"
-        className="min-h-screen bg-black pt-40 pb-40"
-      ></section> */}
+      <ProjectFeed
+        heading={projectFeed.title}
+        body={projectFeed.body}
+        link={projectFeed.link}
+        projects={projects}
+      />
 
       {/* page section - Contact */}
       <section id="contact" className="min-h-screen bg-black py-32">
@@ -74,29 +57,29 @@ export const query = graphql`
         title
         description
       }
-      pageIntro {
+      hero: pageIntro {
         heading
         title
         body {
           json
         }
         link {
-          link
+          to: link
           title
         }
       }
-      projectIntro {
+      projectFeed: projectIntro {
         heading
         title
         body {
           json
         }
         link {
-          link
+          to: link
           title
         }
       }
-      projectList {
+      projects: projectList {
         title
         slug
         categories: industries {
@@ -129,4 +112,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default HomePage

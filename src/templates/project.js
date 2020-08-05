@@ -12,7 +12,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 // import { trackPageview } from 'fathom-client'
 import Layout from '../components/Layout'
-import Link from '../components/Link'
 import SEO from '../components/SEO'
 import Markdown from '../components/Markdown'
 import { ContactSection } from '../components'
@@ -81,7 +80,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
               <DetailListItem
                 title="Website"
                 description={
-                  <a href={url} target="_blank" rel="no-referrer">
+                  <a href={url} target="_blank" rel="noopener noreferrer">
                     <span className="pr-2">Visit site</span>
                     <FontAwesomeIcon icon={faExternalLinkAlt} />
                   </a>
