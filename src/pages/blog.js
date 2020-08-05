@@ -3,7 +3,9 @@ import { Link, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import { Layout, SectionIntro, SEO } from '../components'
+import { SectionIntro } from '../components'
+
+import Layout from '../components/layout/Layout'
 
 const ProjectPage = ({ data }) => {
   //Get the page sections from the graphql data
@@ -12,13 +14,7 @@ const ProjectPage = ({ data }) => {
   const posts = data.allContentfulPost.nodes
 
   return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        image={'/images/seo/projects.png'}
-      />
-
+    <Layout {...seo} image={'/images/seo/projects.png'}>
       <section
         id="projects"
         className="min-h-screen min-w-full bg-black px-6 py-32"

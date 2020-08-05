@@ -1,11 +1,20 @@
 import React from 'react'
-import VisibilitySensor from '../../VisibilitySensor'
+import VisibilitySensor from '../VisibilitySensor'
 
-import Link from '../../Link'
-import Social from '../../Social'
+import Link from '../Link'
+import Social from '../Social'
 // import Markdown from '../../Markdown'
-import RichText from '../../RichText'
+import RichText from '../RichText'
 
+/**
+ * @param {Object} props
+ * @param {String} props.megaHeading - Giant page heading
+ * @param {String} props.heading - Descriptive hero heading
+ * @param {String} props.body - Descriptive hero detail
+ * @param {Object} props.link - Hero link button
+ * @param {String} props.link.to - Link URL
+ * @param {String} props.link.title - Link Heading
+ */
 const Hero = ({ megaHeading, heading, body, link }) => {
   return (
     <section

@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, SEO } from '../components'
+import Layout from '../components/layout/Layout'
 import ProjectFeed from '../components/sections/ProjectFeed'
 
 const ProjectPage = ({ data }) => {
@@ -10,13 +10,7 @@ const ProjectPage = ({ data }) => {
   const { projects } = data.allContentfulProject
 
   return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        image={'/images/seo/projects.png'}
-      />
-
+    <Layout {...seo} image={'/images/seo/projects.png'}>
       <ProjectFeed
         heading={projectFeed.title}
         body={projectFeed.body}

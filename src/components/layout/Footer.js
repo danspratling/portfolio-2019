@@ -1,7 +1,8 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Link from './Link'
-import { Social } from '.'
+
+import Link from '../Link/index'
+import Social from '../Social'
 
 const Footer = () => {
   const data = useStaticQuery(graphql`

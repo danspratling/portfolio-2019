@@ -1,18 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout, SEO, SectionIntro, Markdown } from '../components'
+import { SectionIntro, Markdown } from '../components'
+
+import Layout from '../components/layout/Layout'
 
 const UsesPage = ({ data }) => {
   const { seo, intro: pageIntro, body } = data.contentfulList
 
   return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        image={'/images/seo/uses.png'}
-      />
-
+    <Layout {...seo} imagePath={'/images/seo/uses.png'}>
       <section
         id="intro"
         className="relative md:min-h-640 bg-black pt-32 p-12 md:pt-64 md:px-0"

@@ -1,38 +1,20 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout, MegaHeading, SEO, SectionIntro, Social } from '../components'
+
+import Layout from '../components/layout/Layout'
+import Hero from '../components/sections/Hero'
 
 const errorPage = ({ data }) => {
-  const { seo, intro: pageIntro } = data.contentfulPage
+  const { seo, hero } = data.contentfulPage
 
   return (
-    <Layout>
-      <SEO title={seo.title} description={seo.description} />
-
-      <section
-        id="intro"
-        className="relative min-h-screen lg:min-h-1024 bg-black py-12 lg:py-40 px-6"
-      >
-        <div className="container mx-auto">
-          <div className="my-10 md:my-0">
-            <MegaHeading>
-              404
-              <br />
-              Game Over.
-            </MegaHeading>
-          </div>
-          <div className="flex flex-row flex-wrap lg:flex-no-wrap -mx-5">
-            <div className="w-full md:w-2/5 lg:w-3/5 mx-5 order-last lg:order-first ml-auto lg:ml-0">
-              <div className="md:flex">
-                <Social />
-              </div>
-            </div>
-            <div className="w-full md:w-3/5 lg:w-2/5 mx-5 md:mx-auto lg:mx-5 z-10">
-              <SectionIntro data={pageIntro} />
-            </div>
-          </div>
-        </div>
-      </section>
+    <Layout {...seo}>
+      <Hero
+        megaHeading="Game Over"
+        heading={hero.title}
+        body={hero.body}
+        link={hero.link}
+      />
     </Layout>
   )
 }
@@ -45,14 +27,14 @@ export const query = graphql`
         title
         description
       }
-      intro {
+      hero: intro {
         heading
         title
         body {
           json
         }
         link {
-          link
+          to: link
           title
         }
       }

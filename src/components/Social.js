@@ -21,7 +21,7 @@ import {
 /**
  *
  * @param {Object} props
- * @param {Boolean} props.showAvatar - alignment of the image
+ * @param {Boolean} [props.showAvatar] - If the avatar should be displayed alongside the social icons. Defaults to hidden (false)
  */
 const Social = ({ showAvatar = false }) => {
   const data = useStaticQuery(graphql`

@@ -1,8 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, SEO, ContactSection } from '../components'
+import { ContactSection } from '../components'
 
+import Layout from '../components/layout/Layout'
 import Hero from '../components/sections/Hero'
 import ProjectFeed from '../components/sections/ProjectFeed'
 
@@ -18,13 +19,7 @@ const HomePage = ({ data }) => {
 
   //Render the page
   return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        image={'/images/seo/home.png'}
-      />
-
+    <Layout {...seo} image={'/images/seo/home.png'}>
       <Hero
         megaHeading="Dan Spratling"
         heading={hero.title}

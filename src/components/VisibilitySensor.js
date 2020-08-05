@@ -1,6 +1,14 @@
 import React from 'react'
 import ReactVisibilitySensor from 'react-visibility-sensor'
 
+/**
+ * Project Feed - Wrapper component listing project cards
+ * @param {Object} props
+ * @param {Boolean} [props.visibility] - Animated fade in. Defaults to true.
+ * @param {"top"|"right"|"bottom"|"left"} [props.direction] - Animation will occur towards the specified direction. e.g. "Fade in TO TOP"
+ * @param {String} [props.className] - Custom classes for the animation wrapper
+ * @param {JSX.Element|String} props.children - Contents of the animation wrapper
+ */
 const VisibilitySensor = ({
   visibility = true,
   direction,
@@ -34,14 +42,10 @@ const getAnimationDirection = direction => {
 
   // negative margin 'pulls' the container in the specified direction, while the opposite padding fills out the missing space caused by the negative margin
   const mapAnimations = {
-    'from top': '-mt-8 pb-8',
-    'from bottom': '-mb-8 pt-8',
-    'from left': '-ml-8 pr-8',
-    'from right': '-mr-8 pl-8',
-    'to bottom': '-mt-8 pb-8',
-    'to top': '-mb-8 pt-8',
-    'to right': '-ml-8 pr-8',
-    'to left': '-mr-8 pl-8',
+    bottom: '-mt-8 pb-8',
+    top: '-mb-8 pt-8',
+    right: '-ml-8 pr-8',
+    left: '-mr-8 pl-8',
   }
 
   const margin = mapAnimations[direction.toLowerCase()]

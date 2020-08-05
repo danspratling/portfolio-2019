@@ -1,8 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 // import { trackPageview } from 'fathom-client'
-import { Layout, SEO, SectionIntro, Social } from '../components'
+import { SectionIntro } from '../components'
 import { Enquiry } from '../components/form'
+
+import Layout from '../components/layout/Layout'
 
 const ContactPage = ({ data }) => {
   const { seo, intro: pageIntro, formIntro } = data.contentfulContactPage
@@ -10,13 +12,7 @@ const ContactPage = ({ data }) => {
   // trackPageview()
 
   return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        image={'/images/seo/contact.png'}
-      />
-
+    <Layout {...seo} image={'/images/seo/contact.png'}>
       <section id="intro" className="relative md:min-h-screen bg-black pt-32">
         <div className="container mx-auto">
           <div className="flex flex-wrap mx-auto justify-around items-center">

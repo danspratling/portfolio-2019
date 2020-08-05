@@ -11,8 +11,7 @@ import {
   faExternalLinkAlt,
 } from '@fortawesome/free-solid-svg-icons'
 // import { trackPageview } from 'fathom-client'
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Layout from '../components/layout/Layout'
 import Markdown from '../components/Markdown'
 import { ContactSection } from '../components'
 
@@ -35,13 +34,11 @@ const ProjectTemplate = ({ data, pageContext }) => {
   // trackPageview()
 
   return (
-    <Layout>
-      <SEO
-        title={`${title} Project - Dan Spratling's projects`}
-        description={`See my impact on ${title}, the tools and skills required for the build and the outcome`}
-        image={seoImage}
-      />
-
+    <Layout
+      title={`${title} Project - Dan Spratling's projects`}
+      description={`See my impact on ${title}, the tools and skills required for the build and the outcome`}
+      imagePath={seoImage}
+    >
       <section id="intro" className="pt-12 md:py-32">
         <div className="container mx-auto">
           <div className="flex flex-wrap text-white -mx-6 md:mb-8 items-center">

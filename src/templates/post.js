@@ -1,8 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 // import { trackPageview } from 'fathom-client'
-import { Layout, SEO, Markdown } from '../components'
+import { Markdown } from '../components'
 import { SignUp } from '../components/form'
+
+import Layout from '../components/layout/Layout'
 
 const Post = ({ data, pageContext }) => {
   //Get the page sections from the graphql data
@@ -12,9 +14,7 @@ const Post = ({ data, pageContext }) => {
   // trackPageview()
 
   return (
-    <Layout>
-      <SEO title={title} description={description} image={seoImage} />
-
+    <Layout title={title} description={description} image={seoImage} article>
       <section
         id="projects"
         className="min-h-screen min-w-full bg-black px-6 py-32"
