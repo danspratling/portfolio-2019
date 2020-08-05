@@ -6,40 +6,35 @@ import { ContactSection } from '../components'
 import Layout from '../components/layout/Layout'
 import Hero from '../components/sections/Hero'
 import ProjectFeed from '../components/sections/ProjectFeed'
+import Contact from '../components/sections/Contact'
 
 const HomePage = ({ data }) => {
   //descructure our pagedata as js objects so we can use them
-  const {
-    seo,
-    hero,
-    projectFeed,
-    projects,
-    contactSection,
-  } = data.contentfulHomepage
+  const { seo, hero, projectFeed, projects, contact } = data.contentfulHomepage
 
   //Render the page
   return (
     <Layout {...seo} image={'/images/seo/home.png'}>
       <Hero
         megaHeading="Dan Spratling"
-        heading={hero.title}
+        heading={hero.heading}
         body={hero.body}
         link={hero.link}
       />
 
       <ProjectFeed
-        heading={projectFeed.title}
+        heading={projectFeed.heading}
         body={projectFeed.body}
         link={projectFeed.link}
         projects={projects}
       />
 
-      {/* page section - Contact */}
-      <section id="contact" className="min-h-screen bg-black py-32">
-        <div className="container mx-auto">
-          <ContactSection {...contactSection} />
-        </div>
-      </section>
+      <Contact
+        heading={contact.heading}
+        body={contact.body}
+        link={contact.link}
+        promoCards={contact.promoCards}
+      />
     </Layout>
   )
 }
@@ -53,14 +48,13 @@ export const query = graphql`
         description
       }
       hero: pageIntro {
-        heading
-        title
+        heading: title
         body {
           json
         }
         link {
           to: link
-          title
+          heading: title
         }
       }
       projectFeed: projectIntro {
@@ -71,14 +65,14 @@ export const query = graphql`
         }
         link {
           to: link
-          title
+          heading: title
         }
       }
       projects: projectList {
-        title
+        heading: title
         slug
         categories: industries {
-          title
+          heading: title
         }
         previewImage {
           fixed(width: 600, height: 380, quality: 100) {
@@ -86,21 +80,21 @@ export const query = graphql`
           }
         }
       }
-      contactSection {
-        cards {
-          title
+      contact: contactSection {
+        promoCards: cards {
+          heading: title
           body
           icon
         }
-        title
+        heading: title
         body {
           childMdx {
             body
           }
         }
         link {
-          link
-          title
+          to: link
+          heading: title
         }
       }
     }

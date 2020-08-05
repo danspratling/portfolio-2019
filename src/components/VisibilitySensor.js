@@ -4,17 +4,12 @@ import ReactVisibilitySensor from 'react-visibility-sensor'
 /**
  * Project Feed - Wrapper component listing project cards
  * @param {Object} props
- * @param {Boolean} [props.visibility] - Animated fade in. Defaults to true.
+ * @param {Boolean} [props.fade] - Animated fade in. Defaults to false (always visible).
  * @param {"top"|"right"|"bottom"|"left"} [props.direction] - Animation will occur towards the specified direction. e.g. "Fade in TO TOP"
  * @param {String} [props.className] - Custom classes for the animation wrapper
  * @param {JSX.Element|String} props.children - Contents of the animation wrapper
  */
-const VisibilitySensor = ({
-  visibility = true,
-  direction,
-  className,
-  children,
-}) => {
+const VisibilitySensor = ({ fade, direction, className, children }) => {
   return (
     <ReactVisibilitySensor partialVisibility={true} delayedCall={true}>
       {({ isVisible }) => {
@@ -23,7 +18,7 @@ const VisibilitySensor = ({
           'duration-1000',
           'overflow-visible',
           className,
-          !isVisible && visibility ? 'opacity-0' : null,
+          !isVisible && fade ? 'opacity-0' : null,
           !isVisible ? getAnimationDirection(direction) : null,
         ]
 

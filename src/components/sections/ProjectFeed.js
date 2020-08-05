@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Image from 'gatsby-image'
-import VisibilitySensor from '../VisibilitySensor'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import MagicGrid from 'react-magic-grid'
@@ -8,16 +7,17 @@ import MagicGrid from 'react-magic-grid'
 import Link from '../Link'
 // import Markdown from '../../Markdown'
 import RichText from '../RichText'
+import VisibilitySensor from '../VisibilitySensor'
 
 /**
  * Project Feed - Wrapper component listing project cards
  * @param {Object} props
- * @param {String} props.heading
- * @param {String} props.body
- * @param {Object} [props.link]
- * @param {String} props.link.to
- * @param {String} props.link.title
- * @param {Array} props.projects
+ * @param {String} props.heading - Descriptive Prokect feed heading
+ * @param {String} props.body - Descriptive Project feed detail
+ * @param {Object} [props.link] - Optional Project feed link button
+ * @param {String} props.link.to - Link URL
+ * @param {String} props.link.heading - Link Heading
+ * @param {Array} props.projects - List of projects to be displayed
  */
 const ProjectFeed = ({ heading, body, link, projects }) => {
   //The page has an infinite list so create the length state
@@ -42,7 +42,7 @@ const ProjectFeed = ({ heading, body, link, projects }) => {
           <MagicGrid items={projectList.length + 2} gutter={0}>
             {/* The first item is always a copy component */}
             <div className="md:w-1/2 md:px-8 xl:px-24 pb-20 md:py-12">
-              <VisibilitySensor direction="right">
+              <VisibilitySensor direction="right" fade>
                 <h2 className="text-2xl md:text-3xl text-white mb-6">
                   {heading}
                 </h2>
@@ -50,7 +50,7 @@ const ProjectFeed = ({ heading, body, link, projects }) => {
                   {body && <RichText body={body} />}
                   {link && (
                     <Link to={link.to} variant="secondary">
-                      {link.title}
+                      {link.heading}
                     </Link>
                   )}
                 </div>
@@ -64,7 +64,7 @@ const ProjectFeed = ({ heading, body, link, projects }) => {
                 className="w-full md:w-1/2 md:px-4 xl:px-24 py-4 xl:py-12"
               >
                 <ProjectCard
-                  title={project.title}
+                  heading={project.heading}
                   categories={project.categories}
                   image={project.previewImage}
                   url={`/projects/${project.slug}`}
@@ -93,26 +93,26 @@ const ProjectFeed = ({ heading, body, link, projects }) => {
 /**
  * Project Card - Single project display component
  * @param {Object} props
- * @param {String} props.title
+ * @param {String} props.heading
  * @param {String[]} props.categories
  * @param {String} props.image -
  * @param {Object} props.link
  * @param {String} props.link.to
  * @param {String} props.link.title
  */
-const ProjectCard = ({ title, categories, image, url }) => {
+const ProjectCard = ({ heading, categories, image, url }) => {
   return (
     <div className="flex flex-col bg-gray-900">
       <header className="flex items-center justify-between text-white">
         <div className="py-8 px-6 md:px-8">
-          <h3 className="text-xl">{title}</h3>
+          <h3 className="text-xl">{heading}</h3>
           <p className="text-sm text-gray-500">
-            {categories.map(category => category.title).join(', ')}
+            {categories.map(category => category.heading).join(', ')}
           </p>
         </div>
         <Link
           to={url}
-          title={`${title} project page`}
+          title={`${heading} project page`}
           className="text-xl py-8 px-12 hover:text-green-500 transition duration-200"
         >
           <FontAwesomeIcon icon={faArrowRight} />

@@ -13,14 +13,14 @@ import {
 // import { trackPageview } from 'fathom-client'
 import Layout from '../components/layout/Layout'
 import Markdown from '../components/Markdown'
-import { ContactSection } from '../components'
+import Contact from '../components/sections/Contact'
 
 const ProjectTemplate = ({ data, pageContext }) => {
   //Get the page sections from the graphql data
   const {
-    title,
+    heading,
     body,
-    quote,
+    testimonial,
     featuredImage,
     artboardDesktop,
     artboardMobile,
@@ -28,15 +28,16 @@ const ProjectTemplate = ({ data, pageContext }) => {
     industries,
     location,
     results,
-  } = data.contentfulProject
+  } = data.project
+  const contact = data.contact
   const { seoImage } = pageContext
 
   // trackPageview()
 
   return (
     <Layout
-      title={`${title} Project - Dan Spratling's projects`}
-      description={`See my impact on ${title}, the tools and skills required for the build and the outcome`}
+      title={`${heading} Project - Dan Spratling's projects`}
+      description={`See my impact on ${heading}, the tools and skills required for the build and the outcome`}
       imagePath={seoImage}
     >
       <section id="intro" className="pt-12 md:py-32">
@@ -44,9 +45,9 @@ const ProjectTemplate = ({ data, pageContext }) => {
           <div className="flex flex-wrap text-white -mx-6 md:mb-8 items-center">
             <div className="w-full md:w-2/5 my-8 px-6 md:pr-12">
               <h1 className="text-3xl text-bold text-green-500 mb-4">
-                {title}
+                {heading}
               </h1>
-              <p className="text-6xl leading-tight">{quote.quote}</p>
+              <p className="text-6xl leading-tight">{testimonial.quote}</p>
             </div>
             <div className="w-full md:w-3/5 md:p-10 bg-gray-900 p-6">
               <Image fluid={featuredImage.fluid} className="rounded-md" />
@@ -61,7 +62,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             <ul className="bg-gray-900 md:max-w-300 -mx-6 md:mx-0 py-3">
               <DetailListItem
                 title="Company"
-                description={title}
+                description={heading}
                 icon={faBuilding}
               />
               <DetailListItem
@@ -117,11 +118,12 @@ const ProjectTemplate = ({ data, pageContext }) => {
       {/* <section id="projects">
 
       </section> */}
-      <section id="contact" className="py-32 bg-gray-800 bg-opacity-50">
-        <div className="container mx-auto">
-          <ContactSection {...data.contentfulUpsell} />
-        </div>
-      </section>
+      <Contact
+        heading={contact.heading}
+        body={contact.body}
+        link={contact.link}
+        promoCards={contact.promoCards}
+      />
     </Layout>
   )
 }
@@ -147,14 +149,14 @@ const DetailListItem = ({ title, description, icon, markdown = false }) => {
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
 export const query = graphql`
   query getProject($id: String!) {
-    contentfulProject(contentful_id: { eq: $id }) {
-      title
+    project: contentfulProject(contentful_id: { eq: $id }) {
+      heading: title
       body {
         childMdx {
           body
         }
       }
-      quote {
+      testimonial: quote {
         quote
       }
       featuredImage {
@@ -183,21 +185,21 @@ export const query = graphql`
         }
       }
     }
-    contentfulUpsell(contentful_id: { eq: "4mHctjQb5jro7JZqzfIeax" }) {
-      cards {
-        title
+    contact: contentfulUpsell(contentful_id: { eq: "4mHctjQb5jro7JZqzfIeax" }) {
+      promoCards: cards {
+        heading: title
         body
         icon
       }
-      title
+      heading: title
       body {
         childMdx {
           body
         }
       }
       link {
-        title
-        link
+        heading: title
+        to: link
       }
     }
   }

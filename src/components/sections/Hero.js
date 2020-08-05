@@ -1,10 +1,10 @@
 import React from 'react'
-import VisibilitySensor from '../VisibilitySensor'
 
 import Link from '../Link'
 import Social from '../Social'
 // import Markdown from '../../Markdown'
 import RichText from '../RichText'
+import VisibilitySensor from '../VisibilitySensor'
 
 /**
  * @param {Object} props
@@ -13,7 +13,7 @@ import RichText from '../RichText'
  * @param {String} props.body - Descriptive hero detail
  * @param {Object} props.link - Hero link button
  * @param {String} props.link.to - Link URL
- * @param {String} props.link.title - Link Heading
+ * @param {String} props.link.heading - Link Heading
  */
 const Hero = ({ megaHeading, heading, body, link }) => {
   return (
@@ -24,7 +24,8 @@ const Hero = ({ megaHeading, heading, body, link }) => {
       <div className="container mx-auto">
         <div className="my-10 md:my-0">
           <VisibilitySensor
-            direction="from left"
+            fade
+            direction="right"
             className="md:absolute left-0 bottom-0"
           >
             <span className="megaHeading">{megaHeading}</span>
@@ -33,11 +34,11 @@ const Hero = ({ megaHeading, heading, body, link }) => {
         <div className="flex flex-row flex-wrap lg:flex-no-wrap -mx-5">
           <div className="w-full md:w-2/5 lg:w-3/5 mx-5 order-last lg:order-first ml-auto lg:ml-0">
             <div className="md:flex">
-              <Social showAvatar="true" />
+              <Social showAvatar />
             </div>
           </div>
           <div className="w-full md:w-3/5 lg:w-2/5 mx-5 md:mx-auto lg:mx-5 z-10">
-            <VisibilitySensor>
+            <VisibilitySensor fade>
               <h2 className="text-2xl md:text-3xl text-white mb-6">
                 {heading}
               </h2>
@@ -45,7 +46,7 @@ const Hero = ({ megaHeading, heading, body, link }) => {
                 {body && <RichText body={body} />}
                 {link && (
                   <Link to={link.to} variant="secondary">
-                    {link.title}
+                    {link.heading}
                   </Link>
                 )}
               </div>
