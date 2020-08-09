@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactVisibilitySensor from 'react-visibility-sensor'
 
 /**
@@ -17,20 +17,24 @@ const VisibilitySensor = ({
   children,
   ...props
 }) => {
+  /* Initialise default props, unless overwritten from component props */
   const defaultProps = {
     partialVisibility: true,
     delayedCall: true,
   }
-
   props = { ...defaultProps, ...props }
+
+  /* delay adding animations till the page has loaded */
+  let transitionClasses = ''
+  useEffect(() => {
+    transitionClasses = 'transition-all duration-1000 overflowVisible'
+  })
 
   return (
     <ReactVisibilitySensor {...props}>
       {({ isVisible }) => {
         const classes = [
-          'transition-all',
-          'duration-1000',
-          'overflow-visible',
+          transitionClasses,
           className,
           !isVisible && fade ? 'opacity-0' : null,
           !isVisible ? getAnimationDirection(direction) : null,
