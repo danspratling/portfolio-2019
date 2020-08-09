@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Link from '../Link/index'
+import Link from '../Link'
 import Social from '../Social'
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-    query HeaderQuery {
+    query FooterQuery {
       article1: contentfulPost(
         id: { eq: "86ab0c7a-0745-5cc9-8ded-f71e2d42c6d9" }
       ) {

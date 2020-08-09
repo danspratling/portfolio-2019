@@ -16,7 +16,10 @@ import Markdown from '../components/Markdown'
 import Contact from '../components/sections/Contact'
 
 const ProjectTemplate = ({ data, pageContext }) => {
+  const { seoImage } = pageContext
+
   //Get the page sections from the graphql data
+  const contact = data.contact
   const {
     heading,
     body,
@@ -29,8 +32,6 @@ const ProjectTemplate = ({ data, pageContext }) => {
     location,
     results,
   } = data.project
-  const contact = data.contact
-  const { seoImage } = pageContext
 
   // trackPageview()
 
