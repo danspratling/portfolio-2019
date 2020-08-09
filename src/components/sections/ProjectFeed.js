@@ -59,9 +59,12 @@ const ProjectFeed = ({ heading, body, link, projects }) => {
 
             {/* show cards for all the projects */}
             {projectList.map(project => (
-              <div
+              <VisibilitySensor
                 key={project.slug}
                 className="w-full md:w-1/2 md:px-4 xl:px-24 py-4 xl:py-12"
+                direction="top"
+                fade
+                minTopValue={200}
               >
                 <ProjectCard
                   heading={project.heading}
@@ -69,7 +72,7 @@ const ProjectFeed = ({ heading, body, link, projects }) => {
                   image={project.previewImage}
                   url={`/projects/${project.slug}`}
                 />
-              </div>
+              </VisibilitySensor>
             ))}
 
             {/* The last element is a 'load more' button unless there are no more elements */}
