@@ -2,6 +2,7 @@ import React from 'react'
 import { load as loadFathom } from 'fathom-client'
 import { initIcons, isBrowser } from '../../utils'
 
+import Header from './Header'
 import Helmet from './Helmet'
 import Footer from './Footer'
 
@@ -28,7 +29,8 @@ const Layout = ({ title, description, imagePath, article, children }) => {
   return (
     <>
       <Helmet {...seo} />
-      <main className="max-w-full overflow-hidden">{children}</main>
+      <Header />
+      <main className="max-w-full bg-black overflow-hidden">{children}</main>
       <Footer />
     </>
   )

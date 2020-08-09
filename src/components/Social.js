@@ -48,8 +48,8 @@ const Social = () => {
   `)
 
   return (
-    <div className="flex items-center justify-start -mx-4 py-10 text-xl text-white">
-      <div className="flex flex-wrap items-center max-w-380">
+    <div className="flex items-center justify-start py-10 text-xl text-white">
+      <div className="flex flex-wrap items-center max-w-380 -mx-4">
         {Object.entries(data.site.siteMetadata.socials).map(([key, url]) => (
           <a
             href={url}
