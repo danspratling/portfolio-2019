@@ -23,7 +23,7 @@ import {
  * @param {Object} props
  * @param {Boolean} [props.showAvatar] - If the avatar should be displayed alongside the social icons. Defaults to hidden (false)
  */
-const Social = ({ showAvatar = false }) => {
+const Social = () => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -49,14 +49,6 @@ const Social = ({ showAvatar = false }) => {
 
   return (
     <div className="flex items-center justify-start -mx-4 py-10 text-xl text-white">
-      {showAvatar && (
-        <div className="hidden md:flex items-center">
-          <Image
-            fixed={data.file.childImageSharp.fixed}
-            className="rounded-full mr-10"
-          />
-        </div>
-      )}
       <div className="flex flex-wrap items-center max-w-380">
         {Object.entries(data.site.siteMetadata.socials).map(([key, url]) => (
           <a
