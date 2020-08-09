@@ -15,24 +15,14 @@ h6 {
 
 .megaHeading {
   @apply font-heading;
-  @apply text-5xl;
   @apply leading-none;
   @apply text-green-500;
   @apply font-medium;
   @apply max-w-full;
   @apply overflow-visible;
 
-  @screen md {
-    @apply text-7xl;
-  }
-
-  @screen lg {
-    @apply text-8xl;
-  }
-
-  @screen xl {
-    @apply text-9xl;
-  }
+  font-size: clamp(5rem, 22vw, 20rem);
+  line-height: 0.9;
 }
 
 a {
