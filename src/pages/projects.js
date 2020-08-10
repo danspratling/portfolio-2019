@@ -43,10 +43,10 @@ export const query = graphql`
     }
     allContentfulProject {
       projects: nodes {
-        title
+        heading: title
         slug
         categories: industries {
-          title
+          heading: title
         }
         previewImage {
           fixed(width: 600, height: 380, quality: 80) {

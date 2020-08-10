@@ -2,9 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
+import { isBrowser, trimTrailingSlash } from '../../utils'
 import Link from '../Link'
 
-const Header = ({ fixed }) => {
+/**
+ * Header component for the page heading navigation & branding
+ * @param {React.FunctionComponent<Props>} props
+ * @param {Boolean} [props.fixed] - If the header should be fixed to the top of the page or not
+ */
+const Header = ({ sticky }) => {
   const data = useStaticQuery(graphql`
     query {
       avatar: file(relativePath: { eq: "avatar.jpg" }) {
@@ -26,12 +32,12 @@ const Header = ({ fixed }) => {
     )
   }, [])
 
-  const fixedClasses = `fixed top-0 left-0 right-0 text-white p-4 z-50 transition duration-500 ${
+  const stickyClasses = `sticky top-0 text-white p-4 z-50 transition duration-500 ${
     scrolled ? 'bg-gray-900' : 'bg-black'
   }`
 
   return (
-    <header className={`text-white p-4 z-50 ${fixed && fixedClasses}`}>
+    <header className={`text-white p-4 z-50 ${sticky && stickyClasses}`}>
       <div className="container mx-auto">
         <nav className="flex justify-between items-center">
           <Link to="/" className="relative flex items-center">
@@ -45,22 +51,27 @@ const Header = ({ fixed }) => {
           </Link>
 
           <div className="flex font-bold">
-            <Link to="/" className="block m-2">
-              Home
-            </Link>
-            {/* <Link to="/about" className="w-full mb-2">
-                About
-              </Link> */}
-            <Link to="/projects" className="block m-2">
-              Projects
-            </Link>
-            <Link to="/contact" className="block m-2">
-              Contact
-            </Link>
+            <NavLink to="/" heading="Home" />
+            {/* <NavLink to="/about" heading="About" /> */}
+            <NavLink to="/projects" heading="Projects" />
+            <NavLink to="/contact" heading="Contact" />
           </div>
         </nav>
       </div>
     </header>
+  )
+}
+
+const NavLink = ({ to, heading }) => {
+  const isCurrentPage =
+    isBrowser &&
+    trimTrailingSlash(to) === trimTrailingSlash(window.location.pathname)
+
+  console.log(window.location.pathname, to)
+  return (
+    <Link to={to} className={`block m-2 ${isCurrentPage && 'text-green-500'}`}>
+      {heading}
+    </Link>
   )
 }
 

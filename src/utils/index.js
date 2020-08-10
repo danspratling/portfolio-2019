@@ -2,4 +2,6 @@ import initIcons from './icons'
 
 const isBrowser = typeof window !== 'undefined'
 
-export { isBrowser, initIcons }
+const trimTrailingSlash = string => string.replace(/\/$/, '')
+
+export { isBrowser, trimTrailingSlash, initIcons }
