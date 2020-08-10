@@ -7,6 +7,7 @@ import Helmet from './Helmet'
 import Footer from './Footer'
 
 /**
+ * Wrapper component for pages inserting global components & other initiations
  * @param {Object} props
  * @param {String} [props.title] - SEO title. Falls back to default title if undefined
  * @param {String} [props.description] - SEO desription. Falls back to default description if undefined

@@ -11,6 +11,7 @@ import { useLocation } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
 /**
+ * Helmet component for adapting the site <head>, typically for SEO
  * @param {Object} props
  * @param {String} [props.title] - SEO title. Falls back to default title if undefined
  * @param {String} [props.description] - SEO desription. Falls back to default description if undefined

@@ -4,6 +4,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Link from '../Link'
 import Social from '../Social'
 
+/**
+ * Footer component for all navigation routes & featured articles
+ */
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query FooterQuery {
