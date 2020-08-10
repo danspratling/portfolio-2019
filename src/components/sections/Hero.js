@@ -45,7 +45,11 @@ const Hero = ({ megaHeading, heading, body, link }) => {
               <div className="text-gray-600">
                 {body && <RichText body={body} />}
                 {link && (
-                  <Link to={link.to} variant="secondary">
+                  <Link
+                    to={link.to}
+                    className="btn btn-secondary"
+                    icon="default"
+                  >
                     {link.heading}
                   </Link>
                 )}

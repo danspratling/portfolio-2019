@@ -33,7 +33,11 @@ const Contact = ({ heading, body, link, promoCards }) => {
           <VisibilitySensor className="mb-20" direction="left" fade>
             <h2 className="text-2xl md:text-3xl text-white mb-8">{heading}</h2>
             <Markdown className="mb-12">{body.childMdx.body}</Markdown>
-            <Link to={link.to} variant="primary">
+            <Link
+              to={link.to}
+              className="btn btn-lg btn-primary"
+              icon="default"
+            >
               {link.heading}
             </Link>
           </VisibilitySensor>

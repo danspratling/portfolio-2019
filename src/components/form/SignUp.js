@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useForm, FormContext } from 'react-hook-form'
 import { trackGoal } from 'fathom-client'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
-import Button from './elements/Button'
+
 import Input from './elements/Input'
 
 const Enquiry = () => {
@@ -58,7 +60,10 @@ const Enquiry = () => {
               </div>
               <div className="flex-0 px-4">
                 <div className="mt-6 mb-3">
-                  <Button>Sign up</Button>
+                  <button type="submit" className="btn btn-base btn-icon">
+                    <span>Sign Up</span>
+                    <FontAwesomeIcon icon={faPaperPlane} />
+                  </button>
                 </div>
               </div>
             </div>

@@ -41,21 +41,21 @@ const ProjectFeed = ({ heading, body, link, projects }) => {
         <div className="xl:-mx-24">
           <MagicGrid items={projectList.length + 2} gutter={0}>
             {/* The first item is always a copy component */}
-            <div className="md:w-1/2 md:px-8 xl:px-24 pb-20 md:py-12">
-              <VisibilitySensor direction="right" fade>
-                <h2 className="text-2xl md:text-3xl text-white mb-6">
-                  {heading}
-                </h2>
-                <div className="text-gray-600">
-                  {body && <RichText body={body} />}
-                  {link && (
-                    <Link to={link.to} variant="secondary">
-                      {link.heading}
-                    </Link>
-                  )}
-                </div>
-              </VisibilitySensor>
-            </div>
+            <VisibilitySensor
+              direction="right"
+              fade
+              className="md:w-1/2 md:px-8 xl:px-24 pb-20 md:py-12"
+            >
+              <h2 className="text-2xl md:text-3xl text-white mb-6">
+                {heading}
+              </h2>
+              {body && <RichText body={body} />}
+              {link && (
+                <Link to={link.to} icon="default" className="btn btn-secondary">
+                  {link.heading}
+                </Link>
+              )}
+            </VisibilitySensor>
 
             {/* show cards for all the projects */}
             {projectList.map(project => (

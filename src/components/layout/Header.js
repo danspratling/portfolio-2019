@@ -41,7 +41,7 @@ const Header = ({ sticky }) => {
       <div className="container mx-auto">
         <nav className="flex justify-between items-center">
           <Link to="/" className="relative flex items-center">
-            <span className="absolute left-0 transform -translate-x-full -ml-4">
+            <span className="absolute left-0 top-1/2 transform -translate-x-full -translate-y-1/2 flex -ml-4">
               <Image
                 fixed={data.avatar.childImageSharp.fixed}
                 className="rounded-full"
@@ -69,7 +69,10 @@ const NavLink = ({ to, heading }) => {
 
   console.log(window.location.pathname, to)
   return (
-    <Link to={to} className={`block m-2 ${isCurrentPage && 'text-green-500'}`}>
+    <Link
+      to={to}
+      className={`block my-2 mx-4 ${isCurrentPage && 'text-green-500'}`}
+    >
       {heading}
     </Link>
   )

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useForm, FormContext } from 'react-hook-form'
 import { trackGoal } from 'fathom-client'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
-import Button from './elements/Button'
 import Input from './elements/Input'
 import TextArea from './elements/TextArea'
 
@@ -53,7 +54,10 @@ const Enquiry = () => {
         </div>
 
         <div className="w-full flex justify-center mt-6">
-          <Button>Submit</Button>
+          <button type="submit" className="btn btn-base btn-icon">
+            <span>Sign Up</span>
+            <FontAwesomeIcon icon={faPaperPlane} />
+          </button>
         </div>
       </form>
     </FormContext>
