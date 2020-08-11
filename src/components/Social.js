@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Image from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTwitter,
@@ -19,9 +18,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 /**
- *
- * @param {Object} props
- * @param {Boolean} [props.showAvatar] - If the avatar should be displayed alongside the social icons. Defaults to hidden (false)
+ * Social media link component
  */
 const Social = () => {
   const data = useStaticQuery(graphql`

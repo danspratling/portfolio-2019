@@ -27,22 +27,20 @@ const VisibilitySensor = ({
   /* delay adding animations till the page has loaded */
   let transitionClasses = ''
   useEffect(() => {
-    transitionClasses = 'transition-all duration-1000 overflowVisible'
+    transitionClasses = 'transition-all duration-1000 overflow-visible'
   })
 
   return (
     <ReactVisibilitySensor {...props}>
       {({ isVisible }) => {
         const classes = [
-          transitionClasses,
-          className,
+          transitionClasses || null,
           !isVisible && fade ? 'opacity-0' : null,
           !isVisible ? getAnimationDirection(direction) : null,
+          className || null,
         ]
 
-        return (
-          <div className={classes.join(' ') + ' ' + isVisible}>{children}</div>
-        )
+        return <div className={classes.join(' ')}>{children}</div>
       }}
     </ReactVisibilitySensor>
   )
