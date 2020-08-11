@@ -5,35 +5,21 @@ import { SectionIntro } from '../components'
 import { Enquiry } from '../components/form'
 
 import Layout from '../components/layout/Layout'
+import BookDiscovery from '../components/sections/BookDiscovery'
 
 const ContactPage = ({ data }) => {
-  const { seo, intro: pageIntro, formIntro } = data.contentfulContactPage
+  const { seo, bookDiscovery, formIntro } = data.contentfulContactPage
 
   // trackPageview()
 
   return (
     <Layout {...seo} image={'/images/seo/contact.png'}>
-      <section id="intro" className="relative md:min-h-screen bg-black pt-32">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap mx-auto justify-around items-center">
-            <div className="w-full lg:w-1/2 px-6 mb-20">
-              <SectionIntro
-                data={pageIntro}
-                animation={{
-                  visibility: true,
-                  direction: 'from left',
-                }}
-              />
-            </div>
+      <BookDiscovery
+        heading={bookDiscovery.heading}
+        body={bookDiscovery.body}
+        link={bookDiscovery.link}
+      />
 
-            <div
-              className="w-full lg:w-1/3 calendly-inline-widget"
-              style={{ height: 640 }}
-              data-url="https://calendly.com/dan_spratling/discovery"
-            ></div>
-          </div>
-        </div>
-      </section>
       <section
         id="contact"
         className="flex justify-center items-center md:min-h-screen bg-black py-24 md:pt-20 md:pb-40"
@@ -68,15 +54,14 @@ export const query = graphql`
         title
         description
       }
-      intro {
-        heading
-        title
+      bookDiscovery: intro {
+        heading: title
         body {
           json
         }
         link {
-          link
-          title
+          to: link
+          heading: title
         }
       }
       formIntro {
