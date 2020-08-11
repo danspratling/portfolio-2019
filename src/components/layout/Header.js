@@ -32,7 +32,7 @@ const Header = ({ sticky }) => {
         setScrolled(window.pageYOffset !== 0)
       )
     }
-  }, [])
+  }, [sticky])
 
   const stickyClasses = `sticky top-0 text-white p-4 z-50 transition duration-500 ${
     scrolled ? 'bg-gray-900' : 'bg-black'

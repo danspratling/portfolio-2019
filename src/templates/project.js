@@ -104,21 +104,22 @@ const ProjectTemplate = ({ data, pageContext }) => {
           </div>
         </div>
       </section>
-      <section id="artboard" className="w-full  pt-16 mt-16">
-        {/* <h1 className="text-4xl text-green-500">This is some test text</h1> */}
-        <Image
-          fluid={[
-            artboardMobile.fluid,
-            {
-              ...artboardDesktop.fluid,
-              media: `(min-width: 768px)`,
-            },
-          ]}
-        />
-      </section>
-      {/* <section id="projects">
 
-      </section> */}
+      {artboardDesktop && artboardMobile && (
+        <section id="artboard" className="w-full  pt-16 mt-16">
+          {/* <h1 className="text-4xl text-green-500">This is some test text</h1> */}
+          <Image
+            fluid={[
+              artboardMobile.fluid,
+              {
+                ...artboardDesktop.fluid,
+                media: `(min-width: 768px)`,
+              },
+            ]}
+          />
+        </section>
+      )}
+
       <Contact
         heading={contact.heading}
         body={contact.body}

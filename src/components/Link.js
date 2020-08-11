@@ -1,7 +1,6 @@
 import React from 'react'
 import GatsbyLink from 'gatsby-link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { faArrowRight, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { isBrowser } from '../utils'
 

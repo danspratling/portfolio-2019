@@ -1,8 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { ContactSection } from '../components'
-
 import Layout from '../components/layout/Layout'
 import Hero from '../components/sections/Hero'
 import ProjectFeed from '../components/sections/ProjectFeed'
