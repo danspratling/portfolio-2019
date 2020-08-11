@@ -26,10 +26,12 @@ const Header = ({ sticky }) => {
   /* allows custom styling based on if page has been scrolled */
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
-    setScrolled(window.pageYOffset !== 0)
-    document.addEventListener('scroll', () =>
+    if (sticky) {
       setScrolled(window.pageYOffset !== 0)
-    )
+      document.addEventListener('scroll', () =>
+        setScrolled(window.pageYOffset !== 0)
+      )
+    }
   }, [])
 
   const stickyClasses = `sticky top-0 text-white p-4 z-50 transition duration-500 ${
@@ -67,7 +69,6 @@ const NavLink = ({ to, heading }) => {
     isBrowser &&
     trimTrailingSlash(to) === trimTrailingSlash(window.location.pathname)
 
-  console.log(window.location.pathname, to)
   return (
     <Link
       to={to}

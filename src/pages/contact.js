@@ -1,27 +1,13 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import { useForm } from 'react-hook-form'
 import { trackGoal } from 'fathom-client'
 
 import Layout from '../components/layout/Layout'
-import Link from '../components/Link'
 import BookDiscovery from '../components/sections/BookDiscovery'
 import ContactForm from '../components/sections/ContactForm'
-import Form from '../components/form'
-import VisibilitySensor from '../components/VisibilitySensor'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
-
-import Input from '../components/form/elements/Input'
-import TextArea from '../components/form/elements/TextArea'
-
-import { RichText } from '../components'
 
 const ContactPage = ({ data }) => {
   const { seo, bookDiscovery, contactForm } = data.contentfulContactPage
-
-  const methods = useForm()
 
   const [formSubmitted, setFormSubmitted] = useState(false)
 
@@ -36,8 +22,6 @@ const ContactPage = ({ data }) => {
     }).then(() => setFormSubmitted(true))
   }
 
-  // trackPageview()
-
   return (
     <Layout {...seo} image={'/images/seo/contact.png'}>
       <BookDiscovery
@@ -50,9 +34,17 @@ const ContactPage = ({ data }) => {
         heading={contactForm.heading}
         body={contactForm.body}
         link={contactForm.link}
+        submitted={formSubmitted}
+        onSubmit={onSubmit}
       />
     </Layout>
   )
+}
+
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
@@ -86,11 +78,5 @@ export const query = graphql`
     }
   }
 `
-
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
 
 export default ContactPage
