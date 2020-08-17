@@ -4,7 +4,7 @@ import { trackGoal } from 'fathom-client'
 
 import Layout from '../components/layout/Layout'
 import BookDiscovery from '../components/sections/BookDiscovery'
-import ContactForm from '../components/sections/ContactForm'
+import Contact from '../components/sections/Contact'
 
 const ContactPage = ({ data }) => {
   const { seo, bookDiscovery, contactForm } = data.contentfulContactPage
@@ -30,7 +30,7 @@ const ContactPage = ({ data }) => {
         link={bookDiscovery.link}
       />
 
-      <ContactForm
+      <Contact
         heading={contactForm.heading}
         body={contactForm.body}
         link={contactForm.link}

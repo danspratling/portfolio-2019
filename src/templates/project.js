@@ -13,12 +13,10 @@ import {
 // import { trackPageview } from 'fathom-client'
 import Layout from '../components/layout/Layout'
 import Markdown from '../components/Markdown'
-import Contact from '../components/sections/Contact'
+import CallToAction from '../components/sections/CallToAction'
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const { seoImage } = pageContext
-
-  //Get the page sections from the graphql data
   const contact = data.contact
   const {
     heading,
@@ -32,8 +30,6 @@ const ProjectTemplate = ({ data, pageContext }) => {
     location,
     results,
   } = data.project
-
-  // trackPageview()
 
   return (
     <Layout
@@ -120,7 +116,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
         </section>
       )}
 
-      <Contact
+      <CallToAction
         heading={contact.heading}
         body={contact.body}
         link={contact.link}

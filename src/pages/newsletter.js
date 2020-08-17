@@ -1,30 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-// import { trackPageview } from 'fathom-client'
-import { SectionIntro } from '../components'
-import { SignUp } from '../components/form'
+import { trackGoal } from 'fathom-client'
+import { addToMailchimp } from 'gatsby-plugin-mailchimp'
 
 import Layout from '../components/layout/Layout'
+import Newsletter from '../components/sections/Newsletter'
 
-const newsletterPage = ({ data }) => {
-  const { seo, intro: pageIntro } = data.contentfulPage
+const NewsletterPage = ({ data }) => {
+  const { title, description, body } = data.contentfulNewsletterPage
 
-  // trackPageview()
+  const [formSubmitted, setFormSubmitted] = useState(false)
+
+  const onSubmit = data => {
+    trackGoal('ZZ6KQHVV')
+
+    /* Newsletter */
+    addToMailchimp(data.email, {
+      FNAME: data['first-name'],
+    })
+      .then(result => {
+        setFormSubmitted(result)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   return (
-    <Layout {...seo} image={'/images/seo/newsletter.png'}>
-      <section id="intro" className="relative bg-black py-12 lg:py-40 px-6">
-        <div className="container mx-auto mb-24">
-          <div className="flex flex-row flex-wrap lg:flex-no-wrap -mx-5">
-            <div className="w-full md:w-3/5 lg:w-2/5 mx-5 md:mx-auto mb-40 z-10">
-              <SectionIntro data={pageIntro} />
-            </div>
-          </div>
-          <div className="w-full flex justify-center mb-24">
-            <SignUp />
-          </div>
-        </div>
-      </section>
+    <Layout
+      title={title}
+      description={description}
+      image={'/images/seo/newsletter.png'}
+    >
+      <Newsletter
+        heading={title}
+        body={body}
+        submitted={formSubmitted}
+        onSubmit={onSubmit}
+      />
     </Layout>
   )
 }
@@ -32,24 +45,16 @@ const newsletterPage = ({ data }) => {
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
 export const query = graphql`
   query {
-    contentfulPage(slug: { eq: "newsletter" }) {
-      seo {
-        title
-        description
-      }
-      intro {
-        heading
-        title
-        body {
-          json
-        }
-        link {
-          link
-          title
+    contentfulNewsletterPage {
+      title
+      description
+      body {
+        childMdx {
+          body
         }
       }
     }
   }
 `
 
-export default newsletterPage
+export default NewsletterPage

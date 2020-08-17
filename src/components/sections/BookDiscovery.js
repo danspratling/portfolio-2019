@@ -9,7 +9,7 @@ const BookDiscovery = ({ heading, body, link }) => {
   return (
     <section
       id="bookDiscovery"
-      className="relative md:min-h-screen bg-black pt-32"
+      className="relative md:min-h-screen bg-black py-24"
     >
       <div className="container mx-auto">
         <div className="flex flex-wrap mx-auto justify-around items-center">

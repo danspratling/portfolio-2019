@@ -4,13 +4,11 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout/Layout'
 import Hero from '../components/sections/Hero'
 import ProjectFeed from '../components/sections/ProjectFeed'
-import Contact from '../components/sections/Contact'
+import CallToAction from '../components/sections/CallToAction'
 
 const HomePage = ({ data }) => {
-  //descructure our pagedata as js objects so we can use them
   const { seo, hero, projectFeed, projects, contact } = data.contentfulHomepage
 
-  //Render the page
   return (
     <Layout {...seo} image={'/images/seo/home.png'}>
       <Hero
@@ -27,7 +25,7 @@ const HomePage = ({ data }) => {
         projects={projects}
       />
 
-      <Contact
+      <CallToAction
         heading={contact.heading}
         body={contact.body}
         link={contact.link}
