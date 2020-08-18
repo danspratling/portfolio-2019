@@ -53,10 +53,10 @@ const getAnimationDirection = direction => {
 
   // negative margin 'pulls' the container in the specified direction, while the opposite padding fills out the missing space caused by the negative margin
   const mapAnimations = {
-    bottom: '-mt-12 pb-12',
+    bottom: '-mt-12 mb-12',
     top: '-mb-12 mt-12',
-    right: '-ml-12 pr-12',
-    left: '-mr-12 pl-12',
+    right: '-ml-12 mr-12',
+    left: '-mr-12 ml-12',
   }
 
   const margin = mapAnimations[direction.toLowerCase()]

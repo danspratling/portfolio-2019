@@ -2,30 +2,30 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
-import Form, { FormSubmitted, Input, TextArea } from '../form/Form'
+import Form, { FormSubmitted, Input } from '../form/Form'
 import VisibilitySensor from '../VisibilitySensor'
 import Markdown from '../Markdown'
 
 const NewsletterSection = ({ heading, body, submitted, onSubmit }) => {
   return (
     <section id="newsletter" className="flex justify-center items-center py-24">
-      <div className="container mx-auto">
+      <VisibilitySensor className="container mx-auto" direction="bottom" fade>
         <div className="flex justify-center items-center pb-24">
           <div className="w-full md:w-1/2 text-center">
-            <VisibilitySensor className="text-center" direction="bottom" fade>
+            <div className="text-center">
               <h2 className="text-2xl md:text-3xl text-white mb-6">
                 {heading}
               </h2>
 
               {body && <Markdown>{body.childMdx.body}</Markdown>}
-            </VisibilitySensor>
+            </div>
           </div>
         </div>
 
         <div className="w-full flex justify-center">
           <NewsletterForm submitted={submitted} onSubmit={onSubmit} />
         </div>
-      </div>
+      </VisibilitySensor>
     </section>
   )
 }

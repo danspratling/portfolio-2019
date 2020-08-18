@@ -20,6 +20,7 @@ import Layout from '../components/layout/Layout'
 const Post = ({ data, pageContext }) => {
   //Get the page sections from the graphql data
   const { title, description, body } = data.contentfulPost
+  const { newsletterTitle, newsletterBody } = data.contentfulBlogFeed
   const { seoImage } = pageContext
 
   return (
@@ -33,11 +34,7 @@ const Post = ({ data, pageContext }) => {
 
       <BlogArticle markdown={body.childMdx.body} />
 
-      <Newsletter
-        title="Keep up to date"
-        // body="Sign up for the newsletter to keep up with my regular blog
-        // posts, and get exclusive tips and tricks right in your inbox."
-      />
+      <Newsletter heading={newsletterTitle} body={newsletterBody} />
     </Layout>
   )
 }
@@ -96,6 +93,14 @@ const BlogArticle = ({ markdown }) => {
 
 export const query = graphql`
   query getPost($id: String!) {
+    contentfulBlogFeed {
+      newsletterTitle
+      newsletterBody {
+        childMdx {
+          body
+        }
+      }
+    }
     contentfulPost(contentful_id: { eq: $id }) {
       title
       description

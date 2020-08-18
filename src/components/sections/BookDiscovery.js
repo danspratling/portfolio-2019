@@ -30,7 +30,7 @@ const BookDiscovery = ({ heading, body, link }) => {
 
           <div
             className="w-full calendly-inline-widget"
-            style={{ height: 640 }}
+            style={{ height: 680 }}
             data-url="https://calendly.com/dan_spratling/discovery"
           ></div>
         </div>

@@ -10,10 +10,10 @@ import {
   faPoll,
   faExternalLinkAlt,
 } from '@fortawesome/free-solid-svg-icons'
-// import { trackPageview } from 'fathom-client'
 import Layout from '../components/layout/Layout'
 import Markdown from '../components/Markdown'
 import CallToAction from '../components/sections/CallToAction'
+import VisibilitySensor from '../components/VisibilitySensor'
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const { seoImage } = pageContext
@@ -40,22 +40,35 @@ const ProjectTemplate = ({ data, pageContext }) => {
       <section id="intro" className="pt-12 md:py-32">
         <div className="container mx-auto">
           <div className="flex flex-wrap text-white -mx-6 md:mb-8 items-center">
-            <div className="w-full md:w-2/5 my-8 px-6 md:pr-12">
+            <VisibilitySensor
+              className="w-full md:w-2/5 my-8 px-6 md:pr-12"
+              direction="right"
+              fade
+            >
               <h1 className="text-3xl text-bold text-green-500 mb-4">
                 {heading}
               </h1>
               <p className="text-6xl leading-tight">{testimonial.quote}</p>
-            </div>
-            <div className="w-full md:w-3/5 md:p-10 bg-gray-900 p-6">
+            </VisibilitySensor>
+
+            <VisibilitySensor
+              className="w-full md:w-3/5 md:p-10 bg-gray-900 p-6"
+              direction="left"
+              fade
+            >
               <Image fluid={featuredImage.fluid} className="rounded-md" />
-            </div>
+            </VisibilitySensor>
           </div>
         </div>
       </section>
 
       <section id="case-study" className="mb-40">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-3 lg:gap-20 items-start">
+          <VisibilitySensor
+            className="grid lg:grid-cols-3 lg:gap-20 items-start"
+            direction="top"
+            fade
+          >
             <ul className="bg-gray-900 md:max-w-300 -mx-6 md:mx-0 py-3">
               <DetailListItem
                 title="Company"
@@ -90,14 +103,14 @@ const ProjectTemplate = ({ data, pageContext }) => {
               />
             </ul>
 
-            <div className="md:col-span-2">
+            <div className="md:col-span-2" direction="top" fade>
               <div className="w-full md:w-3/4 mb-40 lg:my-0">
                 <Markdown className="pt-4 pb-8 text-gray-300">
                   {body.childMdx.body}
                 </Markdown>
               </div>
             </div>
-          </div>
+          </VisibilitySensor>
         </div>
       </section>
 
