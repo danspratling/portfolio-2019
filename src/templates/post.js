@@ -1,66 +1,99 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Image from 'gatsby-image'
 // import { trackPageview } from 'fathom-client'
 import { Markdown } from '../components'
-import { SignUp } from '../components/form'
+import Newsletter from '../components/sections/Newsletter'
 
 import Layout from '../components/layout/Layout'
 
+/**
+ * Blog post for article content
+ * @param {Object} param
+ * @param {Object} param.contentfulPost
+ * @param {String} param.contentfulPost.title
+ * @param {String} param.contentfulPost.description
+ * @param {Function} param.contentfulPost.body
+ * @param {Object} param.pageContext
+ * @param {String} param.pageContext.seoImage
+ */
 const Post = ({ data, pageContext }) => {
   //Get the page sections from the graphql data
   const { title, description, body } = data.contentfulPost
   const { seoImage } = pageContext
 
-  // trackPageview()
-
   return (
     <Layout title={title} description={description} image={seoImage} article>
-      <section
-        id="projects"
-        className="min-h-screen min-w-full bg-black px-6 py-32"
-      >
-        <div className="container mx-auto">
-          <div className="flex flex-col flex-wrap text-white">
-            <div className="w-full lg:w-1/2 mx-auto">
-              <h1 className="text-3xl text-green-500 mb-6">{title}</h1>
-              <h2 className="text-lg mb-6">{description}</h2>
-              <Markdown>{body.childMdx.body}</Markdown>
-            </div>
-          </div>
-        </div>
-      </section>
+      <BlogHero
+        title={title}
+        description={description}
+        author={{ name: 'Dan Spratling', image: data.avatar.childImageSharp }}
+        timeToRead={body.childMdx.timeToRead}
+      />
 
-      {/* page section - Newsletter */}
-      <section id="newsletter" className="bg-black px-6 py-12 lg:py-32">
-        <div className="container mx-auto">
-          <div className="w-full flex flex-wrap justify-center">
-            <div className="w-full lg:w-3/4 mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl text-white mb-4">
-                Keep up to date
-              </h2>
-              <p className="mb-4">
-                Sign up for the newsletter to keep up with my regular blog
-                posts, and get exclusive tips and tricks right in your inbox.
-              </p>
-            </div>
-            <SignUp />
-          </div>
-        </div>
-      </section>
+      <BlogArticle markdown={body.childMdx.body} />
+
+      <Newsletter
+        title="Keep up to date"
+        // body="Sign up for the newsletter to keep up with my regular blog
+        // posts, and get exclusive tips and tricks right in your inbox."
+      />
     </Layout>
   )
 }
 
-//Gets date in locale format
-// const getDate = (date, locale) => {
-//   return new Intl.DateTimeFormat(locale, {
-//     year: 'numeric',
-//     month: 'long',
-//     day: 'numeric',
-//   }).format(new Date(date))
-// }
+/**
+ * Hero section for article
+ * @param {Object} props
+ * @param {String} props.title
+ * @param {String} props.description
+ * @param {Object} props.author
+ * @param {String} props.author.name
+ * @param {String} props.author.image
+ * @param {Number} props.timeToRead
+ */
+const BlogHero = ({ title, description, author, timeToRead }) => {
+  return (
+    <section className="pt-32">
+      <div className="container mx-auto">
+        <div className="flex flex-col flex-wrap">
+          <div className="w-full lg:w-2/3 mx-auto text-center">
+            <h1 className="text-4xl text-center mb-4 text-white">{title}</h1>
+            <h2 className="mb-10">{description}</h2>
+            <div className="flex items-center justify-center text-left">
+              <Image fixed={author.image.fixed} className="rounded-full mr-4" />
+              <p className>
+                by {author.name}
+                <br />
+                {timeToRead} min read
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 
-//Graphql query getting all the data we need from contentful (gatsby-config.js)
+/**
+ * Main content of the article
+ * @param {Object} props
+ * @param {String} props.markdown
+ */
+const BlogArticle = ({ markdown }) => {
+  return (
+    <section className="min-h-screen px-6 py-32">
+      <div className="container mx-auto">
+        <div className="flex flex-col flex-wrap text-white">
+          <article className="w-full lg:w-1/2 mx-auto">
+            <Markdown>{markdown}</Markdown>
+          </article>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export const query = graphql`
   query getPost($id: String!) {
     contentfulPost(contentful_id: { eq: $id }) {
@@ -70,6 +103,14 @@ export const query = graphql`
       body {
         childMdx {
           body
+          timeToRead
+        }
+      }
+    }
+    avatar: file(relativePath: { eq: "avatar.jpg" }) {
+      childImageSharp {
+        fixed(width: 60, height: 60) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

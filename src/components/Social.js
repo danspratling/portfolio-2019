@@ -34,13 +34,6 @@ const Social = () => {
           }
         }
       }
-      file(relativePath: { eq: "avatar.jpg" }) {
-        childImageSharp {
-          fixed(width: 70, height: 70) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
     }
   `)
 
