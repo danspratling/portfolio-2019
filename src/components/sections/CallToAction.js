@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Link from '../Link'
-import Markdown from '../Markdown'
+import Markdown from '../markdown/Markdown'
 import VisibilitySensor from '../VisibilitySensor'
 
 /**

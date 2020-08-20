@@ -11,7 +11,7 @@ import {
   faExternalLinkAlt,
 } from '@fortawesome/free-solid-svg-icons'
 import Layout from '../components/layout/Layout'
-import Markdown from '../components/Markdown'
+import Markdown from '../components/markdown/Markdown'
 import CallToAction from '../components/sections/CallToAction'
 import VisibilitySensor from '../components/VisibilitySensor'
 

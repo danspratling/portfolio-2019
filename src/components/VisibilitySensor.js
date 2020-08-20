@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactVisibilitySensor from 'react-visibility-sensor'
 
 /**
@@ -24,17 +24,17 @@ const VisibilitySensor = ({
   }
   props = { ...defaultProps, ...props }
 
-  /* delay adding animations till the page has loaded */
-  let transitionClasses = ''
+  const [pageReady, setPageReady] = useState(false)
+
   useEffect(() => {
-    transitionClasses = 'transition-all duration-1000 overflow-visible'
-  })
+    setPageReady(true)
+  }, [])
 
   return (
     <ReactVisibilitySensor {...props}>
       {({ isVisible }) => {
         const classes = [
-          transitionClasses || null,
+          pageReady ? 'transition-all duration-1000 overflow-visible' : null,
           !isVisible && fade ? 'opacity-0' : null,
           !isVisible ? getAnimationDirection(direction) : null,
           className || null,
@@ -53,7 +53,7 @@ const getAnimationDirection = direction => {
 
   // negative margin 'pulls' the container in the specified direction, while the opposite padding fills out the missing space caused by the negative margin
   const mapAnimations = {
-    bottom: '-mt-12 mb-12',
+    bottom: '-mt-12 pb-12',
     top: '-mb-12 mt-12',
     right: '-ml-12 mr-12',
     left: '-mr-12 ml-12',

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 // import { trackPageview } from 'fathom-client'
-import { Markdown } from '../components'
+import Markdown from '../components/markdown/Markdown'
 import Newsletter from '../components/sections/Newsletter'
 
 import Layout from '../components/layout/Layout'

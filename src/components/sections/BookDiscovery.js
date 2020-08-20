@@ -1,9 +1,8 @@
 import React from 'react'
 
-import { RichText } from '..'
-
 import Link from '../Link'
 import VisibilitySensor from '../VisibilitySensor'
+import RichText from '../RichText'
 
 const BookDiscovery = ({ heading, body, link }) => {
   return (

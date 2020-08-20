@@ -6,7 +6,7 @@ import Link from '../Link'
 import Form, { FormSubmitted, Input, TextArea } from '../form/Form'
 import VisibilitySensor from '../VisibilitySensor'
 
-import { RichText } from '..'
+import RichText from '../RichText'
 
 const ContactSection = ({ heading, body, link, submitted, onSubmit }) => {
   return (

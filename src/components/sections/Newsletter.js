@@ -4,7 +4,7 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 import Form, { FormSubmitted, Input } from '../form/Form'
 import VisibilitySensor from '../VisibilitySensor'
-import Markdown from '../Markdown'
+import Markdown from '../markdown/Markdown'
 
 const NewsletterSection = ({ heading, body, submitted, onSubmit }) => {
   return (
