@@ -7,10 +7,16 @@ import Hero from '../components/sections/Hero'
 const errorPage = ({ data }) => {
   const { seo, hero } = data.contentfulPage
 
+  const MegaHeading = (
+    <>
+      Game <br /> Over
+    </>
+  )
+
   return (
     <Layout {...seo}>
       <Hero
-        megaHeading="Game Over"
+        megaHeading={MegaHeading}
         heading={hero.title}
         body={hero.body}
         link={hero.link}
