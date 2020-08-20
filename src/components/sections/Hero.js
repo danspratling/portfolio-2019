@@ -19,7 +19,7 @@ const Hero = ({ megaHeading, heading, body, link }) => {
   return (
     <section
       id="intro"
-      className="relative h-screen md:min-h-1024 py-12 lg:py-40"
+      className="relative min-h-screen md:min-h-1024 py-12 lg:py-40"
     >
       <div className="container mx-auto">
         <div className="my-10 md:my-0">
@@ -33,11 +33,11 @@ const Hero = ({ megaHeading, heading, body, link }) => {
         </div>
         <div className="flex flex-row flex-wrap lg:flex-no-wrap">
           <div className="w-full md:w-2/5 lg:w-3/5 mx-5 order-last lg:order-first ml-auto lg:ml-0">
-            <div className="md:flex">
+            <div className="flex justify-center md:justify-start">
               <Social />
             </div>
           </div>
-          <div className="w-full md:w-3/5 lg:w-2/5 mx-5 md:mx-auto">
+          <div className="w-full md:w-3/5 lg:w-2/5 md:mx-auto">
             <VisibilitySensor fade>
               <h2 className="text-2xl md:text-3xl text-white mb-6">
                 {heading}

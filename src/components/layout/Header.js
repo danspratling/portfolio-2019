@@ -43,19 +43,23 @@ const Header = ({ sticky }) => {
       <div className="container mx-auto">
         <nav className="flex justify-between items-center">
           <Link to="/" className="relative flex items-center">
-            <span className="absolute left-0 top-1/2 transform -translate-x-full -translate-y-1/2 flex -ml-4">
+            <span className="flex -ml-4 mr-4 md:absolute md:left-0 md:top-1/2 md:transform md:-translate-x-full md:-translate-y-1/2">
               <Image
                 fixed={data.avatar.childImageSharp.fixed}
                 className="rounded-full"
               />
             </span>
+
             <p className="font-bold">Dan Spratling</p>
           </Link>
 
-          <div className="flex font-bold">
-            <NavLink to="/" heading="Home" />
-            {/* <NavLink to="/about" heading="About" /> */}
-            <NavLink to="/projects" heading="Projects" />
+          <div className="flex font-bold -mr-4">
+            <NavLink to="/" heading="Home" className="hidden md:block" />
+            <NavLink
+              to="/projects"
+              heading="Projects"
+              className="hidden md:block"
+            />
             <NavLink to="/contact" heading="Contact" />
           </div>
         </nav>
@@ -64,7 +68,7 @@ const Header = ({ sticky }) => {
   )
 }
 
-const NavLink = ({ to, heading }) => {
+const NavLink = ({ to, heading, className }) => {
   const isCurrentPage =
     isBrowser &&
     trimTrailingSlash(to) === trimTrailingSlash(window.location.pathname)
@@ -72,7 +76,8 @@ const NavLink = ({ to, heading }) => {
   return (
     <Link
       to={to}
-      className={`block my-2 mx-4 ${isCurrentPage && 'text-green-500'}`}
+      className={`block py-2 px-4 ${className} ${isCurrentPage &&
+        'text-green-500'}`}
     >
       {heading}
     </Link>

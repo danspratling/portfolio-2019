@@ -165,7 +165,7 @@
  */
 .btn-primary {
   @apply pl-3;
-  @apply pr-24;
+  @apply pr-20;
 
   > span {
     @apply uppercase;
@@ -188,7 +188,7 @@
 
 .btn-secondary {
   @apply pl-3;
-  @apply pr-24;
+  @apply pr-20;
   @apply bg-transparent;
 
   > span {
