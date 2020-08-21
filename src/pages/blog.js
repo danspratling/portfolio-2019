@@ -29,7 +29,7 @@ const ProjectPage = ({ data }) => {
             )}
           </VisibilitySensor>
 
-          <div className="flex flex-row flex-wrap lg:-mx-6">
+          <div className="flex flex-row flex-wrap w-full md:w-2/3 lg:w-full lg:-mx-6">
             {posts.map(post => (
               <div className="lg:w-1/2 lg:px-3 pb-6">
                 <Link

@@ -11,7 +11,7 @@ const NewsletterSection = ({ heading, body, submitted, onSubmit }) => {
     <section id="newsletter" className="flex justify-center items-center py-24">
       <VisibilitySensor className="container mx-auto" direction="bottom" fade>
         <div className="flex justify-center items-center pb-24">
-          <div className="w-full md:w-1/2 text-center">
+          <div className="w-full md:w-2/3 lg:w-1/2 text-center">
             <div className="text-center">
               <h2 className="text-2xl md:text-3xl text-white mb-6">
                 {heading}

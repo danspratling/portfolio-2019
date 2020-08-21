@@ -41,7 +41,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
         <div className="container mx-auto">
           <div className="flex flex-wrap text-white -mx-6 md:mb-8 items-center">
             <VisibilitySensor
-              className="w-full md:w-2/5 my-8 px-6 md:pr-12"
+              className="w-full lg:w-2/5 my-8 px-6 md:pr-12"
               direction="right"
               fade
             >
@@ -54,7 +54,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             </VisibilitySensor>
 
             <VisibilitySensor
-              className="w-full md:w-3/5 md:p-10 bg-gray-900 p-6"
+              className="w-full lg:w-3/5 md:p-10 bg-gray-900 p-6"
               direction="left"
               fade
             >
@@ -67,7 +67,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
       <section id="case-study" className="mb-40">
         <div className="container mx-auto">
           <VisibilitySensor
-            className="grid lg:grid-cols-3 lg:gap-20 items-start"
+            className="grid md:grid-cols-3 md:gap-10 lg:gap-20 items-start"
             direction="top"
             fade
           >
@@ -106,7 +106,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             </ul>
 
             <div className="md:col-span-2" direction="top" fade>
-              <div className="w-full md:w-3/4 lg:mb-40 lg:my-0">
+              <div className="w-full md:w-3/4 lg:my-0">
                 <Markdown className="pt-4 pb-8 text-gray-300">
                   {body.childMdx.body}
                 </Markdown>
@@ -117,7 +117,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
       </section>
 
       {artboardDesktop && artboardMobile && (
-        <section id="artboard" className="w-full lg:pt-16 lg:mt-16">
+        <section id="artboard" className="w-full">
           {/* <h1 className="text-4xl text-green-500">This is some test text</h1> */}
           <Image
             fluid={[

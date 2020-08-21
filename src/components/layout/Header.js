@@ -43,7 +43,7 @@ const Header = ({ sticky }) => {
       <div className="container mx-auto">
         <nav className="flex justify-between items-center">
           <Link to="/" className="relative flex items-center">
-            <span className="flex -ml-4 mr-4 md:absolute md:left-0 md:top-1/2 md:transform md:-translate-x-full md:-translate-y-1/2">
+            <span className="flex -ml-4 mr-4 lg:absolute lg:left-0 lg:top-1/2 lg:transform lg:-translate-x-full lg:-translate-y-1/2">
               <Image
                 fixed={data.avatar.childImageSharp.fixed}
                 className="rounded-full"

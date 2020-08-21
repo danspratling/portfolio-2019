@@ -19,7 +19,7 @@ const CallToAction = ({ heading, body, link, promoCards }) => {
   return (
     <section id="contact" className="py-32">
       <div className="container mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <VisibilitySensor
             className="grid md:grid-cols-2 gap-8 mb-10"
             direction="right"
@@ -30,12 +30,16 @@ const CallToAction = ({ heading, body, link, promoCards }) => {
             ))}
           </VisibilitySensor>
 
-          <VisibilitySensor className="mb-20" direction="left" fade>
+          <VisibilitySensor
+            className="w-full md:w-2/3 lg:w-full text-center lg:text-left mx-auto mb-20"
+            direction="left"
+            fade
+          >
             <h2 className="text-2xl md:text-3xl text-white mb-8">{heading}</h2>
             <Markdown className="mb-12">{body.childMdx.body}</Markdown>
             <Link
               to={link.to}
-              className="btn btn-lg btn-primary"
+              className="btn btn-lg btn-primary text-left"
               icon="default"
             >
               {link.heading}

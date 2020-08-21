@@ -16,7 +16,7 @@ const ContactSection = ({ heading, body, link, submitted, onSubmit }) => {
     >
       <div className="container mx-auto">
         <div className="flex justify-center items-center">
-          <div className="w-full md:w-1/2 text-center">
+          <div className="w-full md:w-2/3 lg:w-1/2 text-center">
             <VisibilitySensor className="text-center" direction="bottom" fade>
               <h2 className="text-2xl md:text-3xl text-white mb-6">
                 {heading}
