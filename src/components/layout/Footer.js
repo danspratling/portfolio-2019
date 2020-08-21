@@ -8,6 +8,7 @@ import Social from '../Social'
  * Footer component for all navigation routes & featured articles
  */
 const Footer = () => {
+  /* Static data, retrieving the two posts we consider 'featured'. */
   const data = useStaticQuery(graphql`
     query FooterQuery {
       article1: contentfulPost(

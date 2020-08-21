@@ -8,6 +8,17 @@ import VisibilitySensor from '../VisibilitySensor'
 
 import RichText from '../RichText'
 
+/**
+ * Section containing the contact form
+ * @param {React.FunctionComponent<Props>} props
+ * @param {String} props.heading
+ * @param {Function} [props.body]
+ * @param {Object} [props.link]
+ * @param {String} props.link.to
+ * @param {String} props.link.heading
+ * @param {Boolean} props.submitted
+ * @param {Function} props.onSubmit
+ */
 const ContactSection = ({ heading, body, link, submitted, onSubmit }) => {
   return (
     <section

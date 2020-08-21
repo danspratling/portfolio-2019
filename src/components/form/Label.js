@@ -1,5 +1,11 @@
 import React from 'react'
 
+/**
+ * The label for form inputs and fields
+ * @param {React.FunctionComponent<Props>} props
+ * @param {String} props.label
+ * @param {Boolean} props.active
+ */
 const Label = ({ label, active }) => {
   return (
     <label

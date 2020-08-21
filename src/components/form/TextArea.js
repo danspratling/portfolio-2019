@@ -3,11 +3,11 @@ import { useFormContext, ErrorMessage } from 'react-hook-form'
 import Label from './Label'
 
 /**
- * The form input, designed to be able to stretch to your needs. Note that the label and error may collide
+ * The form textarea, designed to be able to stretch to your needs. Note that the label and error may collide
  * on smaller widths (suggested smaller sizes are reserved for non-required fields)
- * @param {Object} props
- * @param {string} props.name
- * @param {boolean} props.required
+ * @param {React.FunctionComponent<Props>} props
+ * @param {String} props.name
+ * @param {Boolean} [props.required]
  */
 
 const TextArea = ({ label, required = false }) => {

@@ -68,6 +68,13 @@ const Header = ({ sticky }) => {
   )
 }
 
+/**
+ * A single navigation link inside the header
+ * @param {Object} props
+ * @param {String} props.to
+ * @param {String} props.heading
+ * @param {String} props.className
+ */
 const NavLink = ({ to, heading, className }) => {
   const isCurrentPage =
     isBrowser &&

@@ -5,12 +5,11 @@ import Label from './Label'
 /**
  * The form input, designed to be able to stretch to your needs. Note that the label and error may collide
  * on smaller widths (suggested smaller sizes are reserved for non-required fields)
- * @param {Object} props
- * @param {string} props.name
- * @param {string} props.type
- * @param {boolean} props.required
+ * @param {React.FunctionComponent<Props>} props
+ * @param {String} props.name
+ * @param {String} [props.type]
+ * @param {Boolean} [props.required]
  */
-
 const Input = ({ label, type = 'text', required = false }) => {
   const { register, errors } = useFormContext()
 
