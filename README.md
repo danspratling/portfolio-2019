@@ -29,7 +29,7 @@ Data is managed using Contentful. Currently, that repo is private (meaning you w
     Use the Gatsby CLI to clone the site
 
     ```shell
-    gatsby new my-portfolio https://github.com/danspratling/gatsby-starter-blackbox
+    gatsby new my-portfolio https://github.com/danspratling/portfolio
     ```
 
 1.  **Start developing**
@@ -45,7 +45,7 @@ Data is managed using Contentful. Currently, that repo is private (meaning you w
 
     The same as all other Gatsby projects, your site will now be running on `http://localhost:8000`!
 
-    It should look exactly like the demo website `https://blackbox.netlify.com`
+    It should look exactly like the demo website `https://danspratling.netlify.app`
 
     As always, you can see the data associated with the project with graphql `http://localhost:8000/__graphql`
 

@@ -8,8 +8,6 @@
   @apply duration-200;
   @apply text-white;
 
-  // > span {
-  // @apply inline-block;
   @apply w-auto;
   @apply h-auto;
   @apply text-lg;
@@ -20,7 +18,6 @@
     @apply px-8;
     @apply py-4;
   }
-  // }
 
   &:before {
     content: '';
