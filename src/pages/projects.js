@@ -1,39 +1,22 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, ProjectList, SEO } from '../components'
+import Layout from '../components/layout/Layout'
+import ProjectFeed from '../components/sections/ProjectFeed'
 
 const ProjectPage = ({ data }) => {
   //Get the page sections from the graphql data
-  const seo = data.contentfulPage.seo
-  const pageIntro = data.contentfulPage.intro
-  const projectList = data.allContentfulProject.nodes
+  const { seo, projectFeed } = data.contentfulPage
+  const { projects } = data.allContentfulProject
 
   return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        image={'/images/seo/projects.png'}
+    <Layout {...seo} image={'/images/seo/projects.png'}>
+      <ProjectFeed
+        heading={projectFeed.title}
+        body={projectFeed.body}
+        link={projectFeed.link}
+        projects={projects}
       />
-
-      <section
-        id="projects"
-        className="min-h-screen min-w-full bg-black px-6 py-32"
-      >
-        <div className="container mx-auto">
-          <ProjectList
-            sectionIntro={{
-              data: pageIntro,
-              animation: {
-                visibility: true,
-                direction: 'from left',
-              },
-            }}
-            projectList={projectList}
-          />
-        </div>
-      </section>
     </Layout>
   )
 }
@@ -46,24 +29,24 @@ export const query = graphql`
         title
         description
       }
-      intro {
+      projectFeed: intro {
         heading
         title
         body {
           json
         }
         link {
-          link
+          to: link
           title
         }
       }
     }
     allContentfulProject {
-      nodes {
-        title
+      projects: nodes {
+        heading: title
         slug
         categories: industries {
-          title
+          heading: title
         }
         previewImage {
           fixed(width: 600, height: 380, quality: 80) {

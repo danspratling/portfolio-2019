@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 @import './main';
 @import './markdown';
 @import './prism-syntax';
+@import './button';
+
+@tailwind utilities;

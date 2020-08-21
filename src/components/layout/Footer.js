@@ -1,11 +1,15 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Link from './Link'
-import { Social } from '.'
 
+import Link from '../Link'
+import Social from '../Social'
+
+/**
+ * Footer component for all navigation routes & featured articles
+ */
 const Footer = () => {
   const data = useStaticQuery(graphql`
-    query HeaderQuery {
+    query FooterQuery {
       article1: contentfulPost(
         id: { eq: "86ab0c7a-0745-5cc9-8ded-f71e2d42c6d9" }
       ) {
@@ -38,15 +42,12 @@ const Footer = () => {
             </div>
             <Social />
           </div>
-          <div className="w-full md:w-3/12 px-6 mb-6">
+          <div className="w-full md:w-1/3 px-6 mb-6">
             <p className="font-bold text-xl mb-4">Quick Links</p>
             <nav className="text-gray-300">
               <Link to="/" className="block mb-2">
                 Home
               </Link>
-              {/* <Link to="/about" className="w-full mb-2">
-                About
-              </Link> */}
               <Link to="/projects" className="block mb-2">
                 Projects
               </Link>
@@ -59,22 +60,8 @@ const Footer = () => {
               <Link to="/newsletter" className="block mb-2">
                 Newsletter
               </Link>
-              {/* <Link to="/resources" className="w-full mb-2">
-                Developers
-              </Link> */}
             </nav>
           </div>
-          {/* <div className="w-full md:w-3/12 px-6">
-            <p className="font-bold text-xl mb-4">Resources</p>
-            <nav className="flex flex-wrap">
-              <Link to="/uses" className="w-full mb-2">
-                Reading
-              </Link>
-              <Link to="/uses" className="w-full mb-2">
-                Tools
-              </Link>
-            </nav>
-          </div> */}
           <div className="w-full md:w-5/12 px-6 mb-6">
             <p className="font-bold text-xl mb-4">Featured Articles</p>
             <nav className="text-gray-300">

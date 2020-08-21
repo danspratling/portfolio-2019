@@ -1,0 +1,217 @@
+.btn {
+  @apply relative;
+  @apply inline-block;
+  @apply bg-gray-800;
+  @apply mb-1;
+  @apply overflow-hidden;
+  @apply transition-all;
+  @apply duration-200;
+  @apply text-white;
+
+  // > span {
+  // @apply inline-block;
+  @apply w-auto;
+  @apply h-auto;
+  @apply text-lg;
+  @apply px-4;
+  @apply py-4;
+
+  @screen md {
+    @apply px-8;
+    @apply py-4;
+  }
+  // }
+
+  &:before {
+    content: '';
+    height: 200%;
+    @apply absolute;
+    @apply top-0;
+    @apply right-0;
+    @apply w-12;
+    @apply bg-green-500;
+    @apply opacity-0;
+    @apply transition-all;
+    @apply duration-300;
+    @apply transform;
+    @apply origin-right;
+    --transform-rotate: 20deg;
+  }
+
+  &:hover,
+  &:focus {
+    @apply bg-gray-100;
+    @apply text-gray-800;
+
+    .svg-inline--fa {
+      @apply opacity-100;
+    }
+  }
+
+  .svg-inline--fa {
+    @apply absolute;
+    @apply top-1/2;
+    @apply right-0;
+    @apply text-xl;
+    @apply text-white;
+    @apply z-10;
+    @apply mr-10;
+    @apply transition;
+    @apply duration-300;
+    @apply translate-x-1/2;
+    @apply -translate-y-1/2;
+  }
+}
+
+.svg-inline--fa {
+  @apply transform;
+}
+
+/**
+ * Button sizes 
+ */
+.btn-sm {
+  @apply px-10;
+  @apply text-sm;
+
+  .svg-inline--fa {
+    @apply text-lg;
+    @apply mr-10;
+  }
+
+  &.btn-icon {
+    .svg-inline--fa {
+      @apply text-lg;
+      @apply mr-6;
+    }
+
+    &:hover,
+    &:focus {
+      @apply pl-4;
+      @apply pr-16;
+
+      &:before {
+        @apply w-12;
+      }
+    }
+  }
+}
+
+.btn-base {
+  @apply px-16;
+  @apply text-base;
+
+  .svg-inline--fa {
+    @apply text-lg;
+    @apply mr-10;
+  }
+
+  &.btn-icon {
+    .svg-inline--fa {
+      @apply mr-8;
+    }
+
+    &:hover,
+    &:focus {
+      @apply pl-8;
+      @apply pr-24;
+
+      &:before {
+        @apply w-16;
+      }
+    }
+  }
+}
+
+.btn-lg {
+  @apply px-20;
+  @apply text-lg;
+
+  .svg-inline--fa {
+    @apply text-xl;
+    @apply mr-10;
+  }
+
+  &.btn-icon {
+    &:hover,
+    &:focus {
+      @apply pl-8;
+      @apply pr-32;
+
+      &:before {
+        @apply w-20;
+      }
+    }
+  }
+}
+
+/**
+ * Button styles 
+ */
+.btn-primary {
+  @apply pl-8;
+  @apply pr-32;
+  @apply uppercase;
+
+  &:before {
+    @apply w-20;
+    @apply opacity-100;
+  }
+
+  &:hover,
+  &:focus {
+    &:before {
+      @apply w-24;
+    }
+  }
+}
+
+.btn-secondary {
+  @apply pl-8;
+  @apply pr-32;
+  @apply bg-transparent;
+
+  &:before {
+    @apply w-12;
+    @apply bg-gray-900;
+  }
+
+  &:hover,
+  &:focus {
+    @apply text-white;
+    @apply bg-opacity-10;
+
+    &:before {
+      @apply w-20;
+      @apply opacity-100;
+    }
+  }
+}
+
+.btn-icon {
+  @apply uppercase;
+  @apply text-base;
+
+  &:before {
+    @apply opacity-0;
+  }
+
+  .svg-inline--fa {
+    @apply opacity-0;
+  }
+
+  &:hover,
+  &:focus {
+    @apply pl-4;
+    @apply pr-12;
+
+    &:before {
+      @apply w-12;
+      @apply opacity-100;
+    }
+
+    .svg-inline--fa {
+      @apply opacity-100;
+    }
+  }
+}

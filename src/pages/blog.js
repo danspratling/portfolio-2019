@@ -1,37 +1,35 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import { Layout, SectionIntro, SEO } from '../components'
+import Layout from '../components/layout/Layout'
+import Link from '../components/Link'
+import VisibilitySensor from '../components/VisibilitySensor'
+import RichText from '../components/RichText'
 
 const ProjectPage = ({ data }) => {
   //Get the page sections from the graphql data
   const seo = data.contentfulPage.seo
-  const pageIntro = data.contentfulPage.intro
+  const { heading, body, link } = data.contentfulPage.intro
   const posts = data.allContentfulPost.nodes
 
   return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        image={'/images/seo/projects.png'}
-      />
-
-      <section
-        id="projects"
-        className="min-h-screen min-w-full bg-black px-6 py-32"
-      >
+    <Layout {...seo} image={'/images/seo/projects.png'}>
+      <section id="projects" className="min-h-screen min-w-full bg-black py-32">
         <div className="container mx-auto">
-          <div className="pb-6">
-            <SectionIntro
-              data={pageIntro}
-              animation={{ visibility: true, direction: 'from top' }}
-            />
-          </div>
+          <VisibilitySensor className="pb-6" direction="bottom" fade>
+            <h2 className="text-2xl md:text-3xl text-white mb-6">{heading}</h2>
 
-          <div className="flex flex-row flex-wrap lg:-mx-6">
+            {body && <RichText body={body} />}
+            {link && (
+              <Link to={link.to} className="btn btn-secondary" icon="default">
+                {link.heading}
+              </Link>
+            )}
+          </VisibilitySensor>
+
+          <div className="flex flex-row flex-wrap w-full md:w-2/3 lg:w-full lg:-mx-6">
             {posts.map(post => (
               <div className="lg:w-1/2 lg:px-3 pb-6">
                 <Link
@@ -71,14 +69,13 @@ export const query = graphql`
         description
       }
       intro {
-        heading
-        title
+        heading: title
         body {
           json
         }
         link {
-          link
-          title
+          to: link
+          heading: title
         }
       }
     }

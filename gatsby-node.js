@@ -1,5 +1,5 @@
 const path = require('path')
-const generateImage = require('./functions/socialImage')
+const generateImage = require('./src/utils/socialImage')
 
 //Build our social media (twitter/og) images using canvas
 generateImage({

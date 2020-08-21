@@ -10,7 +10,15 @@ import { Helmet } from 'react-helmet'
 import { useLocation } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO = ({ title, description, image, article, slug }) => {
+/**
+ * Helmet component for adapting the site <head>, typically for SEO
+ * @param {Object} props
+ * @param {String} [props.title] - SEO title. Falls back to default title if undefined
+ * @param {String} [props.description] - SEO desription. Falls back to default description if undefined
+ * @param {String} [props.imagePath] - Relative path to SEO image. Defaults to homepage image.
+ * @param {Boolean} [props.article] - Set to true if the current page is an article
+ */
+const SEO = ({ title, description, imagePath, article }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -21,12 +29,10 @@ const SEO = ({ title, description, image, article, slug }) => {
     author,
   } = site.siteMetadata
 
-  const defaultImage = '/images/seo/home.png'
-
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `https://${baseUrl}${image}` || `https://${baseUrl}${defaultImage}`,
+    image: `https://${baseUrl}${imagePath || '/images/seo/home.png'}`,
     url: `https://${baseUrl}${pathname}`,
   }
 
@@ -35,15 +41,15 @@ const SEO = ({ title, description, image, article, slug }) => {
       <html lang="en" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
-      <link rel="canonical" href={`https://danspratling.dev${pathname}`} />
+      <link rel="canonical" href={`${baseUrl}${pathname}`} />
       <script
         type="text/javascript"
         src="https://assets.calendly.com/assets/external/widget.js"
-        defer
+        async
       ></script>
 
       {seo.url && <meta property="og:url" content={seo.url} />}
-      {(article ? true : null) && <meta property="og:type" content="article" />}
+      {article && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
       {seo.description && (
         <meta property="og:description" content={seo.description} />

@@ -1,7 +1,7 @@
 html {
   scroll-behavior: smooth;
   @apply bg-black;
-  @apply text-gray-400;
+  @apply text-gray-300;
 }
 
 h1,
@@ -13,6 +13,18 @@ h6 {
   @apply font-heading;
 }
 
+.megaHeading {
+  @apply font-heading;
+  @apply leading-none;
+  @apply text-green-500;
+  @apply font-medium;
+  @apply max-w-full;
+  @apply overflow-visible;
+
+  font-size: clamp(5rem, 21vw, 20rem);
+  line-height: 0.9;
+}
+
 a {
   @apply transition;
   @apply duration-200;
@@ -20,29 +32,6 @@ a {
   &:hover,
   &:focus {
     @apply text-green-500;
-  }
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 8px;
-  @apply bg-transparent;
-}
-// ::-webkit-scrollbar-button {
-//   /* 2 */
-// }
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-900;
-  @apply rounded;
-  @apply transition-colors;
-  @apply duration-200;
-
-  &:hover {
-    @apply bg-gray-800;
   }
 }
 

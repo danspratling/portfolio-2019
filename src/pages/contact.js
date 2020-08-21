@@ -1,67 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-// import { trackPageview } from 'fathom-client'
-import { Layout, SEO, SectionIntro, Social } from '../components'
-import { Enquiry } from '../components/form'
+import { trackGoal } from 'fathom-client'
+
+import Layout from '../components/layout/Layout'
+import BookDiscovery from '../components/sections/BookDiscovery'
+import Contact from '../components/sections/Contact'
 
 const ContactPage = ({ data }) => {
-  const { seo, intro: pageIntro, formIntro } = data.contentfulContactPage
+  const { seo, bookDiscovery, contactForm } = data.contentfulContactPage
 
-  // trackPageview()
+  const [formSubmitted, setFormSubmitted] = useState(false)
+
+  const onSubmit = data => {
+    trackGoal('2CZG537F')
+
+    /* Submit form */
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'enquiry', ...data }),
+    }).then(() => setFormSubmitted(true))
+  }
 
   return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        image={'/images/seo/contact.png'}
+    <Layout {...seo} image={'/images/seo/contact.png'}>
+      <BookDiscovery
+        heading={bookDiscovery.heading}
+        body={bookDiscovery.body}
+        link={bookDiscovery.link}
       />
 
-      <section id="intro" className="relative md:min-h-screen bg-black pt-32">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap mx-auto justify-around items-center">
-            <div className="w-full lg:w-1/2 px-6 mb-20">
-              <SectionIntro
-                data={pageIntro}
-                animation={{
-                  visibility: true,
-                  direction: 'from left',
-                }}
-              />
-            </div>
-
-            <div
-              className="w-full lg:w-1/3 calendly-inline-widget"
-              style={{ height: 640 }}
-              data-url="https://calendly.com/dan_spratling/discovery"
-            ></div>
-          </div>
-        </div>
-      </section>
-      <section
-        id="contact"
-        className="flex justify-center items-center md:min-h-screen bg-black py-24 md:pt-20 md:pb-40"
-      >
-        <div className="container mx-auto">
-          <div className="flex justify-center items-center">
-            <div className="w-full md:w-1/2 text-center">
-              <SectionIntro
-                data={formIntro}
-                animation={{
-                  visibility: true,
-                  direction: 'from top',
-                }}
-              />
-            </div>
-          </div>
-
-          <div className="w-full flex justify-center">
-            <Enquiry />
-          </div>
-        </div>
-      </section>
+      <Contact
+        heading={contactForm.heading}
+        body={contactForm.body}
+        link={contactForm.link}
+        submitted={formSubmitted}
+        onSubmit={onSubmit}
+      />
     </Layout>
   )
+}
+
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
 //Graphql query getting all the data we need from contentful (gatsby-config.js)
@@ -72,26 +55,24 @@ export const query = graphql`
         title
         description
       }
-      intro {
-        heading
-        title
+      bookDiscovery: intro {
+        heading: title
         body {
           json
         }
         link {
-          link
-          title
+          to: link
+          heading: title
         }
       }
-      formIntro {
-        heading
-        title
+      contactForm: formIntro {
+        heading: title
         body {
           json
         }
         link {
-          link
-          title
+          to: link
+          heading: title
         }
       }
     }
