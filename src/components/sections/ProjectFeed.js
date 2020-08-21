@@ -11,7 +11,7 @@ import VisibilitySensor from '../VisibilitySensor'
 
 /**
  * Project Feed - Wrapper component listing project cards
- * @param {Object} props
+ * @param {React.FunctionComponent<Props>} props
  * @param {String} props.heading - Descriptive Prokect feed heading
  * @param {String} props.body - Descriptive Project feed detail
  * @param {Object} [props.link] - Optional Project feed link button

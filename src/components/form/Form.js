@@ -4,6 +4,12 @@ import { useForm, FormContext } from 'react-hook-form'
 import Input from './Input'
 import TextArea from './TextArea'
 
+/**
+ * The form wrapper component. Accepts the form contents as children. Wraps the form with context for functionality.
+ * @param {React.FunctionComponent<Props>} props
+ * @param {Function} props.onSubmit - the action the form takes once it's submitted
+ * @param {JSX.Element} props.children - the contents of the form
+ */
 const Form = ({ onSubmit, children, ...props }) => {
   const methods = useForm()
   return (
@@ -15,6 +21,12 @@ const Form = ({ onSubmit, children, ...props }) => {
   )
 }
 
+/**
+ * Generic for submitted screen giving users indication their submission was successful
+ * @param {Object} props
+ * @param {string} props.heading
+ * @param {string} props.body
+ */
 const FormSubmitted = ({ heading, body }) => {
   return (
     <div className="w-full max-w-xl text-center">

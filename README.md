@@ -29,7 +29,7 @@ Data is managed using Contentful. Currently, that repo is private (meaning you w
     Use the Gatsby CLI to clone the site
 
     ```shell
-    gatsby new my-portfolio https://github.com/gatsbyjs/gatsby-starter-blackbox
+    gatsby new my-portfolio https://github.com/danspratling/gatsby-starter-blackbox
     ```
 
 1.  **Start developing**

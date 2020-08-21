@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 /**
  * Helmet component for adapting the site <head>, typically for SEO
- * @param {Object} props
+ * @param {React.FunctionComponent<Props>} props
  * @param {String} [props.title] - SEO title. Falls back to default title if undefined
  * @param {String} [props.description] - SEO desription. Falls back to default description if undefined
  * @param {String} [props.imagePath] - Relative path to SEO image. Defaults to homepage image.

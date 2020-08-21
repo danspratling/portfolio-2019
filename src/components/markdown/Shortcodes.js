@@ -6,6 +6,13 @@ import {
   faExclamation,
 } from '@fortawesome/free-solid-svg-icons'
 
+/**
+ * A generic card drawing attention to important content
+ * @param {React.FunctionComponent<Props>} props
+ * @param {Any} props.icon
+ * @param {String} props.className
+ * @param {String} props.children
+ */
 const Shortcode = ({ icon, className, children }) => {
   return (
     <div

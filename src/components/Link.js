@@ -7,11 +7,11 @@ import { isBrowser } from '../utils'
 /**
  * Context aware link. Uses both Gatsby Link (Router Link) and a default <a> tag to ensure that preloading
  * is used where possible for internal links whlle not erroring in the instances where external links are passed in.
- * @param {Object} props
+ * @param {React.FunctionComponent<Props>} props
  * @param {String} props.to - href
  * @param {"default"|IconProp} [props.icon] - Font Awesome Icon
  * @param {Boolean} [props.className] - predefined variations of links
- * @param {JSX.Element|String} props.children - content
+ * @param {JSX.Element} props.children - content
  */
 
 const Link = ({ to, icon, className, children }) => {

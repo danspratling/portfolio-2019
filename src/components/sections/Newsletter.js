@@ -6,6 +6,14 @@ import Form, { FormSubmitted, Input } from '../form/Form'
 import VisibilitySensor from '../VisibilitySensor'
 import Markdown from '../markdown/Markdown'
 
+/**
+ * Section containing the newsletter form
+ * @param {React.FunctionComponent<Props>} props
+ * @param {String} props.heading
+ * @param {String} [props.body]
+ * @param {Boolean} props.submitted
+ * @param {Function} props.onSubmit
+ */
 const NewsletterSection = ({ heading, body, submitted, onSubmit }) => {
   return (
     <section id="newsletter" className="flex justify-center items-center py-24">

@@ -7,8 +7,8 @@ import VisibilitySensor from '../VisibilitySensor'
 
 /**
  * Contact section with CTA
- * @param {Object} param
- * @param {string} param.heading - Descriptive contact section heading
+ * @param {React.FunctionComponent<Props>} param
+ * @param {String} param.heading - Descriptive contact section heading
  * @param {Object} param.body - Descriptive contact section detail
  * @param {Object} props.link - Contact link button
  * @param {String} props.link.to - Link URL

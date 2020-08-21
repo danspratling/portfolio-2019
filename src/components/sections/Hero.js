@@ -7,11 +7,12 @@ import RichText from '../RichText'
 import VisibilitySensor from '../VisibilitySensor'
 
 /**
- * @param {Object} props
+ * Page hero section
+ * @param {React.FunctionComponent<Props>} props
  * @param {String} props.megaHeading - Giant page heading
  * @param {String} props.heading - Descriptive hero heading
  * @param {String} props.body - Descriptive hero detail
- * @param {Object} props.link - Hero link button
+ * @param {Object} [props.link] - Hero link button
  * @param {String} props.link.to - Link URL
  * @param {String} props.link.heading - Link Heading
  */

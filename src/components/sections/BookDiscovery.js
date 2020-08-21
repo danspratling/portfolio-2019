@@ -4,6 +4,15 @@ import Link from '../Link'
 import VisibilitySensor from '../VisibilitySensor'
 import RichText from '../RichText'
 
+/**
+ * Section adding a calendly booking widget to the page
+ * @param {React.FunctionComponent<Props>} props
+ * @param {String} props.heading
+ * @param {String} [props.body]
+ * @param {Object} [props.link]
+ * @param {String} props.link.to
+ * @param {String} props.link.heading
+ */
 const BookDiscovery = ({ heading, body, link }) => {
   return (
     <section

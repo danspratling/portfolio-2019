@@ -2,6 +2,11 @@ import React from 'react'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
+/**
+ * Contentful RichText Handler
+ * @param {React.FunctionComponent<Props>} props
+ * @param {Any} props.body
+ */
 const RichText = ({ body }) => {
   return (
     <div>{documentToReactComponents(body.json, documentRichTextOptions)}</div>
