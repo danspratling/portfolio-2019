@@ -50,7 +50,7 @@ const NewsletterForm = ({ submitted, onSubmit }) => {
     >
       <div className="w-full flex flex-row flex-wrap justify-center lg:-mx-6">
         <div className="w-full lg:px-6 py-8 lg:py-0">
-          <div className="flex flex-wrap items-end -mx-4 mb-2">
+          <div className="flex flex-wrap items-end justify-center -mx-4 mb-2">
             <div className="flex-1 px-4">
               <Input label="First name" required />
             </div>

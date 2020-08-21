@@ -28,7 +28,7 @@ const Link = ({ to, icon, className, children }) => {
   if (isBrowser && to.includes(window.location.hostname)) {
     return (
       <GatsbyLink to={to} className={className}>
-        <span className="flex items-center">{children}</span>
+        {children}
         {icon && <FontAwesomeIcon icon={icon} />}
       </GatsbyLink>
     )
@@ -36,7 +36,7 @@ const Link = ({ to, icon, className, children }) => {
 
   return (
     <a href={to} className={className}>
-      <span className="flex items-center">{children}</span>
+      {children}
       {icon && <FontAwesomeIcon icon={icon} />}
     </a>
   )

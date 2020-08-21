@@ -16,10 +16,7 @@ const ProjectPage = ({ data }) => {
 
   return (
     <Layout {...seo} image={'/images/seo/projects.png'}>
-      <section
-        id="projects"
-        className="min-h-screen min-w-full bg-black px-6 py-32"
-      >
+      <section id="projects" className="min-h-screen min-w-full bg-black py-32">
         <div className="container mx-auto">
           <VisibilitySensor className="pb-6" direction="bottom" fade>
             <h2 className="text-2xl md:text-3xl text-white mb-6">{heading}</h2>

@@ -48,7 +48,9 @@ const ProjectTemplate = ({ data, pageContext }) => {
               <h1 className="text-3xl text-bold text-green-500 mb-4">
                 {heading}
               </h1>
-              <p className="text-6xl leading-tight">{testimonial.quote}</p>
+              <p className="text-5xl lg:text-6xl leading-tight">
+                {testimonial.quote}
+              </p>
             </VisibilitySensor>
 
             <VisibilitySensor
@@ -69,7 +71,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             direction="top"
             fade
           >
-            <ul className="bg-gray-900 md:max-w-300 -mx-6 md:mx-0 py-3">
+            <ul className="bg-gray-900 md:max-w-300 -mx-6 md:mx-0 py-3 mb-10">
               <DetailListItem
                 title="Company"
                 description={heading}
@@ -104,7 +106,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             </ul>
 
             <div className="md:col-span-2" direction="top" fade>
-              <div className="w-full md:w-3/4 mb-40 lg:my-0">
+              <div className="w-full md:w-3/4 lg:mb-40 lg:my-0">
                 <Markdown className="pt-4 pb-8 text-gray-300">
                   {body.childMdx.body}
                 </Markdown>
@@ -115,7 +117,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
       </section>
 
       {artboardDesktop && artboardMobile && (
-        <section id="artboard" className="w-full  pt-16 mt-16">
+        <section id="artboard" className="w-full lg:pt-16 lg:mt-16">
           {/* <h1 className="text-4xl text-green-500">This is some test text</h1> */}
           <Image
             fluid={[

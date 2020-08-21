@@ -8,19 +8,19 @@
   @apply duration-200;
   @apply text-white;
 
-  > span {
-    @apply inline-block;
-    @apply w-auto;
-    @apply h-auto;
-    @apply text-lg;
-    @apply px-4;
-    @apply py-4;
+  // > span {
+  // @apply inline-block;
+  @apply w-auto;
+  @apply h-auto;
+  @apply text-lg;
+  @apply px-4;
+  @apply py-4;
 
-    @screen md {
-      @apply px-8;
-      @apply py-4;
-    }
+  @screen md {
+    @apply px-8;
+    @apply py-4;
   }
+  // }
 
   &:before {
     content: '';
@@ -71,13 +71,8 @@
  * Button sizes 
  */
 .btn-sm {
-  @apply px-6;
-
-  > span {
-    @apply text-sm;
-    @apply px-2;
-    @apply py-2;
-  }
+  @apply px-10;
+  @apply text-sm;
 
   .svg-inline--fa {
     @apply text-lg;
@@ -92,8 +87,8 @@
 
     &:hover,
     &:focus {
-      @apply pl-2;
-      @apply pr-12;
+      @apply pl-4;
+      @apply pr-16;
 
       &:before {
         @apply w-12;
@@ -103,13 +98,8 @@
 }
 
 .btn-base {
-  @apply px-10;
-
-  > span {
-    @apply text-base;
-    @apply px-3;
-    @apply py-3;
-  }
+  @apply px-16;
+  @apply text-base;
 
   .svg-inline--fa {
     @apply text-lg;
@@ -123,8 +113,8 @@
 
     &:hover,
     &:focus {
-      @apply pl-4;
-      @apply pr-16;
+      @apply pl-8;
+      @apply pr-24;
 
       &:before {
         @apply w-16;
@@ -134,13 +124,8 @@
 }
 
 .btn-lg {
-  @apply px-12;
-
-  > span {
-    @apply text-lg;
-    @apply px-6;
-    @apply py-3;
-  }
+  @apply px-20;
+  @apply text-lg;
 
   .svg-inline--fa {
     @apply text-xl;
@@ -150,8 +135,8 @@
   &.btn-icon {
     &:hover,
     &:focus {
-      @apply pl-4;
-      @apply pr-20;
+      @apply pl-8;
+      @apply pr-32;
 
       &:before {
         @apply w-20;
@@ -164,14 +149,9 @@
  * Button styles 
  */
 .btn-primary {
-  @apply pl-3;
-  @apply pr-20;
-
-  > span {
-    @apply uppercase;
-    @apply py-4;
-    @apply px-4;
-  }
+  @apply pl-8;
+  @apply pr-32;
+  @apply uppercase;
 
   &:before {
     @apply w-20;
@@ -187,14 +167,9 @@
 }
 
 .btn-secondary {
-  @apply pl-3;
-  @apply pr-20;
+  @apply pl-8;
+  @apply pr-32;
   @apply bg-transparent;
-
-  > span {
-    @apply py-4;
-    @apply px-4;
-  }
 
   &:before {
     @apply w-12;
@@ -214,11 +189,8 @@
 }
 
 .btn-icon {
-  > span {
-    @apply uppercase;
-    @apply py-4;
-    @apply px-4;
-  }
+  @apply uppercase;
+  @apply text-base;
 
   &:before {
     @apply opacity-0;
@@ -231,10 +203,10 @@
   &:hover,
   &:focus {
     @apply pl-4;
-    @apply pr-20;
+    @apply pr-12;
 
     &:before {
-      @apply w-20;
+      @apply w-12;
       @apply opacity-100;
     }
 

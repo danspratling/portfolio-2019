@@ -26,7 +26,7 @@ const Hero = ({ megaHeading, heading, body, link }) => {
           <VisibilitySensor
             fade
             direction="right"
-            className="md:absolute left-0 bottom-0 my-24"
+            className="md:absolute left-0 bottom-0 mb-24 md:mt-24"
           >
             <span className="megaHeading">{megaHeading}</span>
           </VisibilitySensor>

@@ -79,7 +79,7 @@ const BlogHero = ({ title, description, author, timeToRead }) => {
  */
 const BlogArticle = ({ markdown }) => {
   return (
-    <section className="min-h-screen px-6 py-32">
+    <section className="min-h-screen py-32">
       <div className="container mx-auto">
         <div className="flex flex-col flex-wrap text-white">
           <article className="w-full lg:w-1/2 mx-auto">

@@ -70,7 +70,7 @@ const ContactForm = ({ submitted, onSubmit }) => {
 
       <div className="w-full flex justify-center mt-6">
         <button type="submit" className="btn btn-base btn-icon">
-          <span>Sign Up</span>
+          Get in touch
           <FontAwesomeIcon icon={faPaperPlane} />
         </button>
       </div>
