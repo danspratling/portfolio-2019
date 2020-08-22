@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { trackGoal } from 'fathom-client'
-import { addToMailchimp } from 'gatsby-plugin-mailchimp'
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 
 import Layout from '../components/layout/Layout'
 import Newsletter from '../components/sections/Newsletter'
