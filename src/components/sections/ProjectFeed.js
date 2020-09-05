@@ -121,10 +121,12 @@ const ProjectCard = ({ heading, categories, image, url }) => {
           <FontAwesomeIcon icon={faArrowRight} />
         </Link>
       </header>
-      <Image
-        fixed={image.fixed}
-        className="max-w-full min-h-300 md:min-h-380 lg:min-h-480"
-      />
+      {image && (
+        <Image
+          fixed={image.fixed}
+          className="max-w-full min-h-300 md:min-h-380 lg:min-h-480"
+        />
+      )}
     </div>
   )
 }

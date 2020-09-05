@@ -1,6 +1,5 @@
 import React from 'react'
-import { load as loadFathom } from 'fathom-client'
-import { initIcons, isBrowser } from '../../utils'
+import { initIcons } from '../../utils'
 
 import Header from './Header'
 import Helmet from './Helmet'
@@ -19,13 +18,6 @@ const Layout = ({ title, description, imagePath, article, children }) => {
   const seo = { title, description, imagePath, article }
 
   initIcons()
-
-  if (isBrowser) {
-    loadFathom('KNXTCNOS', {
-      url: 'https://rhinoceros.danspratling.dev/script.js',
-      excludedDomains: ['localhost'],
-    })
-  }
 
   return (
     <>

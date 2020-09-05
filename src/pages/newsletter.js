@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import { trackGoal } from 'fathom-client'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 
 import Layout from '../components/layout/Layout'
@@ -12,8 +11,6 @@ const NewsletterPage = ({ data }) => {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const onSubmit = data => {
-    trackGoal('ZZ6KQHVV')
-
     /* Newsletter */
     addToMailchimp(data.email, {
       FNAME: data['first-name'],

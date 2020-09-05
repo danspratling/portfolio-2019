@@ -42,11 +42,39 @@ const SEO = ({ title, description, imagePath, article }) => {
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <link rel="canonical" href={`${baseUrl}${pathname}`} />
+
+      {/* Calendly */}
       <script
         type="text/javascript"
         src="https://assets.calendly.com/assets/external/widget.js"
         async
       ></script>
+
+      {/* Analytics */}
+      <script>{`
+        (function (v, i, s, a) {
+        if (!v._visaSettings) {
+          v._visaSettings = {}
+        }
+        v._visaSettings['c52608a9-ef5e-11ea-b589-901b0edac50a'] = {
+          v: '0.3',
+          s: 'c52608a9-ef5e-11ea-b589-901b0edac50a',
+          a: '1',
+        }
+        _v = i.getElementsByTagName('head')[0]
+        _a = _v
+        _i = i.createElement('script')
+        _s = _i
+        _s.defer = 'defer'
+        _s.src = s + a + v._visaSettings['c52608a9-ef5e-11ea-b589-901b0edac50a'].v
+        _a.appendChild(_s)
+      })(
+        window,
+        document,
+        '//app-worker.visitor-analytics.io/main',
+        '.js?s=c52608a9-ef5e-11ea-b589-901b0edac50a&v='
+      )
+      `}</script>
 
       {seo.url && <meta property="og:url" content={seo.url} />}
       {article && <meta property="og:type" content="article" />}

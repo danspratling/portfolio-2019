@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import { trackGoal } from 'fathom-client'
 
 import Layout from '../components/layout/Layout'
 import BookDiscovery from '../components/sections/BookDiscovery'
@@ -12,8 +11,6 @@ const ContactPage = ({ data }) => {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const onSubmit = data => {
-    trackGoal('2CZG537F')
-
     /* Submit form */
     fetch('/', {
       method: 'POST',
