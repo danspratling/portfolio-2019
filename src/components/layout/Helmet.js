@@ -53,6 +53,9 @@ const SEO = ({ title, description, imagePath, article }) => {
       {/* Analytics */}
       <script>{`(function(v,i,s,a){if(!v._visaSettings){v._visaSettings={};}v._visaSettings["c52608a9-ef5e-11ea-b589-901b0edac50a"]={v:"0.3",s:"c52608a9-ef5e-11ea-b589-901b0edac50a",a:"1"};_v=i.getElementsByTagName("head")[0];_a=_v;_i=i.createElement("script");_s=_i;_s.defer="defer";_s.src=s+a+v._visaSettings["c52608a9-ef5e-11ea-b589-901b0edac50a"].v;_a.appendChild(_s);})(window,document,"//app-worker.visitor-analytics.io/main",".js?s=c52608a9-ef5e-11ea-b589-901b0edac50a&v=")`}</script>
 
+      {/* Pinterest */}
+      <meta name="p:domain_verify" content="7b65eb5b0f0b74dffec61d33cb281410"/>
+
       {seo.url && <meta property="og:url" content={seo.url} />}
       {article && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
